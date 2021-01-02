@@ -1,8 +1,8 @@
 
 package GUI;
 
-import Componentes.Probabilidad;
-import Componentes.TablaTELL;
+import Constantes.Constantes;
+import Componentes.TablaDistribucion;
 import Utils.Cadena;
 import Utils.MensajeModal;
 import Utils.Numero;
@@ -76,7 +76,7 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
         espacio = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Proyecto Investigacion de Operaciones 2021");
+        setTitle("Simulador de Colas - IO 2021");
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(237, 248, 224));
@@ -85,13 +85,13 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
 
         titulo.setFont(new java.awt.Font("Roboto Mono", 1, 18)); // NOI18N
         titulo.setForeground(new java.awt.Color(0, 0, 0));
-        titulo.setText("Simulacion de Colas");
-        jPanel1.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+        titulo.setText("Simulador de Colas");
+        jPanel1.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, 20));
 
         subtitulo.setFont(new java.awt.Font("Roboto Mono", 2, 15)); // NOI18N
         subtitulo.setForeground(new java.awt.Color(0, 0, 0));
         subtitulo.setText("PARAMETROS DE ENTRADA");
-        jPanel1.add(subtitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, -1, 20));
+        jPanel1.add(subtitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, -1, 20));
 
         labelUnidadTiempo.setFont(new java.awt.Font("Roboto Mono", 1, 15)); // NOI18N
         labelUnidadTiempo.setForeground(new java.awt.Color(0, 0, 0));
@@ -376,31 +376,21 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
     }//GEN-LAST:event_valoresArchivoTiempoServicioActionPerformed
 
     private void ComenzarSimulacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComenzarSimulacionActionPerformed
-        validarTextField(duracion, "DURACION DE LA SIMULACION", 1);
-        validarTextField(cantClientesPermitidos, "CANTIDAD DE CLIENTES PERMITIDOS", 2);
-        validarTextField(costoEsperaCliente, "COSTO DE ESPERA DEL CLIENTE", 1);
-        validarTextField(cantidadServidores, "CANTIDAD DE SERVIDORES", 1);
-        validarTextField(costoServidor, "COSTO DE CADA SERVIDOR", 1);
-        
-        TablaTELL tablita = new TablaTELL();
-        
-        tablita.agregarTELL(1, 20);
-        tablita.agregarTELL(2, 30);
-        tablita.agregarTELL(3, 25);
-        tablita.agregarTELL(3, 25);
-         tablita.agregarTELL(5, 100);
-         
-        System.out.println(tablita.toString());
+        validarTextField(duracion, Constantes.COPY_DURACION_SIMULACION, 1);
+        validarTextField(cantClientesPermitidos, Constantes.COPY_CANT_CLIENTES, 2);
+        validarTextField(costoEsperaCliente, Constantes.COPY_COSTO_ESPERA_CLIENTE, 1);
+        validarTextField(cantidadServidores, Constantes.COPY_CANT_SERVIDORES, 1);
+        validarTextField(costoServidor, Constantes.COPY_COSTO_SERVIDOR, 1);    
     }//GEN-LAST:event_ComenzarSimulacionActionPerformed
 
     private void AgregarValorTellManualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarValorTellManualActionPerformed
-        validarTextField(valorTell, "VALOR DEL TIEMPO DE LLEGADA", 1);
-        validarTextField(porcentajeTell, "PORCENTAJE DEL TIEMPO DE LLEGADA", 1);  
+        validarTextField(valorTell, Constantes.COPY_VALOR_TELL, 1);
+        validarTextField(porcentajeTell, Constantes.COPY_PORCENTAJE_TELL, 1);  
     }//GEN-LAST:event_AgregarValorTellManualActionPerformed
 
     private void AgregarValorTiempoServicioManualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarValorTiempoServicioManualActionPerformed
-       validarTextField(valorTiempoServicio, "VALOR DEL SERVICIO", 1);
-       validarTextField(valorPorcentajeTiempoServicio, "PORCENTAJE DEL SERVICIO", 1); 
+       validarTextField(valorTiempoServicio, Constantes.COPY_VALOR_TIEMPO_SERVICIO, 1);
+       validarTextField(valorPorcentajeTiempoServicio, Constantes.COPY_PORCENTAJE_TIEMPO_SERVICIO, 1); 
     }//GEN-LAST:event_AgregarValorTiempoServicioManualActionPerformed
 
     /**
@@ -480,7 +470,7 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
      */
     private boolean validarTextField(javax.swing.JTextField jTextField, String nombreParametro, int valorMinimo){
         boolean hayError = false;
-        String mensajeError = "Fallo al ingresar parametro: " + nombreParametro + "\n\n";
+        String mensajeError = "Fallo al ingresar parametro: " + nombreParametro.toUpperCase() + "\n\n";
         
         if(!Numero.esNumero(jTextField.getText())){
             MensajeModal.error(mensajeError + "Debe ser un numero...");
