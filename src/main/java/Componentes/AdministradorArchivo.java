@@ -15,15 +15,11 @@ import Constantes.Constantes;
 public class AdministradorArchivo {
     private File archivoEntrada;
     private File archivoSalida;
-    private TablaDistribucion tablaTELL;
-    private TablaDistribucion tablaTiemposServicio;
     private String salida;
     
     public AdministradorArchivo() {
         this.archivoEntrada = new File(Constantes.DIRECCION_ARCHIVO_ENTRADA);
         this.archivoSalida = new File(Constantes.DIRECCION_ARCHIVO_SALIDA);
-        this.tablaTELL = new TablaDistribucion(Constantes.COPY_TELL);
-        this.tablaTiemposServicio = new TablaDistribucion(Constantes.COPY_TIEMPO_SERVICIO);
         this.salida = "";
         validarArchivo(this.archivoEntrada);
         validarArchivo(this.archivoSalida);
@@ -39,7 +35,7 @@ public class AdministradorArchivo {
     }
 
     /** 
-     * Actualiza el archivo de entrada de datos.
+     * Establece el archivo de entrada de datos.
      * 
      * @param archivoEntrada Archivo de entrada de datos (nuevo).
      */
@@ -57,48 +53,12 @@ public class AdministradorArchivo {
     }
 
     /** 
-     * Actualiza el archivo de salida de datos.
+     * Establece el archivo de salida de datos.
      * 
      * @param archivoSalida Archivo de salida de datos (nuevo).
      */
     public void setArchivoSalida(File archivoSalida) {
         this.archivoSalida = archivoSalida;
-    }
-
-    /**
-     * Regresa la tabla de distribucion de tiempos entre llegadas.
-     * 
-     * @return Tabla de distribucion de tiempos entre llegadas (actual).
-     */
-    public TablaDistribucion getTablaTELL() {
-        return tablaTELL;
-    }
-
-    /** 
-     * Actualiza la tabla de distribucion de tiempos entre llegadas.
-     * 
-     * @param tablaTELL Tabla de distribucion de tiempos entre llegadas (nueva).
-     */
-    public void setTablaTELL(TablaDistribucion tablaTELL) {
-        this.tablaTELL = tablaTELL;
-    }
-
-     /**
-     * Regresa la tabla de distribucion de tiempos de servicio.
-     * 
-     * @return Tabla de distribucion de tiempos de servicio (actual).
-     */
-    public TablaDistribucion getTablaTiemposServicio() {
-        return tablaTiemposServicio;
-    }
-
-    /** 
-     * Actualiza la tabla de distribucion de tiempos de servicio.
-     * 
-     * @param tablaTiemposServicio Tabla de distribucion de tiempos de servicio (nueva).
-     */
-    public void setTablaTiemposServicio(TablaDistribucion tablaTiemposServicio) {
-        this.tablaTiemposServicio = tablaTiemposServicio;
     }
 
     /**
@@ -111,7 +71,7 @@ public class AdministradorArchivo {
     }
 
     /** 
-     * Actualiza la cadena de salida.
+     * Establece la cadena de salida.
      * 
      * @param salida Cadena de salida (nueva).
      */
@@ -141,38 +101,39 @@ public class AdministradorArchivo {
     
     /**
      * Lee los datos contenidos dentro del archivo Datos_de_entrada.txt
+     * 
+     * @param  nombreParametro Nombre del parametro a extraer del archivo.
+     * @return La tabla de disitribucion del parametro especificado.
      */
-    public void leerEntrada(){
-        String parametroActual = "";
-        boolean hayError = false;
+    public TablaDistribucion leerEntrada(String nombreParametro){
+        String parametroActualArchivo = "";
+        TablaDistribucion tabla = new TablaDistribucion(nombreParametro);
+        int valor;
+        int porcentaje;
     
         try{
            BufferedReader bf = new BufferedReader(new FileReader(this.archivoEntrada));
            String bfRead;
-           int valor;
-           int porcentaje;
-           TablaDistribucion tabla;
-           
+          
             while((bfRead = bf.readLine()) != null){
-               if(bfRead.equals(Constantes.COPY_TELL)){
-                   parametroActual = "TELL";
-               }else if(bfRead.equals(Constantes.COPY_TIEMPO_SERVICIO)){
-                   parametroActual = "TS";
-               }else if(!bfRead.equals("")){
+               if(bfRead.equals(Constantes.COPY_TELL) || bfRead.equals(Constantes.COPY_TIEMPO_SERVICIO)){
+                   parametroActualArchivo = bfRead;
+               }else if(parametroActualArchivo.equals(nombreParametro) && !bfRead.equals("")){
                    valor = extraerNumero(bfRead,obtenerPosicion(bfRead));
                    porcentaje = extraerNumero(actualizarLinea(bfRead),obtenerPosicion(actualizarLinea(bfRead)));
-                   tabla = parametroActual.equals("TELL") ? tablaTELL : tablaTiemposServicio;
                    tabla.agregarProbabilidad(valor, porcentaje);
                }
-            }             
+            }
+            
+            MensajeModal.info("El parametro: " + nombreParametro.toUpperCase() + " fue leido exitosamente del archivo " + Constantes.NOMBRE_ARCHIVO_ENTRADA);
+            
+            return tabla;
+            
         }catch(IOException err){
-            hayError = true;
-            MensajeModal.error("Hubo un error durante la lectura del archivo: " + Constantes.NOMBRE_ARCHIVO_ENTRADA + "...");
+            MensajeModal.error("Fallo al leer parametro: " + nombreParametro.toUpperCase() + "\n\n" + "Hubo un error al leer el archivo " +  Constantes.NOMBRE_ARCHIVO_ENTRADA + "...");
         }
         
-        if(!hayError){
-            MensajeModal.info("El archivo: " + Constantes.NOMBRE_ARCHIVO_ENTRADA + " fue leido exitosamente!");
-        }
+        return null;
     }
     
     /**
@@ -231,6 +192,8 @@ public class AdministradorArchivo {
     }
     
     /**
+     * Permite extraer un valor o porcentaje del archivo
+     * 
      * @param linea Linea actual del archivo
      * @param posicion posicion de la cadena
      * @return Valor o porcentaje del parametro actual

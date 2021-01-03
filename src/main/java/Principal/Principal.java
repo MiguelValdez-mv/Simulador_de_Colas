@@ -1,4 +1,4 @@
-package Simulacion;
+package Principal;
 
 import GUI.ParametrosDeEntrada;
 
@@ -6,7 +6,7 @@ import GUI.ParametrosDeEntrada;
  * @version Nº1 28/12/2020. 
  * @author Miguel Valdez.
  */
-public class Simulacion {
+public class Principal {
     
     /**
      * Aqui se dara inicio a la ejecucion del proyecto.

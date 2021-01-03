@@ -41,7 +41,7 @@ public class Probabilidad {
     }
 
     /** 
-     * Actualiza el valor del tiempo de servicio o entre llegadas.
+     * Establece el valor del tiempo de servicio o entre llegadas.
      * 
      * @param valor Valor (nuevo) del tiempo de servicio o entre llegadas.
      */
@@ -59,7 +59,7 @@ public class Probabilidad {
     }
 
     /** 
-     * Actualiza el porcentaje del valor del tiempo de servicio o entre llegadas.
+     * Establece el porcentaje del valor del tiempo de servicio o entre llegadas.
      * 
      * @param porcentaje Porcentaje (nuevo) del valor del tiempo de servicio o entre llegadas.
      */
@@ -77,7 +77,7 @@ public class Probabilidad {
     }
 
     /** 
-     * Actualiza el porcentaje acumulado del valor del tiempo de servicio o entre llegadas.
+     * Establece el porcentaje acumulado del valor del tiempo de servicio o entre llegadas.
      * 
      * @param porcentajeAcum Porcentaje acumulado (nuevo) del valor del tiempo de servicio o entre llegadas.
      */
@@ -96,7 +96,7 @@ public class Probabilidad {
     }
 
     /** 
-     * Actualiza el valor del borde inferior del tiempo de servicio o entre llegadas.
+     * Establece el valor del borde inferior del tiempo de servicio o entre llegadas.
      * 
      * @param bordeInferior Valor del borde inferior (nuevo) del tiempo de servicio o entre llegadas.
      */
@@ -114,7 +114,7 @@ public class Probabilidad {
     }
 
     /** 
-     * Actualiza el valor del borde superior del tiempo de servicio o entre llegadas.
+     * Establece el valor del borde superior del tiempo de servicio o entre llegadas.
      * 
      * @param bordeSuperior Valor del borde superior (nuevo) del tiempo de servicio o entre llegadas.
      */

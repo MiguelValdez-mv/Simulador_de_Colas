@@ -30,7 +30,7 @@ public class TablaDistribucion {
     }
 
     /** 
-     * Actualiza la tabla de distribucion.
+     * Establece la tabla de distribucion.
      * 
      * @param listaProbabilidades Tabla de distribucion (nueva).
      */
@@ -48,7 +48,7 @@ public class TablaDistribucion {
     }
 
     /** 
-     * Actualiza el nombre del parametro.
+     * Establece el nombre del parametro.
      * 
      * @param listaProbabilidades nombre del parametro (nuevo).
      */
@@ -72,16 +72,24 @@ public class TablaDistribucion {
     }
     
     /**
+     * Retorna el porcentaje acumulado actual de la tabla.
+     * 
+     * @return Porcentaje acumulado
+     */
+    public int getPorcentajeAcum(){
+        if(listaProbabilidades.isEmpty())
+            return 0;
+         
+        return listaProbabilidades.get(listaProbabilidades.size() - 1).getPorcentajeAcum();
+    }
+    
+    /**
      * Comprueba si el porcentaje acumulado ACTUAL de la tabla es del 100%.
      * 
-     * @return Booleano que indica si el porcentaje acumulado es igual (o no)
-     * al 100%.
+     * @return Booleano que indica si el porcentaje acumulado es igual (o no) al 100%.
      */
     public boolean hayPorcentajeCompleto(){
-        if(listaProbabilidades.isEmpty())
-            return false;
-        
-        return listaProbabilidades.get(listaProbabilidades.size() - 1).getPorcentajeAcum() == 100;
+        return getPorcentajeAcum() == 100;
     }
     
     /**
@@ -89,16 +97,18 @@ public class TablaDistribucion {
      * 
      * @param valor Valor (del tiempo entre llegadas o tiempo de servicio).
      * @param porcentaje Porcentaje (del tiempo entre llegadas o tiempo de servicio).
+     * @return Booleano que indicara el status de la operacion: true - exitosa, 
+     * false - error
      */
-    public void agregarProbabilidad(int valor, int porcentaje){
+    public boolean agregarProbabilidad(int valor, int porcentaje){
         String cadenaError = "Fallo al ingresar parametro: " + nombreParametro.toUpperCase() + " (valor: " + valor + ", porcentaje: " + porcentaje + ")\n\n";
         boolean existeValor = comprobarExistencia(valor);
+        boolean porcentajeValido = 0 < porcentaje && porcentaje <= 100;
         
-        if(0 < porcentaje && porcentaje <= 100 && !existeValor){
+        if(porcentajeValido && !existeValor){
             int porcentajeAcum = porcentaje;
             int bordeInferior = 0;
             int bordeSuperior = porcentaje - 1;
-            boolean hayDesborde = false;
         
            if(!listaProbabilidades.isEmpty()){
                 Probabilidad probAnterior = listaProbabilidades.get(listaProbabilidades.size() - 1);
@@ -108,21 +118,30 @@ public class TablaDistribucion {
                     bordeInferior = probAnterior.getBordeSuperior() + 1;
                     bordeSuperior = porcentajeAcum - 1; 
                 }else{
-                    hayDesborde = true;
                     MensajeModal.error(cadenaError + "Sobrepasa el porcentaje acumulado actual...");
+                    
+                    return false;
                 }
             }
             
-            if(!hayDesborde){
-                listaProbabilidades.add(new Probabilidad(valor, porcentaje, porcentajeAcum, bordeInferior, bordeSuperior));
+            listaProbabilidades.add(new Probabilidad(valor, porcentaje, porcentajeAcum, bordeInferior, bordeSuperior));
+            
+            return true;
+        }else{
+            if(!porcentajeValido){
+                MensajeModal.error(cadenaError + "Parametro no valido...");
             }
             
-        }else{
-            MensajeModal.error(cadenaError + (existeValor ? "Valor ya ingresado con anterioridad..." : "Parametro no valido..."));
+            if(existeValor){
+                MensajeModal.error(cadenaError + "Valor ya ingresado con anterioridad...");
+            }
         }    
+    
+        return false;
     }
     
-     /**
+    
+    /**
      * Obtiene un valor a partir de un numero aleatorio y la tabla de 
      * distribucion de probabilidades.
      * 

@@ -15,15 +15,97 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
     
     private AdministradorArchivo manejadorArchivo;
     private TablaDistribucion tablaTELLManual;
+    private TablaDistribucion tablaTELLArchivo;
     private TablaDistribucion tablaTiempoServicioManual;
-    private boolean esArchivoLeido;
+    private TablaDistribucion tablaTiempoServicioArchivo;
 
     public ParametrosDeEntrada() {
         this.manejadorArchivo = new AdministradorArchivo();
         this.tablaTELLManual = new TablaDistribucion(Constantes.COPY_TELL);
+        this.tablaTELLArchivo = new TablaDistribucion(Constantes.COPY_TELL);
         this.tablaTiempoServicioManual = new TablaDistribucion(Constantes.COPY_TIEMPO_SERVICIO);
-        this.esArchivoLeido = false;
+        this.tablaTiempoServicioArchivo = new TablaDistribucion(Constantes.COPY_TIEMPO_SERVICIO);
         initComponents();
+    }
+
+    /**
+     * Regresa la tabla manual de distribucion de tiempos entre llegadas.
+     * 
+     * @return Tabla manual (actual) de distribucion de tiempos entre llegadas.
+     */
+    public TablaDistribucion getTablaTELLManual() {
+        return tablaTELLManual;
+    }
+
+    /** 
+     * Establece la tabla manual de distribucion de tiempos entre llegadas.
+     * 
+     * @param tablaTELLManual Tabla manual (nueva) de distribucion de tiempos entre llegadas.
+     */
+    public void setTablaTELLManual(TablaDistribucion tablaTELLManual) {
+        this.tablaTELLManual = tablaTELLManual;
+    }
+
+    /**
+     * Regresa la tabla actual seleccionada (desde el archivo) de distribucion de 
+     * tiempos entre llegadas.
+     * 
+     * @return Tabla (actual) seleccionada (desde el archivo) de distribucion de 
+     * tiempos entre llegadas.
+     */
+    public TablaDistribucion getTablaTELLArchivo() {
+        return tablaTELLArchivo;
+    }
+
+    /** 
+     * Establece la tabla actual seleccionada (desde el archivo) de distribucion de 
+     * tiempos entre llegadas.
+     * 
+     * @param tablaTELLArchivo Tabla (nueva) seleccionada (desde archivo)  de distribucion 
+     * de tiempos entre llegadas.
+     */
+    public void setTablaTELLArchivo(TablaDistribucion tablaTELLArchivo) {
+        this.tablaTELLArchivo = tablaTELLArchivo;
+    }
+
+    /**
+     * Regresa la tabla manual de distribucion de tiempos de servicio.
+     * 
+     * @return Tabla manual (actual) de distribucion de tiempos de servicio.
+     */
+    public TablaDistribucion getTablaTiempoServicioManual() {
+        return tablaTiempoServicioManual;
+    }
+
+    /** 
+     * Establece la tabla manual de distribucion de tiempos de servicio.
+     * 
+     * @param tablaTiempoServicioManual Tabla manual (nueva) de distribucion de tiempos de servicio.
+     */
+    public void setTablaTiempoServicioManual(TablaDistribucion tablaTiempoServicioManual) {
+        this.tablaTiempoServicioManual = tablaTiempoServicioManual;
+    }
+
+    /**
+     * Regresa la tabla actual seleccionada (desde el archivo) de distribucion de 
+     * tiempos de servicio.
+     * 
+     * @return Tabla (actual) seleccionada (desde el archivo) de distribucion de 
+     * tiempos de servicio.
+     */
+    public TablaDistribucion getTablaTiempoServicioArchivo() {
+        return tablaTiempoServicioArchivo;
+    }
+
+    /** 
+     * Establece la tabla actual seleccionada (desde el archivo) de distribucion de 
+     * tiempos de servicio.
+     * 
+     * @param tablaTiempoServicioArchivo Tabla (nueva) seleccionada (desde archivo)  de distribucion 
+     * tiempos de servicio.
+     */
+    public void setTablaTiempoServicioArchivo(TablaDistribucion tablaTiempoServicioArchivo) {
+        this.tablaTiempoServicioArchivo = tablaTiempoServicioArchivo;
     }
 
     @SuppressWarnings("unchecked")
@@ -415,15 +497,15 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
             return ;
         }
         
-        if(validarRadioButton(valoresManualesTELL, tablaTELLManual, valoresArchivoTELL, manejadorArchivo.getTablaTELL(), Constantes.COPY_TELL)){
+        if(validarRadioButton(valoresManualesTELL, tablaTELLManual, valoresArchivoTELL, getTablaTELLArchivo(), Constantes.COPY_TELL)){
            return ;
         }
         
-        if(validarRadioButton(valoresManualesTiempoServicio, tablaTiempoServicioManual, valoresArchivoTiempoServicio, manejadorArchivo.getTablaTiemposServicio(), Constantes.COPY_TIEMPO_SERVICIO)){
+        if(validarRadioButton(valoresManualesTiempoServicio, tablaTiempoServicioManual, valoresArchivoTiempoServicio, getTablaTiempoServicioArchivo(), Constantes.COPY_TIEMPO_SERVICIO)){
            return ;
         }
         
-        System.out.println("crack");
+        System.out.println("Comenzar Simulacion");
     }//GEN-LAST:event_ComenzarSimulacionActionPerformed
 
     private void AgregarValorTELLManualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarValorTELLManualActionPerformed
@@ -433,12 +515,9 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
         
         if(validarTextField(porcentajeTELL, Constantes.COPY_PORCENTAJE_TELL, 1)){
             return ;
-        } 
+        }
         
-        tablaTELLManual.agregarProbabilidad(Integer.parseInt(valorTELL.getText()), Integer.parseInt(porcentajeTELL.getText()));
-        valorTELL.setText("");
-        porcentajeTELL.setText("");
-        valoresTELLManuales.setText(tablaTELLManual.toString());     
+        agregarValoresManuales(valorTELL, porcentajeTELL, valoresTELLManuales, tablaTELLManual);
     }//GEN-LAST:event_AgregarValorTELLManualActionPerformed
 
     private void AgregarValorTiempoServicioManualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarValorTiempoServicioManualActionPerformed
@@ -450,19 +529,12 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
             return ;
         }
         
-        tablaTiempoServicioManual.agregarProbabilidad(Integer.parseInt(valorTiempoServicio.getText()), Integer.parseInt(porcentajeTiempoServicio.getText()));
-        valorTiempoServicio.setText("");
-        porcentajeTiempoServicio.setText("");
-        valoresTiempoServicioManuales.setText(tablaTiempoServicioManual.toString());   
+        agregarValoresManuales(valorTiempoServicio, porcentajeTiempoServicio, valoresTiempoServicioManuales, tablaTiempoServicioManual);
     }//GEN-LAST:event_AgregarValorTiempoServicioManualActionPerformed
 
     private void LeerArchivoTELLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LeerArchivoTELLActionPerformed
-        if(!esArchivoLeido){
-            manejadorArchivo.leerEntrada();
-            esArchivoLeido = true;
-        }
-        
-        valoresTELLArchivo.setText(manejadorArchivo.getTablaTELL().toString());
+        setTablaTELLArchivo(manejadorArchivo.leerEntrada(Constantes.COPY_TELL));  
+        valoresTELLArchivo.setText(getTablaTELLArchivo().toString());
     }//GEN-LAST:event_LeerArchivoTELLActionPerformed
 
     private void valorTiempoServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valorTiempoServicioActionPerformed
@@ -470,12 +542,8 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
     }//GEN-LAST:event_valorTiempoServicioActionPerformed
 
     private void LeerArchivoTiempoServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LeerArchivoTiempoServicioActionPerformed
-       if(!esArchivoLeido){
-            manejadorArchivo.leerEntrada();
-            esArchivoLeido = true;
-        }
-        
-       valoresTiempoServicioArchivo.setText(manejadorArchivo.getTablaTiemposServicio().toString());
+       setTablaTiempoServicioArchivo(manejadorArchivo.leerEntrada(Constantes.COPY_TIEMPO_SERVICIO)); 
+       valoresTiempoServicioArchivo.setText(getTablaTiempoServicioArchivo().toString());
     }//GEN-LAST:event_LeerArchivoTiempoServicioActionPerformed
 
     /**
@@ -598,5 +666,38 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
         }
        
        return false;
-    } 
+    }
+    
+    /**
+     * Agrega (y valida) el valor y el porcentaje de la probabilidad en la tabla 
+     * correspondiente
+     * 
+     * @param jTextFieldValor Input del valor.
+     * @param jTextFieldPorcentaje Input del porcentaje.
+     * @param salida Input en donde se mostrara la tabla.
+     * @param tabla Tabla en la cual se agregara el valor y el porcentaje de la probabilidad.
+     */
+    private void agregarValoresManuales(javax.swing.JTextField jTextFieldValor, javax.swing.JTextField jTextFieldPorcentaje,javax.swing.JTextArea salida,TablaDistribucion tabla){
+        int valor = Integer.parseInt(jTextFieldValor.getText());
+        int porcentaje =  Integer.parseInt(jTextFieldPorcentaje.getText());
+        
+      
+        if(tabla.comprobarExistencia(valor)){
+            jTextFieldValor.setText("");
+        }
+        
+        if(tabla.getPorcentajeAcum() + porcentaje > 100){
+            jTextFieldPorcentaje.setText("");
+        }
+        
+        if(tabla.agregarProbabilidad(valor, porcentaje)){
+            salida.setText(tabla.toString());   
+            jTextFieldValor.setText("");
+            jTextFieldPorcentaje.setText("");
+            
+            if(tabla.hayPorcentajeCompleto()){
+                MensajeModal.info("La tabla ha sido completada \n\nEl porcentaje acumulado es del 100%");
+            }
+        }
+    }
 }

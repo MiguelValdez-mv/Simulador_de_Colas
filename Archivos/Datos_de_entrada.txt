@@ -2,8 +2,8 @@ Tiempo entre llegadas
 1 50
 2 20
 3 20
-4 5
-5 5
+4 2
+5 8
 
 Tiempo de servicio
 5 20
