@@ -227,14 +227,14 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
         valoresTELLManuales.setRows(5);
         jScrollPane2.setViewportView(valoresTELLManuales);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 500, 370, -1));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 500, 370, 110));
 
         valoresTELLArchivo.setEditable(false);
         valoresTELLArchivo.setColumns(20);
         valoresTELLArchivo.setRows(5);
         jScrollPane1.setViewportView(valoresTELLArchivo);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 500, 370, -1));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 500, 370, 110));
 
         LeerArchivoTELL.setFont(new java.awt.Font("Roboto Mono", 1, 12)); // NOI18N
         LeerArchivoTELL.setText("Leer Archivo");
@@ -249,7 +249,7 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
         labelTiempoServicios.setFont(new java.awt.Font("Roboto Mono", 1, 15)); // NOI18N
         labelTiempoServicios.setForeground(new java.awt.Color(0, 0, 0));
         labelTiempoServicios.setText("Tiempos de servicio");
-        jPanel1.add(labelTiempoServicios, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 600, 180, 20));
+        jPanel1.add(labelTiempoServicios, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 630, 180, 20));
 
         valoresManualesTiempoServicio.setBackground(new java.awt.Color(237, 248, 224));
         grupoValoresTiempoServicio.add(valoresManualesTiempoServicio);
@@ -257,25 +257,25 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
         valoresManualesTiempoServicio.setForeground(new java.awt.Color(0, 0, 0));
         valoresManualesTiempoServicio.setText("Valores manuales");
         valoresManualesTiempoServicio.setFocusable(false);
-        jPanel1.add(valoresManualesTiempoServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 630, 210, 30));
+        jPanel1.add(valoresManualesTiempoServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 660, 210, 30));
 
         labelValorTiempoServicio.setFont(new java.awt.Font("Roboto Mono", 0, 15)); // NOI18N
         labelValorTiempoServicio.setForeground(new java.awt.Color(0, 0, 0));
         labelValorTiempoServicio.setText("Valor");
-        jPanel1.add(labelValorTiempoServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 670, -1, 20));
+        jPanel1.add(labelValorTiempoServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 700, -1, 20));
 
         valorTiempoServicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 valorTiempoServicioActionPerformed(evt);
             }
         });
-        jPanel1.add(valorTiempoServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 670, 38, -1));
+        jPanel1.add(valorTiempoServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 700, 38, -1));
 
         labelPorcentajeTiempoServicio.setFont(new java.awt.Font("Roboto Mono", 0, 15)); // NOI18N
         labelPorcentajeTiempoServicio.setForeground(new java.awt.Color(0, 0, 0));
         labelPorcentajeTiempoServicio.setText("Porcentaje (%)");
-        jPanel1.add(labelPorcentajeTiempoServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 670, -1, 20));
-        jPanel1.add(porcentajeTiempoServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 670, 38, -1));
+        jPanel1.add(labelPorcentajeTiempoServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 700, -1, 20));
+        jPanel1.add(porcentajeTiempoServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 700, 38, -1));
 
         AgregarValorTiempoServicioManual.setFont(new java.awt.Font("Roboto Mono", 1, 12)); // NOI18N
         AgregarValorTiempoServicioManual.setText("Agregar");
@@ -285,14 +285,14 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
                 AgregarValorTiempoServicioManualActionPerformed(evt);
             }
         });
-        jPanel1.add(AgregarValorTiempoServicioManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 670, -1, 30));
+        jPanel1.add(AgregarValorTiempoServicioManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 700, -1, 30));
 
         valoresTiempoServicioManuales.setEditable(false);
         valoresTiempoServicioManuales.setColumns(20);
         valoresTiempoServicioManuales.setRows(5);
         jScrollPane5.setViewportView(valoresTiempoServicioManuales);
 
-        jPanel1.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 720, 370, -1));
+        jPanel1.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 750, 370, 110));
 
         valoresArchivoTiempoServicio.setBackground(new java.awt.Color(237, 248, 224));
         grupoValoresTiempoServicio.add(valoresArchivoTiempoServicio);
@@ -305,7 +305,7 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
                 valoresArchivoTiempoServicioActionPerformed(evt);
             }
         });
-        jPanel1.add(valoresArchivoTiempoServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 630, -1, 20));
+        jPanel1.add(valoresArchivoTiempoServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 660, -1, 20));
 
         LeerArchivoTiempoServicio.setFont(new java.awt.Font("Roboto Mono", 1, 12)); // NOI18N
         LeerArchivoTiempoServicio.setText("Leer Archivo");
@@ -315,14 +315,14 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
                 LeerArchivoTiempoServicioActionPerformed(evt);
             }
         });
-        jPanel1.add(LeerArchivoTiempoServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 670, -1, 30));
+        jPanel1.add(LeerArchivoTiempoServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 700, -1, 30));
 
         valoresTiempoServicioArchivo.setEditable(false);
         valoresTiempoServicioArchivo.setColumns(20);
         valoresTiempoServicioArchivo.setRows(5);
         jScrollPane4.setViewportView(valoresTiempoServicioArchivo);
 
-        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 720, 370, -1));
+        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 750, 370, 110));
 
         unidadCostoServidor.setFont(new java.awt.Font("Roboto Mono", 2, 15)); // NOI18N
         unidadCostoServidor.setForeground(new java.awt.Color(0, 0, 0));
@@ -337,7 +337,7 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
                 ComenzarSimulacionActionPerformed(evt);
             }
         });
-        jPanel1.add(ComenzarSimulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 820, -1, 30));
+        jPanel1.add(ComenzarSimulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 880, -1, 30));
 
         espacio.setBackground(new java.awt.Color(237, 248, 224));
 
@@ -352,7 +352,7 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
             .addGap(0, 10, Short.MAX_VALUE)
         );
 
-        jPanel1.add(espacio, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 850, 760, 10));
+        jPanel1.add(espacio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 910, 760, 10));
 
         jScrollPane3.setViewportView(jPanel1);
 
@@ -360,13 +360,11 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 842, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 833, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 637, Short.MAX_VALUE)
         );
 
         pack();
@@ -417,11 +415,11 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
             return ;
         }
         
-        if(validarRadioButton(valoresManualesTELL, tablaTELLManual, valoresArchivoTELL, manejadorArchivo.getTablaTELL(), Constantes.COPY_VALOR_TELL)){
+        if(validarRadioButton(valoresManualesTELL, tablaTELLManual, valoresArchivoTELL, manejadorArchivo.getTablaTELL(), Constantes.COPY_TELL)){
            return ;
         }
         
-        if(validarRadioButton(valoresManualesTiempoServicio, tablaTiempoServicioManual, valoresArchivoTiempoServicio, manejadorArchivo.getTablaTiemposServicio(), Constantes.COPY_VALOR_TIEMPO_SERVICIO)){
+        if(validarRadioButton(valoresManualesTiempoServicio, tablaTiempoServicioManual, valoresArchivoTiempoServicio, manejadorArchivo.getTablaTiemposServicio(), Constantes.COPY_TIEMPO_SERVICIO)){
            return ;
         }
         
