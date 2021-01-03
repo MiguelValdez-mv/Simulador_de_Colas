@@ -1,0 +1,13 @@
+Tiempo entre llegadas
+1 50
+2 20
+3 20
+4 5
+5 5
+
+Tiempo de servicio
+5 20
+7 30
+8 30
+9 10
+10 10

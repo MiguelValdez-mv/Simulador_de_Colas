@@ -2,29 +2,65 @@ package Componentes;
 
 import java.util.ArrayList;
 import Utils.MensajeModal;
-import Constantes.Constantes;
+
 
 /**
  * Esta clase permitira poder gestionar la tabla de probabilidades de los tiempos 
- * entre llegadas o los tiempos de servicio de los clientes en el sistema
+ * entre llegadas o los tiempos de servicio de los clientes en el sistema.
  * 
- * @version Nº1 28/12/2020 
- * @author Miguel Valdez
+ * @version Nº1 28/12/2020.
+ * @author Miguel Valdez.
  */
 public class TablaDistribucion {
     private ArrayList<Probabilidad> listaProbabilidades;
     private String nombreParametro;
-    
-    public TablaDistribucion(boolean esTELL) {
+
+    public TablaDistribucion(String nombreParametro) {
         this.listaProbabilidades = new ArrayList<>();
-        this.nombreParametro = esTELL ? Constantes.COPY_TELL : Constantes.COPY_TIEMPO_SERVICIO;
+        this.nombreParametro = nombreParametro;
     }
     
     /**
-     * Comprueba si un valor esta (o no) registrado en la tabla
+     * Regresa la tabla de distribucion.
      * 
-     * @param valor Valor (del tiempo entre llegadas o tiempo de servicio) a comprobar
-     * @return Booleano que indica la existencia (o no) del valor especificado
+     * @return Tabla de distribucion (actual).
+     */
+    public ArrayList<Probabilidad> getListaProbabilidades() {
+        return listaProbabilidades;
+    }
+
+    /** 
+     * Actualiza la tabla de distribucion.
+     * 
+     * @param listaProbabilidades Tabla de distribucion (nueva).
+     */
+    public void setListaProbabilidades(ArrayList<Probabilidad> listaProbabilidades) {
+        this.listaProbabilidades = listaProbabilidades;
+    }
+
+    /**
+     * Regresa el nombre del parametro.
+     * 
+     * @return Nombre del parametro (actual).
+     */
+    public String getNombreParametro() {
+        return nombreParametro;
+    }
+
+    /** 
+     * Actualiza el nombre del parametro.
+     * 
+     * @param listaProbabilidades nombre del parametro (nuevo).
+     */
+    public void setNombreParametro(String nombreParametro) {
+        this.nombreParametro = nombreParametro;
+    }
+    
+    /**
+     * Comprueba si un valor esta (o no) registrado en la tabla.
+     * 
+     * @param valor Valor (del tiempo entre llegadas o tiempo de servicio) a comprobar.
+     * @return Booleano que indica la existencia (o no) del valor especificado.
      */
     public boolean comprobarExistencia(int valor){
         for (Probabilidad probabilidad : listaProbabilidades) {
@@ -36,10 +72,10 @@ public class TablaDistribucion {
     }
     
     /**
-     * Comprueba si el porcentaje acumulado ACTUAL de la tabla es del 100%
+     * Comprueba si el porcentaje acumulado ACTUAL de la tabla es del 100%.
      * 
-     * @return Booleano que indica si el porcentaje acumulado es igual (o no) 
-     * al 100%
+     * @return Booleano que indica si el porcentaje acumulado es igual (o no)
+     * al 100%.
      */
     public boolean hayPorcentajeCompleto(){
         if(listaProbabilidades.isEmpty())
@@ -49,10 +85,10 @@ public class TablaDistribucion {
     }
     
     /**
-     * Agrega una nueva probabilidad a la tabla
+     * Agrega una nueva probabilidad a la tabla.
      * 
-     * @param valor Valor (del tiempo entre llegadas o tiempo de servicio)
-     * @param porcentaje Porcentaje (del tiempo entre llegadas o tiempo de servicio)
+     * @param valor Valor (del tiempo entre llegadas o tiempo de servicio).
+     * @param porcentaje Porcentaje (del tiempo entre llegadas o tiempo de servicio).
      */
     public void agregarProbabilidad(int valor, int porcentaje){
         String cadenaError = "Fallo al ingresar parametro: " + nombreParametro.toUpperCase() + " (valor: " + valor + ", porcentaje: " + porcentaje + ")\n\n";
@@ -88,10 +124,10 @@ public class TablaDistribucion {
     
      /**
      * Obtiene un valor a partir de un numero aleatorio y la tabla de 
-     * distribucion de probabilidades
+     * distribucion de probabilidades.
      * 
-     * @param aleatorio Valor aleatorio 
-     * @return Valor (del tiempo entre llegadas o tiempo de servicio)
+     * @param aleatorio Valor aleatorio. 
+     * @return Valor (del tiempo entre llegadas o tiempo de servicio).
      */
     public int obtenerValor(int aleatorio){
         for (Probabilidad probabilidad : listaProbabilidades) {
@@ -105,9 +141,9 @@ public class TablaDistribucion {
     
     @Override
     public String toString (){
-        String cadenaTabla = "Tabla de distribucion " + nombreParametro.toLowerCase()  + ":";
+        String cadenaTabla = "Tabla de distribucion " + nombreParametro.toLowerCase()  + ":\n";
         for (Probabilidad probabilidad : listaProbabilidades) {
-            cadenaTabla = cadenaTabla + "\n  " + probabilidad.toString();
+            cadenaTabla = cadenaTabla + "\n" + probabilidad.toString();
         }
 
         return cadenaTabla;

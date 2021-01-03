@@ -2,10 +2,10 @@
 package Constantes;
 
 /**
- * Esta clase agrupa todas las constantes que se usan a lo largo del proyecto
+ * Esta clase agrupa todas las constantes que se usan a lo largo del proyecto.
  * 
- * @version Nº1 29/12/2020 
- * @author Miguel Valdez
+ * @version Nº1 29/12/2020. 
+ * @author Miguel Valdez.
  */
 public class Constantes {
     public static final String COPY_DURACION_SIMULACION = "Duracion de la simulacion";
@@ -21,4 +21,10 @@ public class Constantes {
     public static final String COPY_TIEMPO_SERVICIO = "Tiempo de servicio";
     public static final String COPY_VALOR_TIEMPO_SERVICIO = "Valor del " + COPY_TIEMPO_SERVICIO.toLowerCase();
     public static final String COPY_PORCENTAJE_TIEMPO_SERVICIO = "Porcentaje del " + COPY_TIEMPO_SERVICIO.toLowerCase();
+    
+    public static final String DIRECTORIO_ARCHIVOS = "Archivos/";
+    public static final String NOMBRE_ARCHIVO_ENTRADA = "Datos_de_entrada.txt";
+    public static final String NOMBRE_ARCHIVO_SALIDA = "Datos_de_salida.txt";
+    public static final String DIRECCION_ARCHIVO_ENTRADA =  DIRECTORIO_ARCHIVOS + NOMBRE_ARCHIVO_ENTRADA;
+    public static final String DIRECCION_ARCHIVO_SALIDA = DIRECTORIO_ARCHIVOS + NOMBRE_ARCHIVO_SALIDA;
 }

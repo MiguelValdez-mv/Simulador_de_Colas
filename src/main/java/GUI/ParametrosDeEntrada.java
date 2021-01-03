@@ -1,21 +1,28 @@
 
 package GUI;
 
-import Constantes.Constantes;
-import Componentes.TablaDistribucion;
-import Utils.Cadena;
-import Utils.MensajeModal;
-import Utils.Numero;
+import Constantes.*;
+import Componentes.*;
+import Utils.*;
 
 /**
- * En este JFrame el usuario podra especificar los parametros de entrada de la simulacion
+ * En este JFrame el usuario podra especificar los parametros de entrada de la simulacion.
  * 
- * @version Nº1 28/12/2020 
- * @author Miguel Valdez
+ * @version Nº1 28/12/2020.
+ * @author Miguel Valdez.
  */
 public class ParametrosDeEntrada extends javax.swing.JFrame {
+    
+    private AdministradorArchivo manejadorArchivo;
+    private TablaDistribucion tablaTELLManual;
+    private TablaDistribucion tablaTiempoServicioManual;
+    private boolean esArchivoLeido;
 
     public ParametrosDeEntrada() {
+        this.manejadorArchivo = new AdministradorArchivo();
+        this.tablaTELLManual = new TablaDistribucion(Constantes.COPY_TELL);
+        this.tablaTiempoServicioManual = new TablaDistribucion(Constantes.COPY_TIEMPO_SERVICIO);
+        this.esArchivoLeido = false;
         initComponents();
     }
 
@@ -45,25 +52,25 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
         cantidadServidores = new javax.swing.JTextField();
         labelCostoServidor = new javax.swing.JLabel();
         costoServidor = new javax.swing.JTextField();
-        labelTiempoEntreLlegadas = new javax.swing.JLabel();
-        valoresManualesTell = new javax.swing.JRadioButton();
-        valoresArchivoTell = new javax.swing.JRadioButton();
-        labelValorTell = new javax.swing.JLabel();
-        valorTell = new javax.swing.JTextField();
-        labelPorcentajeTell = new javax.swing.JLabel();
-        porcentajeTell = new javax.swing.JTextField();
-        AgregarValorTellManual = new javax.swing.JButton();
+        labelTELL = new javax.swing.JLabel();
+        valoresManualesTELL = new javax.swing.JRadioButton();
+        valoresArchivoTELL = new javax.swing.JRadioButton();
+        labelValorTELL = new javax.swing.JLabel();
+        valorTELL = new javax.swing.JTextField();
+        labelPorcentajeTELL = new javax.swing.JLabel();
+        porcentajeTELL = new javax.swing.JTextField();
+        AgregarValorTELLManual = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        valoresTellManuales = new javax.swing.JTextArea();
+        valoresTELLManuales = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
-        valoresTellArchivo = new javax.swing.JTextArea();
-        LeerArchivoTell = new javax.swing.JButton();
+        valoresTELLArchivo = new javax.swing.JTextArea();
+        LeerArchivoTELL = new javax.swing.JButton();
         labelTiempoServicios = new javax.swing.JLabel();
         valoresManualesTiempoServicio = new javax.swing.JRadioButton();
         labelValorTiempoServicio = new javax.swing.JLabel();
         valorTiempoServicio = new javax.swing.JTextField();
         labelPorcentajeTiempoServicio = new javax.swing.JLabel();
-        valorPorcentajeTiempoServicio = new javax.swing.JTextField();
+        porcentajeTiempoServicio = new javax.swing.JTextField();
         AgregarValorTiempoServicioManual = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
         valoresTiempoServicioManuales = new javax.swing.JTextArea();
@@ -167,72 +174,77 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
         jPanel1.add(labelCostoServidor, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, 20));
         jPanel1.add(costoServidor, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 330, 42, -1));
 
-        labelTiempoEntreLlegadas.setFont(new java.awt.Font("Roboto Mono", 1, 15)); // NOI18N
-        labelTiempoEntreLlegadas.setForeground(new java.awt.Color(0, 0, 0));
-        labelTiempoEntreLlegadas.setText("Tiempos entre llegadas");
-        jPanel1.add(labelTiempoEntreLlegadas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, -1, 30));
+        labelTELL.setFont(new java.awt.Font("Roboto Mono", 1, 15)); // NOI18N
+        labelTELL.setForeground(new java.awt.Color(0, 0, 0));
+        labelTELL.setText("Tiempos entre llegadas");
+        jPanel1.add(labelTELL, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, -1, 30));
 
-        valoresManualesTell.setBackground(new java.awt.Color(237, 248, 224));
-        grupoValoresTELL.add(valoresManualesTell);
-        valoresManualesTell.setFont(new java.awt.Font("Roboto Mono", 0, 15)); // NOI18N
-        valoresManualesTell.setForeground(new java.awt.Color(0, 0, 0));
-        valoresManualesTell.setText("Valores manuales");
-        valoresManualesTell.setFocusable(false);
-        jPanel1.add(valoresManualesTell, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, -1, -1));
+        valoresManualesTELL.setBackground(new java.awt.Color(237, 248, 224));
+        grupoValoresTELL.add(valoresManualesTELL);
+        valoresManualesTELL.setFont(new java.awt.Font("Roboto Mono", 0, 15)); // NOI18N
+        valoresManualesTELL.setForeground(new java.awt.Color(0, 0, 0));
+        valoresManualesTELL.setText("Valores manuales");
+        valoresManualesTELL.setFocusable(false);
+        jPanel1.add(valoresManualesTELL, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, -1, -1));
 
-        valoresArchivoTell.setBackground(new java.awt.Color(237, 248, 224));
-        grupoValoresTELL.add(valoresArchivoTell);
-        valoresArchivoTell.setFont(new java.awt.Font("Roboto Mono", 0, 15)); // NOI18N
-        valoresArchivoTell.setForeground(new java.awt.Color(0, 0, 0));
-        valoresArchivoTell.setText("Valores del archivo");
-        valoresArchivoTell.setFocusable(false);
-        valoresArchivoTell.addActionListener(new java.awt.event.ActionListener() {
+        valoresArchivoTELL.setBackground(new java.awt.Color(237, 248, 224));
+        grupoValoresTELL.add(valoresArchivoTELL);
+        valoresArchivoTELL.setFont(new java.awt.Font("Roboto Mono", 0, 15)); // NOI18N
+        valoresArchivoTELL.setForeground(new java.awt.Color(0, 0, 0));
+        valoresArchivoTELL.setText("Valores del archivo");
+        valoresArchivoTELL.setFocusable(false);
+        valoresArchivoTELL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                valoresArchivoTellActionPerformed(evt);
+                valoresArchivoTELLActionPerformed(evt);
             }
         });
-        jPanel1.add(valoresArchivoTell, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 410, -1, -1));
+        jPanel1.add(valoresArchivoTELL, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 410, -1, -1));
 
-        labelValorTell.setFont(new java.awt.Font("Roboto Mono", 0, 15)); // NOI18N
-        labelValorTell.setForeground(new java.awt.Color(0, 0, 0));
-        labelValorTell.setText("Valor");
-        jPanel1.add(labelValorTell, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, -1, 20));
-        jPanel1.add(valorTell, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 450, 38, -1));
+        labelValorTELL.setFont(new java.awt.Font("Roboto Mono", 0, 15)); // NOI18N
+        labelValorTELL.setForeground(new java.awt.Color(0, 0, 0));
+        labelValorTELL.setText("Valor");
+        jPanel1.add(labelValorTELL, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, -1, 20));
+        jPanel1.add(valorTELL, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 450, 38, -1));
 
-        labelPorcentajeTell.setFont(new java.awt.Font("Roboto Mono", 0, 15)); // NOI18N
-        labelPorcentajeTell.setForeground(new java.awt.Color(0, 0, 0));
-        labelPorcentajeTell.setText("Porcentaje (%)");
-        jPanel1.add(labelPorcentajeTell, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 450, -1, 20));
-        jPanel1.add(porcentajeTell, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 450, 38, -1));
+        labelPorcentajeTELL.setFont(new java.awt.Font("Roboto Mono", 0, 15)); // NOI18N
+        labelPorcentajeTELL.setForeground(new java.awt.Color(0, 0, 0));
+        labelPorcentajeTELL.setText("Porcentaje (%)");
+        jPanel1.add(labelPorcentajeTELL, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 450, -1, 20));
+        jPanel1.add(porcentajeTELL, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 450, 38, -1));
 
-        AgregarValorTellManual.setFont(new java.awt.Font("Roboto Mono", 1, 12)); // NOI18N
-        AgregarValorTellManual.setText("Agregar");
-        AgregarValorTellManual.setFocusable(false);
-        AgregarValorTellManual.addActionListener(new java.awt.event.ActionListener() {
+        AgregarValorTELLManual.setFont(new java.awt.Font("Roboto Mono", 1, 12)); // NOI18N
+        AgregarValorTELLManual.setText("Agregar");
+        AgregarValorTELLManual.setFocusable(false);
+        AgregarValorTELLManual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AgregarValorTellManualActionPerformed(evt);
+                AgregarValorTELLManualActionPerformed(evt);
             }
         });
-        jPanel1.add(AgregarValorTellManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 450, -1, 30));
+        jPanel1.add(AgregarValorTELLManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 450, -1, 30));
 
-        valoresTellManuales.setEditable(false);
-        valoresTellManuales.setColumns(20);
-        valoresTellManuales.setRows(5);
-        jScrollPane2.setViewportView(valoresTellManuales);
+        valoresTELLManuales.setEditable(false);
+        valoresTELLManuales.setColumns(20);
+        valoresTELLManuales.setRows(5);
+        jScrollPane2.setViewportView(valoresTELLManuales);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 500, 370, -1));
 
-        valoresTellArchivo.setEditable(false);
-        valoresTellArchivo.setColumns(20);
-        valoresTellArchivo.setRows(5);
-        jScrollPane1.setViewportView(valoresTellArchivo);
+        valoresTELLArchivo.setEditable(false);
+        valoresTELLArchivo.setColumns(20);
+        valoresTELLArchivo.setRows(5);
+        jScrollPane1.setViewportView(valoresTELLArchivo);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 500, 370, -1));
 
-        LeerArchivoTell.setFont(new java.awt.Font("Roboto Mono", 1, 12)); // NOI18N
-        LeerArchivoTell.setText("Leer Archivo");
-        LeerArchivoTell.setFocusable(false);
-        jPanel1.add(LeerArchivoTell, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 450, -1, 30));
+        LeerArchivoTELL.setFont(new java.awt.Font("Roboto Mono", 1, 12)); // NOI18N
+        LeerArchivoTELL.setText("Leer Archivo");
+        LeerArchivoTELL.setFocusable(false);
+        LeerArchivoTELL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LeerArchivoTELLActionPerformed(evt);
+            }
+        });
+        jPanel1.add(LeerArchivoTELL, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 450, -1, 30));
 
         labelTiempoServicios.setFont(new java.awt.Font("Roboto Mono", 1, 15)); // NOI18N
         labelTiempoServicios.setForeground(new java.awt.Color(0, 0, 0));
@@ -251,13 +263,19 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
         labelValorTiempoServicio.setForeground(new java.awt.Color(0, 0, 0));
         labelValorTiempoServicio.setText("Valor");
         jPanel1.add(labelValorTiempoServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 670, -1, 20));
+
+        valorTiempoServicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                valorTiempoServicioActionPerformed(evt);
+            }
+        });
         jPanel1.add(valorTiempoServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 670, 38, -1));
 
         labelPorcentajeTiempoServicio.setFont(new java.awt.Font("Roboto Mono", 0, 15)); // NOI18N
         labelPorcentajeTiempoServicio.setForeground(new java.awt.Color(0, 0, 0));
         labelPorcentajeTiempoServicio.setText("Porcentaje (%)");
         jPanel1.add(labelPorcentajeTiempoServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 670, -1, 20));
-        jPanel1.add(valorPorcentajeTiempoServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 670, 38, -1));
+        jPanel1.add(porcentajeTiempoServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 670, 38, -1));
 
         AgregarValorTiempoServicioManual.setFont(new java.awt.Font("Roboto Mono", 1, 12)); // NOI18N
         AgregarValorTiempoServicioManual.setText("Agregar");
@@ -292,6 +310,11 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
         LeerArchivoTiempoServicio.setFont(new java.awt.Font("Roboto Mono", 1, 12)); // NOI18N
         LeerArchivoTiempoServicio.setText("Leer Archivo");
         LeerArchivoTiempoServicio.setFocusable(false);
+        LeerArchivoTiempoServicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LeerArchivoTiempoServicioActionPerformed(evt);
+            }
+        });
         jPanel1.add(LeerArchivoTiempoServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 670, -1, 30));
 
         valoresTiempoServicioArchivo.setEditable(false);
@@ -343,9 +366,7 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
         );
 
         pack();
@@ -367,34 +388,100 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_duracionActionPerformed
 
-    private void valoresArchivoTellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valoresArchivoTellActionPerformed
+    private void valoresArchivoTELLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valoresArchivoTELLActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_valoresArchivoTellActionPerformed
+    }//GEN-LAST:event_valoresArchivoTELLActionPerformed
 
     private void valoresArchivoTiempoServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valoresArchivoTiempoServicioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_valoresArchivoTiempoServicioActionPerformed
 
     private void ComenzarSimulacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComenzarSimulacionActionPerformed
-        validarTextField(duracion, Constantes.COPY_DURACION_SIMULACION, 1);
-        validarTextField(cantClientesPermitidos, Constantes.COPY_CANT_CLIENTES, 2);
-        validarTextField(costoEsperaCliente, Constantes.COPY_COSTO_ESPERA_CLIENTE, 1);
-        validarTextField(cantidadServidores, Constantes.COPY_CANT_SERVIDORES, 1);
-        validarTextField(costoServidor, Constantes.COPY_COSTO_SERVIDOR, 1);    
+        if(validarTextField(duracion, Constantes.COPY_DURACION_SIMULACION, 1)){
+            return ;
+        }
+        
+        if(validarTextField(cantClientesPermitidos, Constantes.COPY_CANT_CLIENTES, 2)){
+            return ;
+        }
+        
+        if(validarTextField(costoEsperaCliente, Constantes.COPY_COSTO_ESPERA_CLIENTE, 1)){
+            return ;
+        }
+        
+        if(validarTextField(cantidadServidores, Constantes.COPY_CANT_SERVIDORES, 1)){
+            return ;
+        }
+        
+        if(validarTextField(costoServidor, Constantes.COPY_COSTO_SERVIDOR, 1)){
+            return ;
+        }
+        
+        if(validarRadioButton(valoresManualesTELL, tablaTELLManual, valoresArchivoTELL, manejadorArchivo.getTablaTELL(), Constantes.COPY_VALOR_TELL)){
+           return ;
+        }
+        
+        if(validarRadioButton(valoresManualesTiempoServicio, tablaTiempoServicioManual, valoresArchivoTiempoServicio, manejadorArchivo.getTablaTiemposServicio(), Constantes.COPY_VALOR_TIEMPO_SERVICIO)){
+           return ;
+        }
+        
+        System.out.println("crack");
     }//GEN-LAST:event_ComenzarSimulacionActionPerformed
 
-    private void AgregarValorTellManualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarValorTellManualActionPerformed
-        validarTextField(valorTell, Constantes.COPY_VALOR_TELL, 1);
-        validarTextField(porcentajeTell, Constantes.COPY_PORCENTAJE_TELL, 1);  
-    }//GEN-LAST:event_AgregarValorTellManualActionPerformed
+    private void AgregarValorTELLManualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarValorTELLManualActionPerformed
+        if(validarTextField(valorTELL, Constantes.COPY_VALOR_TELL, 1)){
+            return ;
+        }
+        
+        if(validarTextField(porcentajeTELL, Constantes.COPY_PORCENTAJE_TELL, 1)){
+            return ;
+        } 
+        
+        tablaTELLManual.agregarProbabilidad(Integer.parseInt(valorTELL.getText()), Integer.parseInt(porcentajeTELL.getText()));
+        valorTELL.setText("");
+        porcentajeTELL.setText("");
+        valoresTELLManuales.setText(tablaTELLManual.toString());     
+    }//GEN-LAST:event_AgregarValorTELLManualActionPerformed
 
     private void AgregarValorTiempoServicioManualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarValorTiempoServicioManualActionPerformed
-       validarTextField(valorTiempoServicio, Constantes.COPY_VALOR_TIEMPO_SERVICIO, 1);
-       validarTextField(valorPorcentajeTiempoServicio, Constantes.COPY_PORCENTAJE_TIEMPO_SERVICIO, 1); 
+        if(validarTextField(valorTiempoServicio, Constantes.COPY_VALOR_TIEMPO_SERVICIO, 1)){
+            return ;
+        }
+        
+        if(validarTextField(porcentajeTiempoServicio, Constantes.COPY_PORCENTAJE_TIEMPO_SERVICIO, 1)){
+            return ;
+        }
+        
+        tablaTiempoServicioManual.agregarProbabilidad(Integer.parseInt(valorTiempoServicio.getText()), Integer.parseInt(porcentajeTiempoServicio.getText()));
+        valorTiempoServicio.setText("");
+        porcentajeTiempoServicio.setText("");
+        valoresTiempoServicioManuales.setText(tablaTiempoServicioManual.toString());   
     }//GEN-LAST:event_AgregarValorTiempoServicioManualActionPerformed
 
+    private void LeerArchivoTELLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LeerArchivoTELLActionPerformed
+        if(!esArchivoLeido){
+            manejadorArchivo.leerEntrada();
+            esArchivoLeido = true;
+        }
+        
+        valoresTELLArchivo.setText(manejadorArchivo.getTablaTELL().toString());
+    }//GEN-LAST:event_LeerArchivoTELLActionPerformed
+
+    private void valorTiempoServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valorTiempoServicioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_valorTiempoServicioActionPerformed
+
+    private void LeerArchivoTiempoServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LeerArchivoTiempoServicioActionPerformed
+       if(!esArchivoLeido){
+            manejadorArchivo.leerEntrada();
+            esArchivoLeido = true;
+        }
+        
+       valoresTiempoServicioArchivo.setText(manejadorArchivo.getTablaTiemposServicio().toString());
+    }//GEN-LAST:event_LeerArchivoTiempoServicioActionPerformed
+
     /**
-     * @param args Argumentos de la linea de comandos
+     * @param args Argumentos de la linea de comandos.
      */
     public static void main(String args[]) {
 
@@ -407,10 +494,10 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AgregarValorTellManual;
+    private javax.swing.JButton AgregarValorTELLManual;
     private javax.swing.JButton AgregarValorTiempoServicioManual;
     private javax.swing.JButton ComenzarSimulacion;
-    private javax.swing.JButton LeerArchivoTell;
+    private javax.swing.JButton LeerArchivoTELL;
     private javax.swing.JButton LeerArchivoTiempoServicio;
     private javax.swing.JTextField cantClientesPermitidos;
     private javax.swing.JTextField cantidadServidores;
@@ -431,15 +518,16 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
     private javax.swing.JLabel labelCostoEsperaCliente;
     private javax.swing.JLabel labelCostoServidor;
     private javax.swing.JLabel labelDuracion;
-    private javax.swing.JLabel labelPorcentajeTell;
+    private javax.swing.JLabel labelPorcentajeTELL;
     private javax.swing.JLabel labelPorcentajeTiempoServicio;
     private javax.swing.JLabel labelPresentarTablaEventos;
-    private javax.swing.JLabel labelTiempoEntreLlegadas;
+    private javax.swing.JLabel labelTELL;
     private javax.swing.JLabel labelTiempoServicios;
     private javax.swing.JLabel labelUnidadTiempo;
-    private javax.swing.JLabel labelValorTell;
+    private javax.swing.JLabel labelValorTELL;
     private javax.swing.JLabel labelValorTiempoServicio;
-    private javax.swing.JTextField porcentajeTell;
+    private javax.swing.JTextField porcentajeTELL;
+    private javax.swing.JTextField porcentajeTiempoServicio;
     private javax.swing.JCheckBox presentarTablaEventos;
     private javax.swing.JLabel subtitulo;
     private javax.swing.JLabel titulo;
@@ -447,26 +535,25 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
     private javax.swing.JLabel unidadCostoServidor;
     private javax.swing.JComboBox<String> unidadTiempo;
     private javax.swing.JLabel unidadTiempoActual;
-    private javax.swing.JTextField valorPorcentajeTiempoServicio;
-    private javax.swing.JTextField valorTell;
+    private javax.swing.JTextField valorTELL;
     private javax.swing.JTextField valorTiempoServicio;
-    private javax.swing.JRadioButton valoresArchivoTell;
+    private javax.swing.JRadioButton valoresArchivoTELL;
     private javax.swing.JRadioButton valoresArchivoTiempoServicio;
-    private javax.swing.JRadioButton valoresManualesTell;
+    private javax.swing.JRadioButton valoresManualesTELL;
     private javax.swing.JRadioButton valoresManualesTiempoServicio;
-    private javax.swing.JTextArea valoresTellArchivo;
-    private javax.swing.JTextArea valoresTellManuales;
+    private javax.swing.JTextArea valoresTELLArchivo;
+    private javax.swing.JTextArea valoresTELLManuales;
     private javax.swing.JTextArea valoresTiempoServicioArchivo;
     private javax.swing.JTextArea valoresTiempoServicioManuales;
     // End of variables declaration//GEN-END:variables
 
     /**
-     * Valida el contenido dentro de un input (JTextField)
+     * Valida el contenido dentro de un input (JTextField).
      * 
-     * @param jTextField Input a validar
-     * @param nombreParametro Nombre del parametro del input
-     * @param valorMinimo valor minimo del parametro
-     * @return Booleano que indica si hubo algun error
+     * @param jTextField Input a validar.
+     * @param nombreParametro Nombre del parametro del input.
+     * @param valorMinimo valor minimo del parametro.
+     * @return Booleano que indica si hubo algun error.
      */
     private boolean validarTextField(javax.swing.JTextField jTextField, String nombreParametro, int valorMinimo){
         boolean hayError = false;
@@ -485,5 +572,33 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
         }
         
         return hayError;
-    }   
+    }
+    
+     /**
+     * Valida el contenido dentro de un input (JRadioButton).
+     * 
+     * @param jRadioButtonManual Input (valor manual) a validar.
+     * @param tablaManual Tabla de distribucion asociada al input (valor manual).
+     * @param jRadioButtonArchivo Input (valor archivo) a validar.
+     * @param tablaArchivo Tabla de distribucion asociada al input (valor archivo).
+     * @param nombreParametro Nombre del parametro asociado a los JRadioButton.
+     * @return Booleano que indica si hubo algun error.
+     */
+    private boolean validarRadioButton(javax.swing.JRadioButton jRadioButtonManual, TablaDistribucion tablaManual, javax.swing.JRadioButton jRadioButtonArchivo, TablaDistribucion tablaArchivo, String nombreParametro){
+        String mensajeError = "Fallo al ingresar parametro: " + nombreParametro.toUpperCase() + "\n\n"; 
+        String cadenaErrorPorcentajeAcum = mensajeError + "El porcentaje acumulado no esta completo...";
+        
+        if(!jRadioButtonManual.isSelected() && !jRadioButtonArchivo.isSelected()){
+            MensajeModal.error(mensajeError + "No se selecciono una opcion (valores manuales o leer archivo)...");
+            return true;
+        }else if(jRadioButtonManual.isSelected() && !tablaManual.hayPorcentajeCompleto()){
+            MensajeModal.error(cadenaErrorPorcentajeAcum);
+            return true;
+        }else if (jRadioButtonArchivo.isSelected() && !tablaArchivo.hayPorcentajeCompleto()){
+            MensajeModal.error(cadenaErrorPorcentajeAcum);
+            return true;
+        }
+       
+       return false;
+    } 
 }

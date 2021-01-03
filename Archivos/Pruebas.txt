@@ -29,3 +29,8 @@
         System.out.println("\nAleatorio: " + 75 + " Valor:" + tablita.obtenerValor(75));
         System.out.println("Aleatorio: " + 80 + " Valor:" + tablita.obtenerValor(80));
         System.out.println("Aleatorio: " + 99 + " Valor:" + tablita.obtenerValor(99));
+        
+        
+ AdministradorArchivo manejador = new AdministradorArchivo();
+        manejador.leerEntrada();
+        manejador.escribirSalida("xd qlqlqllq \n luz te amo");
