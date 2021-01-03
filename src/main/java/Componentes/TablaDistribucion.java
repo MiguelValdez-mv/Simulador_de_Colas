@@ -6,10 +6,10 @@ import Utils.MensajeModal;
 
 /**
  * Esta clase permitira poder gestionar la tabla de probabilidades de los tiempos 
- * entre llegadas o los tiempos de servicio de los clientes en el sistema.
+ * entre llegadas o los tiempos de servicio de los clientes en el sistema
  * 
- * @version Nº1 28/12/2020.
- * @author Miguel Valdez.
+ * @version Nº1 28/12/2020
+ * @author Miguel Valdez
  */
 public class TablaDistribucion {
     private ArrayList<Probabilidad> listaProbabilidades;
@@ -21,46 +21,46 @@ public class TablaDistribucion {
     }
     
     /**
-     * Regresa la tabla de distribucion.
+     * Regresa la tabla de distribucion
      * 
-     * @return Tabla de distribucion (actual).
+     * @return Tabla de distribucion (actual)
      */
     public ArrayList<Probabilidad> getListaProbabilidades() {
         return listaProbabilidades;
     }
 
     /** 
-     * Establece la tabla de distribucion.
+     * Establece la tabla de distribucion
      * 
-     * @param listaProbabilidades Tabla de distribucion (nueva).
+     * @param listaProbabilidades Tabla de distribucion (nueva)
      */
     public void setListaProbabilidades(ArrayList<Probabilidad> listaProbabilidades) {
         this.listaProbabilidades = listaProbabilidades;
     }
 
     /**
-     * Regresa el nombre del parametro.
+     * Regresa el nombre del parametro
      * 
-     * @return Nombre del parametro (actual).
+     * @return Nombre del parametro (actual)
      */
     public String getNombreParametro() {
         return nombreParametro;
     }
 
     /** 
-     * Establece el nombre del parametro.
+     * Establece el nombre del parametro
      * 
-     * @param listaProbabilidades nombre del parametro (nuevo).
+     * @param nombreParametro nombre del parametro (nuevo)
      */
     public void setNombreParametro(String nombreParametro) {
         this.nombreParametro = nombreParametro;
     }
     
     /**
-     * Comprueba si un valor esta (o no) registrado en la tabla.
+     * Comprueba si un valor esta (o no) registrado en la tabla
      * 
-     * @param valor Valor (del tiempo entre llegadas o tiempo de servicio) a comprobar.
-     * @return Booleano que indica la existencia (o no) del valor especificado.
+     * @param valor Valor (del tiempo entre llegadas o tiempo de servicio) a comprobar
+     * @return Booleano que indica la existencia (o no) del valor especificado
      */
     public boolean comprobarExistencia(int valor){
         for (Probabilidad probabilidad : listaProbabilidades) {
@@ -72,7 +72,7 @@ public class TablaDistribucion {
     }
     
     /**
-     * Retorna el porcentaje acumulado actual de la tabla.
+     * Retorna el porcentaje acumulado actual de la tabla
      * 
      * @return Porcentaje acumulado
      */
@@ -84,19 +84,19 @@ public class TablaDistribucion {
     }
     
     /**
-     * Comprueba si el porcentaje acumulado ACTUAL de la tabla es del 100%.
+     * Comprueba si el porcentaje acumulado ACTUAL de la tabla es del 100%
      * 
-     * @return Booleano que indica si el porcentaje acumulado es igual (o no) al 100%.
+     * @return Booleano que indica si el porcentaje acumulado es igual (o no) al 100%
      */
     public boolean hayPorcentajeCompleto(){
         return getPorcentajeAcum() == 100;
     }
     
     /**
-     * Agrega una nueva probabilidad a la tabla.
+     * Agrega una nueva probabilidad a la tabla
      * 
-     * @param valor Valor (del tiempo entre llegadas o tiempo de servicio).
-     * @param porcentaje Porcentaje (del tiempo entre llegadas o tiempo de servicio).
+     * @param valor Valor (del tiempo entre llegadas o tiempo de servicio)
+     * @param porcentaje Porcentaje (del tiempo entre llegadas o tiempo de servicio)
      * @return Booleano que indicara el status de la operacion: true - exitosa, 
      * false - error
      */
@@ -143,10 +143,10 @@ public class TablaDistribucion {
     
     /**
      * Obtiene un valor a partir de un numero aleatorio y la tabla de 
-     * distribucion de probabilidades.
+     * distribucion de probabilidades
      * 
      * @param aleatorio Valor aleatorio. 
-     * @return Valor (del tiempo entre llegadas o tiempo de servicio).
+     * @return Valor (del tiempo entre llegadas o tiempo de servicio)
      */
     public int obtenerValor(int aleatorio){
         for (Probabilidad probabilidad : listaProbabilidades) {

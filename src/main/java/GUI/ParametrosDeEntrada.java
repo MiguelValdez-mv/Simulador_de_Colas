@@ -6,10 +6,10 @@ import Componentes.*;
 import Utils.*;
 
 /**
- * En este JFrame el usuario podra especificar los parametros de entrada de la simulacion.
+ * En este JFrame el usuario podra especificar los parametros de entrada de la simulacion
  * 
- * @version Nº1 28/12/2020.
- * @author Miguel Valdez.
+ * @version Nº1 28/12/2020
+ * @author Miguel Valdez
  */
 public class ParametrosDeEntrada extends javax.swing.JFrame {
     
@@ -29,18 +29,18 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
     }
 
     /**
-     * Regresa la tabla manual de distribucion de tiempos entre llegadas.
+     * Regresa la tabla manual de distribucion de tiempos entre llegadas
      * 
-     * @return Tabla manual (actual) de distribucion de tiempos entre llegadas.
+     * @return Tabla manual (actual) de distribucion de tiempos entre llegadas
      */
     public TablaDistribucion getTablaTELLManual() {
         return tablaTELLManual;
     }
 
     /** 
-     * Establece la tabla manual de distribucion de tiempos entre llegadas.
+     * Establece la tabla manual de distribucion de tiempos entre llegadas
      * 
-     * @param tablaTELLManual Tabla manual (nueva) de distribucion de tiempos entre llegadas.
+     * @param tablaTELLManual Tabla manual (nueva) de distribucion de tiempos entre llegadas
      */
     public void setTablaTELLManual(TablaDistribucion tablaTELLManual) {
         this.tablaTELLManual = tablaTELLManual;
@@ -48,10 +48,10 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
 
     /**
      * Regresa la tabla actual seleccionada (desde el archivo) de distribucion de 
-     * tiempos entre llegadas.
+     * tiempos entre llegadas
      * 
      * @return Tabla (actual) seleccionada (desde el archivo) de distribucion de 
-     * tiempos entre llegadas.
+     * tiempos entre llegadas
      */
     public TablaDistribucion getTablaTELLArchivo() {
         return tablaTELLArchivo;
@@ -59,28 +59,28 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
 
     /** 
      * Establece la tabla actual seleccionada (desde el archivo) de distribucion de 
-     * tiempos entre llegadas.
+     * tiempos entre llegadas
      * 
      * @param tablaTELLArchivo Tabla (nueva) seleccionada (desde archivo)  de distribucion 
-     * de tiempos entre llegadas.
+     * de tiempos entre llegadas
      */
     public void setTablaTELLArchivo(TablaDistribucion tablaTELLArchivo) {
         this.tablaTELLArchivo = tablaTELLArchivo;
     }
 
     /**
-     * Regresa la tabla manual de distribucion de tiempos de servicio.
+     * Regresa la tabla manual de distribucion de tiempos de servicio
      * 
-     * @return Tabla manual (actual) de distribucion de tiempos de servicio.
+     * @return Tabla manual (actual) de distribucion de tiempos de servicio
      */
     public TablaDistribucion getTablaTiempoServicioManual() {
         return tablaTiempoServicioManual;
     }
 
     /** 
-     * Establece la tabla manual de distribucion de tiempos de servicio.
+     * Establece la tabla manual de distribucion de tiempos de servicio
      * 
-     * @param tablaTiempoServicioManual Tabla manual (nueva) de distribucion de tiempos de servicio.
+     * @param tablaTiempoServicioManual Tabla manual (nueva) de distribucion de tiempos de servicio
      */
     public void setTablaTiempoServicioManual(TablaDistribucion tablaTiempoServicioManual) {
         this.tablaTiempoServicioManual = tablaTiempoServicioManual;
@@ -88,10 +88,10 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
 
     /**
      * Regresa la tabla actual seleccionada (desde el archivo) de distribucion de 
-     * tiempos de servicio.
+     * tiempos de servicio
      * 
      * @return Tabla (actual) seleccionada (desde el archivo) de distribucion de 
-     * tiempos de servicio.
+     * tiempos de servicio
      */
     public TablaDistribucion getTablaTiempoServicioArchivo() {
         return tablaTiempoServicioArchivo;
@@ -99,10 +99,10 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
 
     /** 
      * Establece la tabla actual seleccionada (desde el archivo) de distribucion de 
-     * tiempos de servicio.
+     * tiempos de servicio
      * 
      * @param tablaTiempoServicioArchivo Tabla (nueva) seleccionada (desde archivo)  de distribucion 
-     * tiempos de servicio.
+     * tiempos de servicio
      */
     public void setTablaTiempoServicioArchivo(TablaDistribucion tablaTiempoServicioArchivo) {
         this.tablaTiempoServicioArchivo = tablaTiempoServicioArchivo;
@@ -614,12 +614,12 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     /**
-     * Valida el contenido dentro de un input (JTextField).
+     * Valida el contenido dentro de un input (JTextField)
      * 
-     * @param jTextField Input a validar.
-     * @param nombreParametro Nombre del parametro del input.
-     * @param valorMinimo valor minimo del parametro.
-     * @return Booleano que indica si hubo algun error.
+     * @param jTextField Input a validar
+     * @param nombreParametro Nombre del parametro del input
+     * @param valorMinimo valor minimo del parametro
+     * @return Booleano que indica si hubo algun error
      */
     private boolean validarTextField(javax.swing.JTextField jTextField, String nombreParametro, int valorMinimo){
         boolean hayError = false;
@@ -641,14 +641,14 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
     }
     
      /**
-     * Valida el contenido dentro de un input (JRadioButton).
+     * Valida el contenido dentro de un input (JRadioButton)
      * 
-     * @param jRadioButtonManual Input (valor manual) a validar.
-     * @param tablaManual Tabla de distribucion asociada al input (valor manual).
-     * @param jRadioButtonArchivo Input (valor archivo) a validar.
-     * @param tablaArchivo Tabla de distribucion asociada al input (valor archivo).
-     * @param nombreParametro Nombre del parametro asociado a los JRadioButton.
-     * @return Booleano que indica si hubo algun error.
+     * @param jRadioButtonManual Input (valor manual) a validar
+     * @param tablaManual Tabla de distribucion asociada al input (valor manual)
+     * @param jRadioButtonArchivo Input (valor archivo) a validar
+     * @param tablaArchivo Tabla de distribucion asociada al input (valor archivo)
+     * @param nombreParametro Nombre del parametro asociado a los JRadioButton
+     * @return Booleano que indica si hubo algun error
      */
     private boolean validarRadioButton(javax.swing.JRadioButton jRadioButtonManual, TablaDistribucion tablaManual, javax.swing.JRadioButton jRadioButtonArchivo, TablaDistribucion tablaArchivo, String nombreParametro){
         String mensajeError = "Fallo al ingresar parametro: " + nombreParametro.toUpperCase() + "\n\n"; 
@@ -672,10 +672,10 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
      * Agrega (y valida) el valor y el porcentaje de la probabilidad en la tabla 
      * correspondiente
      * 
-     * @param jTextFieldValor Input del valor.
-     * @param jTextFieldPorcentaje Input del porcentaje.
-     * @param salida Input en donde se mostrara la tabla.
-     * @param tabla Tabla en la cual se agregara el valor y el porcentaje de la probabilidad.
+     * @param jTextFieldValor Input del valor
+     * @param jTextFieldPorcentaje Input del porcentaje
+     * @param salida Input en donde se mostrara la tabla
+     * @param tabla Tabla en la cual se agregara el valor y el porcentaje de la probabilidad
      */
     private void agregarValoresManuales(javax.swing.JTextField jTextFieldValor, javax.swing.JTextField jTextFieldPorcentaje,javax.swing.JTextArea salida,TablaDistribucion tabla){
         int valor = Integer.parseInt(jTextFieldValor.getText());

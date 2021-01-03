@@ -26,54 +26,54 @@ public class AdministradorArchivo {
     }
 
     /**
-     * Regresa el archivo de entrada de datos.
+     * Regresa el archivo de entrada de datos
      * 
-     * @return Archivo de entrada (actual).
+     * @return Archivo de entrada (actual)
      */
     public File getArchivoEntrada() {
         return archivoEntrada;
     }
 
     /** 
-     * Establece el archivo de entrada de datos.
+     * Establece el archivo de entrada de datos
      * 
-     * @param archivoEntrada Archivo de entrada de datos (nuevo).
+     * @param archivoEntrada Archivo de entrada de datos (nuevo)
      */
     public void setArchivoEntrada(File archivoEntrada) {
         this.archivoEntrada = archivoEntrada;
     }
 
     /**
-     * Regresa el archivo de salida de datos.
+     * Regresa el archivo de salida de datos
      * 
-     * @return Archivo de salida (actual).
+     * @return Archivo de salida (actual)
      */
     public File getArchivoSalida() {
         return archivoSalida;
     }
 
     /** 
-     * Establece el archivo de salida de datos.
+     * Establece el archivo de salida de datos
      * 
-     * @param archivoSalida Archivo de salida de datos (nuevo).
+     * @param archivoSalida Archivo de salida de datos (nuevo)
      */
     public void setArchivoSalida(File archivoSalida) {
         this.archivoSalida = archivoSalida;
     }
 
     /**
-     * Regresa la cadena de salida.
+     * Regresa la cadena de salida
      * 
-     * @return Cadena de salida (actual).
+     * @return Cadena de salida (actual)
      */
     public String getSalida() {
         return salida;
     }
 
     /** 
-     * Establece la cadena de salida.
+     * Establece la cadena de salida
      * 
-     * @param salida Cadena de salida (nueva).
+     * @param salida Cadena de salida (nueva)
      */
     public void setSalida(String salida) {
         this.salida = salida;
@@ -81,10 +81,10 @@ public class AdministradorArchivo {
      
      /**
      * Valida si un archivo existe o no, y en caso de no exista se procede a 
-     * crear el mismo.
+     * crear el mismo
      * 
-     * @param archivo Archivo al que hay que validar.
-     * @return Booleano que indica el status de la operacion.
+     * @param archivo Archivo al que hay que validar
+     * @return Booleano que indica el status de la operacion
      */
     public boolean validarArchivo(File archivo){
         if(!archivo.exists()){
@@ -102,8 +102,8 @@ public class AdministradorArchivo {
     /**
      * Lee los datos contenidos dentro del archivo Datos_de_entrada.txt
      * 
-     * @param  nombreParametro Nombre del parametro a extraer del archivo.
-     * @return La tabla de disitribucion del parametro especificado.
+     * @param  nombreParametro Nombre del parametro a extraer del archivo
+     * @return La tabla de disitribucion del parametro especificado
      */
     public TablaDistribucion leerEntrada(String nombreParametro){
         String parametroActualArchivo = "";
@@ -127,8 +127,7 @@ public class AdministradorArchivo {
             
             MensajeModal.info("El parametro: " + nombreParametro.toUpperCase() + " fue leido exitosamente del archivo " + Constantes.NOMBRE_ARCHIVO_ENTRADA);
             
-            return tabla;
-            
+            return tabla;           
         }catch(IOException err){
             MensajeModal.error("Fallo al leer parametro: " + nombreParametro.toUpperCase() + "\n\n" + "Hubo un error al leer el archivo " +  Constantes.NOMBRE_ARCHIVO_ENTRADA + "...");
         }
@@ -140,7 +139,7 @@ public class AdministradorArchivo {
      * Escribe la salida en el archivo Datos_de_salida.txt
      * 
      * @param valor Valor que sera agregado a la salida y sera escrito en el 
-     * archivo.
+     * archivo
      */
     public void escribirSalida(String valor){
         salida = salida + valor;
@@ -157,10 +156,10 @@ public class AdministradorArchivo {
     }
        
     /**
-     * Obtiene la posicion de una cadena en el archivo.
+     * Obtiene la posicion de una cadena en el archivo
      * 
-     * @param linea Linea actual del archivo.
-     * @return Posicion de la cadena.
+     * @param linea Linea actual del archivo
+     * @return Posicion de la cadena
      */
     public int obtenerPosicion(String linea){
         char spc = ' ';
@@ -175,8 +174,8 @@ public class AdministradorArchivo {
     }
     
     /**
-     * @param linea Linea actual del archivo.
-     * @return Nueva linea a ser actualizada.
+     * @param linea Linea actual del archivo
+     * @return Nueva linea a ser actualizada
      */
     public String actualizarLinea(String linea){
         char spc = ' ';
