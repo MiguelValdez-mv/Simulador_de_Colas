@@ -63,7 +63,7 @@ import Componentes.Probabilidad;
     public void testSetPorcentaje() {
         int newValor = 0;
         Probabilidad p = new Probabilidad(1, newValor, 3, 0, 5);
-        p.setPorcentaje(newValor)
+        p.setPorcentaje(newValor);
         assertEquals(p.getPorcentaje(), newValor);
     }
 
