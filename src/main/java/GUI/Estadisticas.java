@@ -79,7 +79,7 @@ public class Estadisticas extends javax.swing.JFrame {
 
         unidadTiempoActual.setFont(new java.awt.Font("Roboto Mono", 2, 15)); // NOI18N
         unidadTiempoActual.setForeground(new java.awt.Color(0, 0, 0));
-        unidadTiempoActual.setText("2000");
+        unidadTiempoActual.setText("-");
         jPanel1.add(unidadTiempoActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 530, -1, 30));
 
         labelCantClientesPermitidos.setFont(new java.awt.Font("Roboto Mono", 1, 15)); // NOI18N
@@ -144,57 +144,57 @@ public class Estadisticas extends javax.swing.JFrame {
 
         cantClientesNoEsperan.setFont(new java.awt.Font("Roboto Mono", 2, 15)); // NOI18N
         cantClientesNoEsperan.setForeground(new java.awt.Color(0, 0, 0));
-        cantClientesNoEsperan.setText("2000");
+        cantClientesNoEsperan.setText("-");
         jPanel1.add(cantClientesNoEsperan, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, -1, 40));
 
         tiempoPromedioClienteSistema.setFont(new java.awt.Font("Roboto Mono", 2, 15)); // NOI18N
         tiempoPromedioClienteSistema.setForeground(new java.awt.Color(0, 0, 0));
-        tiempoPromedioClienteSistema.setText("2000");
+        tiempoPromedioClienteSistema.setText("-");
         jPanel1.add(tiempoPromedioClienteSistema, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 320, -1, 40));
 
         tiempoPromedioEsperaClienteCola.setFont(new java.awt.Font("Roboto Mono", 2, 15)); // NOI18N
         tiempoPromedioEsperaClienteCola.setForeground(new java.awt.Color(0, 0, 0));
-        tiempoPromedioEsperaClienteCola.setText("2000");
+        tiempoPromedioEsperaClienteCola.setText("-");
         jPanel1.add(tiempoPromedioEsperaClienteCola, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 370, -1, 30));
 
         tiempoAdicionalTrabajo.setFont(new java.awt.Font("Roboto Mono", 2, 15)); // NOI18N
         tiempoAdicionalTrabajo.setForeground(new java.awt.Color(0, 0, 0));
-        tiempoAdicionalTrabajo.setText("2000");
+        tiempoAdicionalTrabajo.setText("-");
         jPanel1.add(tiempoAdicionalTrabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 410, -1, 30));
 
         cantClientesSeVanSinAtender.setFont(new java.awt.Font("Roboto Mono", 2, 15)); // NOI18N
         cantClientesSeVanSinAtender.setForeground(new java.awt.Color(0, 0, 0));
-        cantClientesSeVanSinAtender.setText("2000");
+        cantClientesSeVanSinAtender.setText("-");
         jPanel1.add(cantClientesSeVanSinAtender, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 120, -1, 40));
 
         probabilidadEsperar.setFont(new java.awt.Font("Roboto Mono", 2, 15)); // NOI18N
         probabilidadEsperar.setForeground(new java.awt.Color(0, 0, 0));
-        probabilidadEsperar.setText("2000");
+        probabilidadEsperar.setText("-");
         jPanel1.add(probabilidadEsperar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, -1, 40));
 
         cantPromedioClientesCola.setFont(new java.awt.Font("Roboto Mono", 2, 15)); // NOI18N
         cantPromedioClientesCola.setForeground(new java.awt.Color(0, 0, 0));
-        cantPromedioClientesCola.setText("2000");
+        cantPromedioClientesCola.setText("-");
         jPanel1.add(cantPromedioClientesCola, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, -1, 40));
 
         cantPromedioClientesSistema.setFont(new java.awt.Font("Roboto Mono", 2, 15)); // NOI18N
         cantPromedioClientesSistema.setForeground(new java.awt.Color(0, 0, 0));
-        cantPromedioClientesSistema.setText("2000");
+        cantPromedioClientesSistema.setText("-");
         jPanel1.add(cantPromedioClientesSistema, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 240, -1, 40));
 
         tiempoPromedioClienteCola.setFont(new java.awt.Font("Roboto Mono", 2, 15)); // NOI18N
         tiempoPromedioClienteCola.setForeground(new java.awt.Color(0, 0, 0));
-        tiempoPromedioClienteCola.setText("2000");
+        tiempoPromedioClienteCola.setText("-");
         jPanel1.add(tiempoPromedioClienteCola, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 280, -1, 40));
 
         porcentajeUsoServidores.setFont(new java.awt.Font("Roboto Mono", 2, 15)); // NOI18N
         porcentajeUsoServidores.setForeground(new java.awt.Color(0, 0, 0));
-        porcentajeUsoServidores.setText("2000");
+        porcentajeUsoServidores.setText("-");
         jPanel1.add(porcentajeUsoServidores, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 450, -1, 30));
 
         porcentajeUsoSistema.setFont(new java.awt.Font("Roboto Mono", 2, 15)); // NOI18N
         porcentajeUsoSistema.setForeground(new java.awt.Color(0, 0, 0));
-        porcentajeUsoSistema.setText("2000");
+        porcentajeUsoSistema.setText("-");
         jPanel1.add(porcentajeUsoSistema, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 490, -1, 30));
 
         labelTELL5.setFont(new java.awt.Font("Roboto Mono", 1, 15)); // NOI18N

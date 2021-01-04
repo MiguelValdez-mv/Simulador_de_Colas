@@ -1,7 +1,9 @@
 package Componentes;
 
+import java.util.*;
+
 /**
- * Gestiona la simulacion de un sistema de cola
+ * -
  * 
  * @version Nº1 02/12/2020
  * @author Miguel Valdez
@@ -16,7 +18,17 @@ public class SistemaCola {
     private int costoServidor;  
     private TablaDistribucion tablaTELL;
     private TablaDistribucion tablaTiempoServicio;
-
+    
+    
+    private int numeroEvento;
+    private int tipoEvento;
+    private int numCliente;
+    private int tiempoRelojSimulacion;
+    private ArrayList<Integer> estatusServidores;
+    private ArrayList<Integer> listaEspera;
+    private int tiempoSiguienteLlegada;
+    private ArrayList<Integer> tiempoSiguienteSalida;
+   
     public SistemaCola(String unidadTiempo, int duracionSimulacion, int cantClientesPermitidos, int costoEsperaCliente, int cantServidores, int costoServidor, TablaDistribucion tablaTELL, TablaDistribucion tablaTiempoServicio) {
         this.unidadTiempo = unidadTiempo;
         this.duracionSimulacion = duracionSimulacion;
