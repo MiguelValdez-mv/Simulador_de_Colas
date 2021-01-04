@@ -39,7 +39,7 @@ import Componentes.Probabilidad;
     public void testSetValor() {
         int newValor = 0;
         Probabilidad p = new Probabilidad(1, 5, 3, 0, 5);
-        p.setValor(newValor)
+        p.setValor(newValor);
         assertEquals(p.getValor(), newValor);
     }
 
@@ -87,7 +87,7 @@ import Componentes.Probabilidad;
     public void testSetPorcentajeAcum() {
         int newValor = 0;
         Probabilidad p = new Probabilidad(1, 5, newValor, 0, 5);
-        p.setPorcentajeAcum(newValor)
+        p.setPorcentajeAcum(newValor);
         assertEquals(p.getPorcentajeAcum(), newValor);
     }
 
@@ -111,7 +111,7 @@ import Componentes.Probabilidad;
     public void testSetBordeInferior() {
         int newValor = 8;
         Probabilidad p = new Probabilidad(1, 5, 1, 0, 5);
-        p.setBordeInferior(newValor)
+        p.setBordeInferior(newValor);
         assertEquals(p.getBordeInferior(), newValor);
     }
 
@@ -135,7 +135,7 @@ import Componentes.Probabilidad;
     public void testSetBordeSuperior() {
         int newValor = 5;
         Probabilidad p = new Probabilidad(1, 5, 1, 0, 10);
-        p.setBordeSuperior(newValor)
+        p.setBordeSuperior(newValor);
         assertEquals(p.getBordeSuperior(), newValor);
     }
 }
