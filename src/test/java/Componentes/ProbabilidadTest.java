@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Componentes;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -23,7 +14,7 @@ import Componentes.Probabilidad;
      * Test of getValor method, of class Probabilidad.
      * Al llamar "getValor", el valor retornado debe ser el mismo suministrado al constructor
      */
-    @org.junit.jupiter.api.Test
+    @Test
     public void testGetValor() {
         int expResult = 1;
         Probabilidad p = new Probabilidad(expResult, 5, 3, 0, 5);
@@ -35,7 +26,7 @@ import Componentes.Probabilidad;
      * Después de hacer un llamado al método "setValor", el valor de "valor" debe ser el mismo suministrado
      * Al llamado en el método "setValor"
      */
-    @org.junit.jupiter.api.Test
+    @Test
     public void testSetValor() {
         int newValor = 0;
         Probabilidad p = new Probabilidad(1, 5, 3, 0, 5);
@@ -47,7 +38,7 @@ import Componentes.Probabilidad;
      * Test of getPorcentaje method, of class Probabilidad.
      * Al llamar "getPorcentaje", el valor retornado debe ser el mismo suministrado al constructor
      */
-    @org.junit.jupiter.api.Test
+    @Test
     public void testGetPorcentaje() {
         int expResult = 5;
         Probabilidad p = new Probabilidad(1, expResult, 3, 0, 5);
@@ -59,7 +50,7 @@ import Componentes.Probabilidad;
      * Después de hacer un llamado al método "setPorcentaje", el valor de "porcentaje" debe ser el mismo suministrado
      * Al llamado en el método "setPorcentaje"
      */
-    @org.junit.jupiter.api.Test
+    @Test
     public void testSetPorcentaje() {
         int newValor = 0;
         Probabilidad p = new Probabilidad(1, newValor, 3, 0, 5);
@@ -71,7 +62,7 @@ import Componentes.Probabilidad;
      * Test of getPorcentajeAcum method, of class Probabilidad.
      * Al llamar "getPorcentajeAcum", el valor retornado debe ser el mismo suministrado al constructor
      */
-    @org.junit.jupiter.api.Test
+    @Test
     public void testGetPorcentajeAcum() {
         int expResult = 0;
         Probabilidad p = new Probabilidad(1, 5, expResult, 0, 5);
@@ -83,7 +74,7 @@ import Componentes.Probabilidad;
      * Después de hacer un llamado al método "setPorcentajeAcum", el valor de "porcentaje" debe ser el mismo suministrado
      * Al llamado en el método "setPorcentajeAcum"
      */
-    @org.junit.jupiter.api.Test
+    @Test
     public void testSetPorcentajeAcum() {
         int newValor = 0;
         Probabilidad p = new Probabilidad(1, 5, newValor, 0, 5);
@@ -95,7 +86,7 @@ import Componentes.Probabilidad;
      * Test of getBordeInferior method, of class Probabilidad.
      * Al llamar "getBordeInferior", el valor retornado debe ser el mismo suministrado al constructor
      */
-    @org.junit.jupiter.api.Test
+    @Test
     public void testGetBordeInferior() {
         int expResult = 0;
         Probabilidad p = new Probabilidad(1, 5, 3, expResult, 5);
@@ -107,7 +98,7 @@ import Componentes.Probabilidad;
      * Después de hacer un llamado al método "setBordeInferior", el valor de "bordeInferior" debe ser el mismo suministrado
      * Al llamado en el método "setBordeInferior"
      */
-    @org.junit.jupiter.api.Test
+    @Test
     public void testSetBordeInferior() {
         int newValor = 8;
         Probabilidad p = new Probabilidad(1, 5, 1, 0, 5);
@@ -119,7 +110,7 @@ import Componentes.Probabilidad;
      * Test of getBordeSuperior method, of class Probabilidad.
      * Al llamar "getBordeSuperior", el valor retornado debe ser el mismo suministrado al constructor
      */
-    @org.junit.jupiter.api.Test
+    @Test
     public void testGetBordeSuperior() {
         int expResult = 10;
         Probabilidad p = new Probabilidad(1, 5, 3, 0, expResult);
@@ -131,7 +122,7 @@ import Componentes.Probabilidad;
      * Después de hacer un llamado al método "setBordeSuperior", el valor de "bordeSuperior" debe ser el mismo suministrado
      * Al llamado en el método "setBordeSuperior"
      */
-    @org.junit.jupiter.api.Test
+    @Test
     public void testSetBordeSuperior() {
         int newValor = 5;
         Probabilidad p = new Probabilidad(1, 5, 1, 0, 10);
