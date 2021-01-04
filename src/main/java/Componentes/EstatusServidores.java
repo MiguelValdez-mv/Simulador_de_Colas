@@ -16,6 +16,7 @@ public class EstatusServidores {
     public EstatusServidores(int cantServidores) {
         this.cantServidores = cantServidores;
         this.estatusServidores = new ArrayList<>();
+        
         for(int i = 0; i < cantServidores; i++){
             estatusServidores.add(i, 0);    
         }
@@ -77,7 +78,8 @@ public class EstatusServidores {
     public String toString() {
         String salida="Lista de servidores: \n";
         String cadenaDesocupado = " actualmente desocupado";
-        for(int i = 0; i< estatusServidores.size(); i++){
+        
+        for(int i = 0; i < estatusServidores.size(); i++){
             salida += "Servidor Nº: " + (i + 1) +  (estaOcupado(i) > 0 ? 
                     " ocupado por el cliente Nº: " + estatusServidores.get(i) : cadenaDesocupado)
                     + "\n";

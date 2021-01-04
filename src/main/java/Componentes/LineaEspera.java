@@ -67,4 +67,15 @@ public class LineaEspera {
     public int longitudColaEspera(){
         return colaEspera.size();
     }
+    
+    @Override
+    public String toString() {
+        String salida="Linea de espera: \n";
+        
+        for(int i = 0; i < colaEspera.size(); i++){
+            salida += "Posicion: " + i + " ocupada por el cliente Nº: " + colaEspera.get(i);
+        }
+
+        return salida;
+    }
 }
