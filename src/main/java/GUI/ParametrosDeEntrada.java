@@ -25,32 +25,6 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
         this.tablaTELLArchivo = new TablaDistribucion(Constantes.COPY_TELL);
         this.tablaTiempoServicioManual = new TablaDistribucion(Constantes.COPY_TIEMPO_SERVICIO);
         this.tablaTiempoServicioArchivo = new TablaDistribucion(Constantes.COPY_TIEMPO_SERVICIO);
-        
-        EstatusServidores lista = new EstatusServidores(3);
-       
-        
-        lista.añadirCliente(lista.siguienteServidorLibre(), 1);
-        lista.añadirCliente(lista.siguienteServidorLibre(), 2);
-        
-        System.out.println(lista.toString());
-        System.out.println("Siguiente servidor libre: " + (lista.siguienteServidorLibre() + 1) + "\n");
-        
-        
-        System.out.println("Sacando al cliente Nº2");
-        System.out.println("Cliente Nº estaba en el servidor Nº: " + (lista.sacarCliente(2) + 1));
-        System.out.println(lista.toString() + "\n");
-        
-        System.out.println("¿Servidor 1 esta ocupado?: " + lista.estaOcupado(0));
-        System.out.println("¿Servidor 2 esta ocupado?: " + lista.estaOcupado(1));
-        System.out.println("¿Servidor 3 esta ocupado?: " + lista.estaOcupado(2));
-        lista.añadirCliente(lista.siguienteServidorLibre(), 2);
-        lista.añadirCliente(lista.siguienteServidorLibre(), 3);
-        System.out.println("Siguiente servidor libre: " + (lista.siguienteServidorLibre() + 1) + "\n");
-        System.out.println(lista.sacarCliente(2));
-        System.out.println("Siguiente servidor libre: " + (lista.siguienteServidorLibre() + 1) + "\n");
-
-        
-        
         initComponents();
     }
 

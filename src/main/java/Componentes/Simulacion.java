@@ -8,7 +8,7 @@ import java.util.*;
  * @version Nº1 02/12/2020
  * @author Miguel Valdez
  */
-public class SistemaCola {
+public class Simulacion {
     
     private String unidadTiempo;
     private int duracionSimulacion;
@@ -24,12 +24,12 @@ public class SistemaCola {
     private int tipoEvento;
     private int numCliente;
     private int tiempoRelojSimulacion;
-    private ArrayList<Integer> estatusServidores;
+    private EstatusServidores estatusServidores;
     private ArrayList<Integer> listaEspera;
     private int tiempoSiguienteLlegada;
     private ArrayList<Integer> tiempoSiguienteSalida;
    
-    public SistemaCola(String unidadTiempo, int duracionSimulacion, int cantClientesPermitidos, int costoEsperaCliente, int cantServidores, int costoServidor, TablaDistribucion tablaTELL, TablaDistribucion tablaTiempoServicio) {
+    public Simulacion(String unidadTiempo, int duracionSimulacion, int cantClientesPermitidos, int costoEsperaCliente, int cantServidores, int costoServidor, TablaDistribucion tablaTELL, TablaDistribucion tablaTiempoServicio) {
         this.unidadTiempo = unidadTiempo;
         this.duracionSimulacion = duracionSimulacion;
         this.cantClientesPermitidos = cantClientesPermitidos;

@@ -53,7 +53,7 @@ public class EstatusServidores {
      * Consulta si un servidor esta ocupado
      * 
      * @param index Numero del servidor 
-     * @return Numero de cliente (en caso de estar ocupado) o 0 si esta descocupado
+     * @return Numero de cliente (en caso de estar ocupado), 0 si esta descocupado
      */
     public int estaOcupado(int index){
         return estatusServidores.get(index);
@@ -61,6 +61,7 @@ public class EstatusServidores {
      
     /**
      * Determina el numero del proximo servidor libre
+     * 
      * @return Numero del proximo servidor libre
      */
     public int siguienteServidorLibre(){
