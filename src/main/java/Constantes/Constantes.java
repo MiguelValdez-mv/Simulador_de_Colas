@@ -27,4 +27,6 @@ public class Constantes {
     public static final String NOMBRE_ARCHIVO_SALIDA = "Datos_de_salida.txt";
     public static final String DIRECCION_ARCHIVO_ENTRADA =  DIRECTORIO_ARCHIVOS + NOMBRE_ARCHIVO_ENTRADA;
     public static final String DIRECCION_ARCHIVO_SALIDA = DIRECTORIO_ARCHIVOS + NOMBRE_ARCHIVO_SALIDA;
+    
+    public static final int NUMERO_GRANDE = 999999999;
 }

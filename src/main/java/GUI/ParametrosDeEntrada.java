@@ -505,6 +505,19 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
         if(validarRadioButton(valoresManualesTiempoServicio, tablaTiempoServicioManual, valoresArchivoTiempoServicio, getTablaTiempoServicioArchivo(), Constantes.COPY_TIEMPO_SERVICIO)){
            return ;
         }
+        
+        TablaDistribucion tablaTELL = valoresManualesTELL.isSelected() ? tablaTELLManual : tablaTELLArchivo;
+        TablaDistribucion tablaTS = valoresManualesTiempoServicio.isSelected() ? tablaTiempoServicioManual : tablaTiempoServicioArchivo;
+        
+        Simulacion simulacion = new Simulacion((String) unidadTiempo.getSelectedItem(), 
+                                                Integer.parseInt(duracion.getText()),
+                                                Integer.parseInt(cantClientesPermitidos.getText()), 
+                                                Integer.parseInt(costoEsperaCliente.getText()),
+                                                Integer.parseInt(cantidadServidores.getText()), 
+                                                Integer.parseInt(costoServidor.getText()),
+                                                tablaTELL, tablaTS);
+        
+        simulacion.iniciar();
     }//GEN-LAST:event_ComenzarSimulacionActionPerformed
 
     private void AgregarValorTELLManualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarValorTELLManualActionPerformed

@@ -57,3 +57,25 @@
         System.out.println("Siguiente servidor libre: " + (lista.siguienteServidorLibre() + 1) + "\n");
         System.out.println(lista.sacarCliente(2));
         System.out.println("Siguiente servidor libre: " + (lista.siguienteServidorLibre() + 1) + "\n");
+        
+        
+        
+         System.out.println(unidadTiempo);
+        System.out.println(duracionSimulacion);
+        System.out.println(cantClientesPermitidos);
+        System.out.println(costoEsperaCliente);
+        System.out.println(cantServidores);
+        System.out.println(costoServidor);
+        System.out.println(tablaTELL.toString());
+        System.out.println(tablaTiempoServicio.toString());
+        
+        
+        Salida salida = Collections.min(salidas, Comparator.comparing(s -> s.getTiempoSalida()));
+        System.out.println("tiempo:" + salida.getTiempoSalida() + " numColumna:" + (salidas.indexOf(salida) + 1));
+        
+        salida.generarSiguienteSalida(100, 10);
+        
+        for(int i = 0; i < salidas.size(); i++){
+            System.out.println("\nNumCliente: " + salidas.get(i).getNumCliente() + " tiempoSalida: " + salidas.get(i).getTiempoSalida());   
+        }
+        
