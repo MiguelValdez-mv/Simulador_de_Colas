@@ -29,10 +29,16 @@ public class Simulacion {
     private String tipoEvento;
     private int numCliente;
     private int tiempoSimulacion;
+    private int tiempoPrevioSimulacion;
     private EstatusServidores estatusServidores;
     private LineaEspera lineaEspera;
     private int tiempoSiguienteLlegada;
+    private ArrayList<Llegada> llegadas;
     private ArrayList<Salida> salidas;
+    private int cantClientesEnSistema;
+    
+    //estadisticas
+    Estadisticas estadisticas;
       
     public Simulacion(String unidadTiempo, int duracionSimulacion, int cantClientesPermitidos, int costoEsperaCliente, int cantServidores, int costoServidor, TablaDistribucion tablaTELL, TablaDistribucion tablaTiempoServicio) {
         this.aleatorio = new Aleatorio();
@@ -48,11 +54,16 @@ public class Simulacion {
         this.tipoEvento = "Condiciones iniciales";
         this.numCliente = 0;
         this.tiempoSimulacion = 0;
+        this.tiempoPrevioSimulacion = 0;
         this.estatusServidores = new EstatusServidores(cantServidores);
         this.lineaEspera = new LineaEspera(cantClientesPermitidos, cantServidores);
         this.tiempoSiguienteLlegada = 0;
+        this.llegadas = new ArrayList<>();
         this.salidas = new ArrayList<>();
+        this.cantClientesEnSistema = 0;
+        this.estadisticas = new Estadisticas();
         
+        //Inicializamos las salidas
         for(int i = 0; i < cantServidores; i++){
             salidas.add(i, new Salida());    
         } 
@@ -67,13 +78,12 @@ public class Simulacion {
         lineaEspera             | WL
         tiempoSiguienteLlegada  | AT
         tiempoSiguienteSalida   | DT     
-    */
-    
+    */    
     public void iniciar(){    
         Salida siguienteSalida;
         int tiempoSiguienteSalida;
         int primerClienteCola;
-        int clienteSalida = 0;
+        int numClienteSalida = 0;
         
         do{
           numEvento++;
@@ -83,19 +93,36 @@ public class Simulacion {
           if(tiempoSiguienteLlegada < tiempoSiguienteSalida){
                 tipoEvento = "Llegada";
                 numCliente++;
-               
+                   
+                tiempoPrevioSimulacion = tiempoSimulacion;
                 tiempoSimulacion = tiempoSiguienteLlegada;
+                
+                estadisticas.actualizarCantLlegadas();
+                estadisticas.actualizarCantClientesEnCola(tiempoPrevioSimulacion, tiempoSimulacion, lineaEspera.longitudColaEspera());
+                estadisticas.actualizarCantClientesEnSistema(tiempoPrevioSimulacion, tiempoSimulacion, cantClientesEnSistema);
                
                 if(estatusServidores.hayServidorLibre()){
                    
                    //El cliente llega al sistema y no hace cola
                    estatusServidores.añadirCliente(estatusServidores.siguienteServidorLibre(), numCliente);
                    
+                   llegadas.add(new Llegada(numCliente, tiempoSimulacion));
                    siguienteSalida.generarSiguienteSalida(numCliente, tiempoSimulacion + generarTiempoServicio());                                        
+                
+                   cantClientesEnSistema++;
+                   estadisticas.actualizarCantClientesNoEsperan();
                 }else{
                    
-                   //El cliente llega y todos los servidores estan desocupados
-                   lineaEspera.añadirCliente(numCliente);
+                   //El cliente llega y todos los servidores estan desocupados, hace cola
+                   if(lineaEspera.añadirCliente(numCliente) == 0){
+                       
+                       //La linea de espera alcanzo su capacidad maxima, el cliente se va
+                       estadisticas.actualizarCantClientesSeVanSinAtender();
+                    }else{
+                       llegadas.add(new Llegada(numCliente, tiempoSimulacion));
+                       cantClientesEnSistema++;
+                       estadisticas.actualizarCantClientesEsperan();
+                    }
                 }
                
                tiempoSiguienteLlegada = tiempoSimulacion + generarTELL();
@@ -103,11 +130,17 @@ public class Simulacion {
             }else{
                 tipoEvento = "Salida";
 
+                tiempoPrevioSimulacion = tiempoSimulacion;
                 tiempoSimulacion = tiempoSiguienteSalida;
-
+                
+                estadisticas.actualizarCantClientesEnCola(tiempoPrevioSimulacion, tiempoSimulacion, lineaEspera.longitudColaEspera());
+                estadisticas.actualizarCantClientesEnSistema(tiempoPrevioSimulacion, tiempoSimulacion, cantClientesEnSistema);
+                cantClientesEnSistema--;
+                
                 //Finalizamos el servicio del cliente que se va
-                clienteSalida = siguienteSalida.getNumCliente();
-                estatusServidores.sacarCliente(clienteSalida);
+                numClienteSalida = siguienteSalida.getNumCliente();
+                estatusServidores.sacarCliente(numClienteSalida);
+                llegadas.remove(obtenerLlegada(numClienteSalida));
                         
                 if(lineaEspera.longitudColaEspera() > 0){
                   
@@ -119,30 +152,17 @@ public class Simulacion {
 
                     //Generamos una salida para el nuevo servicio que se genero
                     siguienteSalida.generarSiguienteSalida(primerClienteCola, tiempoSimulacion + generarTiempoServicio());             
+                
+                    estadisticas.actualizarTiempoClienteEnCola(tiempoSimulacion - llegadas.get(obtenerLlegada(primerClienteCola)).getTiempoLlegada());
+                    
                 }else{
                   
                     //No hay cola, el sistema queda vacio
                     siguienteSalida.generarSiguienteSalida(0, Constantes.NUMERO_GRANDE);
                 }    
             }
-  
-            System.out.println("----------------------------------------------------------------");
-
-            String textoSiguientesSalidas = "";
         
-            for(int i = 0; i < salidas.size(); i++){
-                textoSiguientesSalidas += "  DT" + (i + 1) + ":" + salidas.get(i).getTiempoSalida();
-            }
-            
-            System.out.println(numEvento 
-                              + ") Tipo de evento:" + tipoEvento 
-                              + "  NºCliente:" + ( tipoEvento == "Llegada" ? numCliente : clienteSalida)
-                              + "  TM:" + tiempoSimulacion 
-                              + estatusServidores.toString() 
-                              + "  WL:" + lineaEspera.longitudColaEspera() 
-                              + "  AT:" + tiempoSiguienteLlegada  + textoSiguientesSalidas);
-            System.out.println("----------------------------------------------------------------\n");
-       }while(tiempoSimulacion <= duracionSimulacion); 
+        }while(tiempoSimulacion <= duracionSimulacion); 
     }
     
     /**
@@ -155,7 +175,7 @@ public class Simulacion {
     }
     
     
-     /**
+    /**
      * Genera un tiempo entre llegadas mediante un numero aleatorio
      * 
      * @return Tiempo entre llegadas aleatorio
@@ -181,4 +201,21 @@ public class Simulacion {
         //En caso de que no hayan 9999 se busca el valor minimo de salidas actuales de la tabla
         return Collections.min(salidas, Comparator.comparing(s -> s.getTiempoSalida()));
     }
+    
+    
+    /**
+     * Busca una llegada de la "lista de llegadas" a partir del numero del cliente
+     * 
+     * @param numCliente Index del numero del cliente
+     */
+    public int obtenerLlegada(int numCliente){
+        for(int i = 0; i < llegadas.size(); i++){
+            if(llegadas.get(i).getNumCliente() == numCliente){
+                return i;
+            }
+        }
+        
+        return -1;
+    }
 }
+

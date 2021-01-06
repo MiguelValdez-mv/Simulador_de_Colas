@@ -73,7 +73,7 @@ public class LineaEspera {
         String salida="Linea de espera: \n";
         
         for(int i = 0; i < colaEspera.size(); i++){
-            salida += "Posicion: " + i + " ocupada por el cliente Nº: " + colaEspera.get(i);
+            salida += "Posicion: " + (i + 1) + " ocupada por el cliente Nº: " + colaEspera.get(i) + "\n";
         }
 
         return salida;

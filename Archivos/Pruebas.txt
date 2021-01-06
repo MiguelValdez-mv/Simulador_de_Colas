@@ -78,4 +78,34 @@
         for(int i = 0; i < salidas.size(); i++){
             System.out.println("\nNumCliente: " + salidas.get(i).getNumCliente() + " tiempoSalida: " + salidas.get(i).getTiempoSalida());   
         }
-        
+
+
+  System.out.println("*****************************************************************");
+            
+            System.out.println("\nTabla de Eventos:");
+            System.out.println("----------------------------------------------------------------");
+            String textoSiguientesSalidas = "";
+            for(int i = 0; i < salidas.size(); i++){
+                textoSiguientesSalidas += "  DT" + (i + 1) + ":" + salidas.get(i).getTiempoSalida();
+            }
+            
+            System.out.println(numEvento 
+                              + ") Tipo de evento:" + tipoEvento 
+                              + "  NºCliente:" + ( tipoEvento == "Llegada" ? numCliente : clienteSalida)
+                              + "  TM:" + tiempoSimulacion 
+                              + estatusServidores.toString() 
+                              + "  WL:" + lineaEspera.longitudColaEspera() 
+                              + "  AT:" + tiempoSiguienteLlegada  + textoSiguientesSalidas);
+            System.out.println("----------------------------------------------------------------\n");
+            
+            System.out.println(lineaEspera.toString() + "\n");
+            
+            String textoStatusServidores = "Estatus Servidores: \n";
+            
+            for(int i = 0; i < estatusServidores.getServidores().size(); i++){
+                textoStatusServidores+= "Servidor:" + (i + 1) + " ocupado por el cliente Nº: " + estatusServidores.getServidores().get(i) + "\n"; 
+            }
+            
+            System.out.println(textoStatusServidores);
+            System.out.println("*****************************************************************\n");
+    

@@ -12,6 +12,10 @@ import java.util.*;
 public class EstatusServidores {
     private final int cantServidores;
     private ArrayList<Integer> servidores;
+
+    public ArrayList<Integer> getServidores() {
+        return servidores;
+    }
     
     public EstatusServidores(int cantServidores) {
         this.cantServidores = cantServidores;
@@ -101,5 +105,5 @@ public class EstatusServidores {
         }
 
         return salida;
-    }
+    }   
 }
