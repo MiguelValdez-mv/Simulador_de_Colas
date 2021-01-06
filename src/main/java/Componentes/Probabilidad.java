@@ -7,7 +7,7 @@ package Componentes;
  * probabilidad acumulada y sus bordes (tanto inferior como superior)
  * 
  * @version Nº1 28/12/2020
- * @author Miguel Valdez
+ * @author angel-rs
  */
 public class Probabilidad {
     private int valor;

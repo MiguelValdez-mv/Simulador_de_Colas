@@ -10,7 +10,7 @@ import Constantes.Constantes;
  * usados para la simulacion
  * 
  * @version Nº1 29/12/2020 
- * @author Miguel Valdez
+ * @author angel-rs
  */
 public class AdministradorArchivo {
     private File archivoEntrada;

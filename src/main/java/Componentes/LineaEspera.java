@@ -7,7 +7,7 @@ import java.util.*;
  * Esta clase gestiona la linea de espera del sistema
  * 
  * @version Nº1 28/12/2020
- * @author Miguel Valdez
+ * @author angel-rs
  */
 public class LineaEspera {
     private int capacidad;

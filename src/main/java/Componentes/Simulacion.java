@@ -181,4 +181,8 @@ public class Simulacion {
         //En caso de que no hayan 9999 se busca el valor minimo de salidas actuales de la tabla
         return Collections.min(salidas, Comparator.comparing(s -> s.getTiempoSalida()));
     }
+
+    public ArrayList<Salida> getSalidas() {
+        return salidas;
+    }
 }
