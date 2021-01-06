@@ -139,9 +139,10 @@ public class AdministradorArchivo {
      * Escribe la salida en el archivo Datos_de_salida.txt
      * 
      * @param valor Valor que sera agregado a la salida y sera escrito en el 
+     * @param notify si se imprime en pantalla la notificacion del resultado de la escritura
      * archivo
      */
-    public void escribirSalida(String valor){
+    public void escribirSalida(String valor, boolean notify) {
         salida = salida + valor;
         try{
             BufferedWriter bw = new BufferedWriter(new FileWriter(archivoSalida));
@@ -149,9 +150,14 @@ public class AdministradorArchivo {
             pw.write(salida);
             pw.close();
             bw.close();
-            MensajeModal.info("El archivo: " + Constantes.NOMBRE_ARCHIVO_SALIDA + " fue actualizado exitosamente!");
-        }catch(IOException err){
-            MensajeModal.error("Hubo un error durante la escritura en el archivo: " + Constantes.NOMBRE_ARCHIVO_SALIDA + "...");
+            if(notify) {
+                MensajeModal.info("El archivo: " + Constantes.NOMBRE_ARCHIVO_SALIDA + " fue actualizado exitosamente!");
+            }
+        } catch(IOException err){
+            if(notify) {
+                MensajeModal.error("Hubo un error durante la escritura en el archivo: " + Constantes.NOMBRE_ARCHIVO_SALIDA + "...");
+            }
+            
         }
     }
        
