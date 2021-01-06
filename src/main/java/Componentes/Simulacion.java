@@ -250,5 +250,9 @@ public class Simulacion {
     public String salidaSimulacion(){
         return estadisticas.toString() + (presentarTablaEventos ? cadenaTablaEventos : "");
     }
+
+    public ArrayList<Salida> getSalidas() {
+        return salidas;
+    }
 }
 
