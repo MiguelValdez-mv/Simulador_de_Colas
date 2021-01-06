@@ -1,6 +1,7 @@
 
 package Componentes;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
@@ -11,6 +12,7 @@ import java.util.ArrayList;
  */
 public class Estadisticas {
     
+    private String unidadTiempo;
     private int cantClientesNoEsperan;
     private int cantClientesSeVanSinAtender;
     private int cantClientesEsperan;
@@ -21,17 +23,35 @@ public class Estadisticas {
     private double tiempoEnCola;
     private double tiempoEnSistema;
     private double tiempoAdicional;
-    private ArrayList<Double> porcentajeUtilizacion;
     private double porcentajeUtilizacionGeneral;
     private double relacionOptima;
+    private ArrayList<Double> porcentajeUtilizacion;
+    DecimalFormat formato;
     
-    public Estadisticas(int numeroServidores){
+
+    public Estadisticas(int numeroServidores, String unidadTiempo){
+        this.cantClientesNoEsperan = 0;
+        this.cantClientesSeVanSinAtender = 0;
+        this.cantClientesEsperan = 0;
+        this.cantLlegadas = 0;
+        this.probabilidadEspera = 0;
+        this.cantClientesEnCola = 0;
+        this.cantClientesEnSistema = 0;
+        this.tiempoEnCola = 0;
+        this.tiempoEnSistema = 0;
+        this.tiempoAdicional = 0;
+        this.porcentajeUtilizacionGeneral = 0;
+        this.relacionOptima = 0;
+        this.unidadTiempo = unidadTiempo.toLowerCase();
         this.porcentajeUtilizacion = new ArrayList<>();
+        DecimalFormat formato = new DecimalFormat("#.00");
         
         for(int i = 0; i < numeroServidores; i++){
             porcentajeUtilizacion.add(0.0);
         }
     }
+    
+    
        
     public void actualizarCantClientesNoEsperan(){
         cantClientesNoEsperan++;
@@ -204,4 +224,33 @@ public class Estadisticas {
         
         calcularRelacionOptima(costoServidor, costoEsperaCliente);
     }
+    
+  
+    @Override
+    public String toString() {
+        String cadenaClientes = " clientes";
+        String cadenaPorcentaje = "%";
+        String cadenaPorcentajesUtilizacion = "\nPorcentaje de utilizacion por servidor:\n";
+        
+        for(int i = 0; i < porcentajeUtilizacion.size(); i++){
+            cadenaPorcentajesUtilizacion += "Numero de servidor:" 
+                                         + (i + 1) + ", porcentaje de utilizacion:" 
+                                         + porcentajeUtilizacion.get(i) * 100
+                                         + cadenaPorcentaje + "\n";
+        }
+        
+        
+        return "ESTADISTICAS DE LA SIMULACION \n"
+               + "\nCantidad de clientes que no esperan: " + cantClientesNoEsperan + cadenaClientes
+               + "\nCantidad de clientes que se van sin ser atentidos: " + cantClientesSeVanSinAtender + cadenaClientes
+               + "\nProbabilidad de esperar (expresado en porcentaje %): " + (probabilidadEspera * 100) + cadenaPorcentaje 
+               + "\nCantidad promedio de clientes en cola: " + cantClientesEnCola + cadenaClientes
+               + "\nCantidad promedio de clientes en el sistema: " + cantClientesEnSistema + cadenaClientes
+               + "\nTiempo promedio de un cliente en cola: " + tiempoEnCola + " " + unidadTiempo
+               + "\nTiempo promedio de un cliente en el sistema " + tiempoEnSistema + " " + unidadTiempo
+               + "\nTiempo adicional: " + tiempoAdicional + " " + unidadTiempo
+               + "\nRelacion optima: Se recomienda agregar " + relacionOptima + " servidores" 
+               + "\nPorcentaje de utilizacion general de los servidores: " + (porcentajeUtilizacionGeneral * 100) + cadenaPorcentaje
+               + cadenaPorcentajesUtilizacion + "\n"; 
+    } 
 }

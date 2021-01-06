@@ -515,9 +515,13 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
                                                 Integer.parseInt(costoEsperaCliente.getText()),
                                                 Integer.parseInt(cantidadServidores.getText()), 
                                                 Integer.parseInt(costoServidor.getText()),
-                                                tablaTELL, tablaTS);
-        
+                                                tablaTELL, tablaTS, presentarTablaEventos.isSelected());
         simulacion.iniciar();
+        
+        this.setVisible(false);
+        ParametrosDeSalida parametrosSalida = new ParametrosDeSalida();
+        parametrosSalida.setVisible(true);
+        parametrosSalida.mostrarSalida(simulacion.salidaSimulacion());
     }//GEN-LAST:event_ComenzarSimulacionActionPerformed
 
     private void AgregarValorTELLManualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarValorTELLManualActionPerformed

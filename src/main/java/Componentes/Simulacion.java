@@ -13,6 +13,7 @@ import Constantes.Constantes;
 public class Simulacion {
     
     private Aleatorio aleatorio;
+    private String cadenaTablaEventos;
     
     // Parametros de entrada
     private String unidadTiempo;
@@ -23,6 +24,7 @@ public class Simulacion {
     private int costoServidor;  
     private TablaDistribucion tablaTELL;
     private TablaDistribucion tablaTiempoServicio;
+    private boolean presentarTablaEventos;
     
     // Condiciones iniciales 
     private int numEvento;
@@ -40,7 +42,7 @@ public class Simulacion {
     //estadisticas
     Estadisticas estadisticas;
       
-    public Simulacion(String unidadTiempo, int duracionSimulacion, int cantClientesPermitidos, int costoEsperaCliente, int cantServidores, int costoServidor, TablaDistribucion tablaTELL, TablaDistribucion tablaTiempoServicio) {
+    public Simulacion(String unidadTiempo, int duracionSimulacion, int cantClientesPermitidos, int costoEsperaCliente, int cantServidores, int costoServidor, TablaDistribucion tablaTELL, TablaDistribucion tablaTiempoServicio, boolean presentarTablaEventos) {
         this.aleatorio = new Aleatorio();
         this.unidadTiempo = unidadTiempo;
         this.duracionSimulacion = duracionSimulacion;
@@ -61,14 +63,19 @@ public class Simulacion {
         this.llegadas = new ArrayList<>();
         this.salidas = new ArrayList<>();
         this.cantClientesEnSistema = 0;
-        this.estadisticas = new Estadisticas(cantServidores);
+        this.estadisticas = new Estadisticas(cantServidores, unidadTiempo);
+        this.presentarTablaEventos = presentarTablaEventos;
         
         //Inicializamos las salidas
         for(int i = 0; i < cantServidores; i++){
             salidas.add(i, new Salida());    
         } 
     }
-    
+
+    public Estadisticas getEstadisticas() {
+        return estadisticas;
+    }
+   
     /*
         numEvento
         tipoEvento
@@ -84,6 +91,8 @@ public class Simulacion {
         int tiempoSiguienteSalida;
         int primerClienteCola;
         int numClienteSalida = 0;
+        
+        cadenaTablaEventos = "\n\n\nTABLA DE EVENTOS \n\n*****************************************************************\n";
         
         do{
           numEvento++;
@@ -156,7 +165,7 @@ public class Simulacion {
                     //Le asignamos un servidor a ese cliente
                     estatusServidores.añadirCliente(estatusServidores.siguienteServidorLibre(), primerClienteCola);
 
-                    //Generamos una salida para el nuevo servicio que se genero
+                    //Generamos una salida para el nuevo servicio que se genero (EN EL PROXIMO SERVIDOR LIBRE)
                     siguienteSalida.generarSiguienteSalida(primerClienteCola, tiempoSimulacion + generarTiempoServicio());             
                 
                     estadisticas.actualizarTiempoClienteEnCola(tiempoSimulacion, llegadas.get(obtenerLlegada(primerClienteCola)).getTiempoLlegada());
@@ -168,24 +177,21 @@ public class Simulacion {
                 }    
             }
           
-            System.out.println("*****************************************************************");
-            System.out.println("\nTabla de Eventos:");
-            System.out.println("----------------------------------------------------------------");   
-            System.out.println(numEvento  + ") Tipo de evento:" + tipoEvento 
-                              + "  NºCliente:" + ( tipoEvento == "Llegada" ? numCliente : numClienteSalida)
-                              + "  TM:" + tiempoSimulacion 
-                              + estatusServidores.toString() 
-                              + "  WL:" + lineaEspera.longitudColaEspera() 
-                              + "  AT:" + tiempoSiguienteLlegada  + imprimirSalidas());
-            System.out.println("----------------------------------------------------------------\n");
-            System.out.println(lineaEspera.toString() + "\n");
-            System.out.println(estatusServidores.imprimirDetallesEstatusServidores());
-            System.out.println("*****************************************************************\n");
+            cadenaTablaEventos += "\nTabla del evento:\n----------------------------------------------------------------\n"
+                                + numEvento  + ") Tipo de evento:" + tipoEvento 
+                                + "  NºCliente:" + ( tipoEvento == "Llegada" ? numCliente : numClienteSalida)
+                                + "  TM:" + tiempoSimulacion 
+                                + estatusServidores.toString() 
+                                + "  WL:" + lineaEspera.longitudColaEspera() 
+                                + "  AT:" + tiempoSiguienteLlegada  + imprimirSalidas() 
+                                + "\n----------------------------------------------------------------\n"
+                                + lineaEspera.toString() + "\n" 
+                                + estatusServidores.imprimirDetallesEstatusServidores()
+                                + "\n*****************************************************************\n"; 
         
         }while(tiempoSimulacion <= duracionSimulacion);
         
         estadisticas.obtenerEstadisticas(tiempoSimulacion, duracionSimulacion, costoServidor, costoEsperaCliente);
-    
     }
     
     /**
@@ -239,6 +245,10 @@ public class Simulacion {
             }
             
         return textoSiguientesSalidas;
+    }
+    
+    public String salidaSimulacion(){
+        return estadisticas.toString() + (presentarTablaEventos ? cadenaTablaEventos : "");
     }
 }
 

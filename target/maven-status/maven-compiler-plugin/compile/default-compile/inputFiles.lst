@@ -1,6 +1,7 @@
 /home/miguelandres/NetBeansProjects/ProyectoIO-2021/src/main/java/Componentes/Llegada.java
 /home/miguelandres/NetBeansProjects/ProyectoIO-2021/src/main/java/GUI/ParametrosDeEntrada.java
 /home/miguelandres/NetBeansProjects/ProyectoIO-2021/src/main/java/Componentes/Salida.java
+/home/miguelandres/NetBeansProjects/ProyectoIO-2021/src/main/java/GUI/ParametrosDeSalida.java
 /home/miguelandres/NetBeansProjects/ProyectoIO-2021/src/main/java/Componentes/AdministradorArchivo.java
 /home/miguelandres/NetBeansProjects/ProyectoIO-2021/src/main/java/Componentes/TablaDistribucion.java
 /home/miguelandres/NetBeansProjects/ProyectoIO-2021/src/main/java/Componentes/Simulacion.java
@@ -11,7 +12,6 @@
 /home/miguelandres/NetBeansProjects/ProyectoIO-2021/src/main/java/Utils/Aleatorio.java
 /home/miguelandres/NetBeansProjects/ProyectoIO-2021/src/main/java/Utils/MensajeModal.java
 /home/miguelandres/NetBeansProjects/ProyectoIO-2021/src/main/java/Utils/Cadena.java
-/home/miguelandres/NetBeansProjects/ProyectoIO-2021/src/main/java/GUI/ParametrosSalida.java
 /home/miguelandres/NetBeansProjects/ProyectoIO-2021/src/main/java/Principal/Principal.java
 /home/miguelandres/NetBeansProjects/ProyectoIO-2021/src/main/java/Componentes/EstatusServidores.java
 /home/miguelandres/NetBeansProjects/ProyectoIO-2021/src/main/java/Componentes/Estadisticas.java

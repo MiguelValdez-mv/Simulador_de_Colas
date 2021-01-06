@@ -1,6 +1,7 @@
 package Principal;
 
 import GUI.ParametrosDeEntrada;
+import GUI.ParametrosDeSalida;
 
 /**
  * Esta sera la clase principal del proyecto
@@ -16,7 +17,7 @@ public class Principal {
      * @param args Argumentos de la linea de comandos
      */
     public static void main(String[] args) {
-       ParametrosDeEntrada Formulario = new ParametrosDeEntrada();
-       Formulario.setVisible(true);
+       ParametrosDeEntrada parametrosEntrada = new ParametrosDeEntrada();
+       parametrosEntrada.setVisible(true);
     }    
 }
