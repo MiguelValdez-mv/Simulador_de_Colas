@@ -13,10 +13,6 @@ public class EstatusServidores {
     private final int cantServidores;
     private ArrayList<Integer> servidores;
 
-    public ArrayList<Integer> getServidores() {
-        return servidores;
-    }
-    
     public EstatusServidores(int cantServidores) {
         this.cantServidores = cantServidores;
         this.servidores = new ArrayList<>();
@@ -24,6 +20,14 @@ public class EstatusServidores {
         for(int i = 0; i < cantServidores; i++){
             servidores.add(i, 0);    
         }
+    }
+    
+    public ArrayList<Integer> getServidores() {
+        return servidores;
+    }
+
+    public int getCantServidores() {
+        return cantServidores;
     }
     
     /**
@@ -94,6 +98,19 @@ public class EstatusServidores {
         }
         
         return -1; //Todos los servidores estan ocupados
+    }
+    
+    public String imprimirDetallesEstatusServidores(){
+        String textoStatusServidores = "Estatus Servidores: \n";
+        String cadenaOcupado;
+        String cadenaDesocupado = " actualmente desocupado \n";
+            
+            for(int i = 0; i < servidores.size(); i++){
+                cadenaOcupado = " ocupado por el cliente Nº: " + servidores.get(i) + "\n";
+                textoStatusServidores+= "Servidor:" + (i + 1) + (estaOcupado(i) > 0 ? cadenaOcupado : cadenaDesocupado); 
+            }
+        
+        return textoStatusServidores;
     }
     
     @Override

@@ -61,7 +61,7 @@ public class Simulacion {
         this.llegadas = new ArrayList<>();
         this.salidas = new ArrayList<>();
         this.cantClientesEnSistema = 0;
-        this.estadisticas = new Estadisticas();
+        this.estadisticas = new Estadisticas(cantServidores);
         
         //Inicializamos las salidas
         for(int i = 0; i < cantServidores; i++){
@@ -100,7 +100,8 @@ public class Simulacion {
                 estadisticas.actualizarCantLlegadas();
                 estadisticas.actualizarCantClientesEnCola(tiempoPrevioSimulacion, tiempoSimulacion, lineaEspera.longitudColaEspera());
                 estadisticas.actualizarCantClientesEnSistema(tiempoPrevioSimulacion, tiempoSimulacion, cantClientesEnSistema);
-               
+                estadisticas.actualizarPorcentajesUtilizacionServidores(tiempoPrevioSimulacion, tiempoSimulacion, estatusServidores);
+                
                 if(estatusServidores.hayServidorLibre()){
                    
                    //El cliente llega al sistema y no hace cola
@@ -139,9 +140,11 @@ public class Simulacion {
                 
                 //Finalizamos el servicio del cliente que se va
                 numClienteSalida = siguienteSalida.getNumCliente();
+                estadisticas.actualizarTiempoClienteEnSistema(llegadas.get(obtenerLlegada(numClienteSalida)).getTiempoLlegada(), tiempoSimulacion);
                 estatusServidores.sacarCliente(numClienteSalida);
                 llegadas.remove(obtenerLlegada(numClienteSalida));
-                        
+                estadisticas.actualizarPorcentajesUtilizacionServidores(tiempoPrevioSimulacion, tiempoSimulacion, estatusServidores);
+                
                 if(lineaEspera.longitudColaEspera() > 0){
                   
                     //Buscamos al primer cliente de la cola para que este sea atentido
@@ -153,7 +156,7 @@ public class Simulacion {
                     //Generamos una salida para el nuevo servicio que se genero
                     siguienteSalida.generarSiguienteSalida(primerClienteCola, tiempoSimulacion + generarTiempoServicio());             
                 
-                    estadisticas.actualizarTiempoClienteEnCola(tiempoSimulacion - llegadas.get(obtenerLlegada(primerClienteCola)).getTiempoLlegada());
+                    estadisticas.actualizarTiempoClienteEnCola(tiempoSimulacion, llegadas.get(obtenerLlegada(primerClienteCola)).getTiempoLlegada());
                     
                 }else{
                   
@@ -161,8 +164,25 @@ public class Simulacion {
                     siguienteSalida.generarSiguienteSalida(0, Constantes.NUMERO_GRANDE);
                 }    
             }
+          
+            System.out.println("*****************************************************************");
+            System.out.println("\nTabla de Eventos:");
+            System.out.println("----------------------------------------------------------------");   
+            System.out.println(numEvento  + ") Tipo de evento:" + tipoEvento 
+                              + "  NºCliente:" + ( tipoEvento == "Llegada" ? numCliente : numClienteSalida)
+                              + "  TM:" + tiempoSimulacion 
+                              + estatusServidores.toString() 
+                              + "  WL:" + lineaEspera.longitudColaEspera() 
+                              + "  AT:" + tiempoSiguienteLlegada  + imprimirSalidas());
+            System.out.println("----------------------------------------------------------------\n");
+            System.out.println(lineaEspera.toString() + "\n");
+            System.out.println(estatusServidores.imprimirDetallesEstatusServidores());
+            System.out.println("*****************************************************************\n");
         
-        }while(tiempoSimulacion <= duracionSimulacion); 
+        }while(tiempoSimulacion <= duracionSimulacion);
+        
+        estadisticas.obtenerEstadisticas(tiempoSimulacion, duracionSimulacion, costoServidor, costoEsperaCliente);
+    
     }
     
     /**
@@ -173,8 +193,7 @@ public class Simulacion {
     public int generarTiempoServicio(){
         return tablaTiempoServicio.obtenerValor(aleatorio.generarAleatorio());
     }
-    
-    
+        
     /**
      * Genera un tiempo entre llegadas mediante un numero aleatorio
      * 
@@ -190,7 +209,7 @@ public class Simulacion {
      * @return Siguiente salida
      */
     public Salida obtenerSiguienteSalida(){
-        
+       
         //Buscamos si hay algun 9999
         for(Salida salida: salidas){
             if(salida.getTiempoSalida() == Constantes.NUMERO_GRANDE){
@@ -216,6 +235,16 @@ public class Simulacion {
         }
         
         return -1;
+    }
+    
+    public String imprimirSalidas(){
+        String textoSiguientesSalidas = "";
+        
+            for(int i = 0; i < salidas.size(); i++){
+                textoSiguientesSalidas += "  DT" + (i + 1) + ":" + salidas.get(i).getTiempoSalida();
+            }
+            
+        return textoSiguientesSalidas;
     }
 }
 
