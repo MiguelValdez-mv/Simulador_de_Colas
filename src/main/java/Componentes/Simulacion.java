@@ -104,12 +104,15 @@ public class Simulacion {
                 
                 if(estatusServidores.hayServidorLibre()){
                    
-                   //El cliente llega al sistema y no hace cola
-                   estatusServidores.añadirCliente(estatusServidores.siguienteServidorLibre(), numCliente);
+                    //El cliente llega al sistema y no hace cola
+                    int siguienteServidorLibre = estatusServidores.siguienteServidorLibre();
+                 
+                    estatusServidores.añadirCliente(siguienteServidorLibre, numCliente);
                    
-                   llegadas.add(new Llegada(numCliente, tiempoSimulacion));
-                   siguienteSalida.generarSiguienteSalida(numCliente, tiempoSimulacion + generarTiempoServicio());                                        
-                
+                    llegadas.add(new Llegada(numCliente, tiempoSimulacion));
+                   
+                    salidas.get(siguienteServidorLibre).generarSiguienteSalida(numCliente, tiempoSimulacion + generarTiempoServicio());  
+      
                    cantClientesEnSistema++;
                    estadisticas.actualizarCantClientesNoEsperan();
                 }else{
@@ -209,15 +212,6 @@ public class Simulacion {
      * @return Siguiente salida
      */
     public Salida obtenerSiguienteSalida(){
-       
-        //Buscamos si hay algun 9999
-        for(Salida salida: salidas){
-            if(salida.getTiempoSalida() == Constantes.NUMERO_GRANDE){
-               return salida;
-            }
-        }
-        
-        //En caso de que no hayan 9999 se busca el valor minimo de salidas actuales de la tabla
         return Collections.min(salidas, Comparator.comparing(s -> s.getTiempoSalida()));
     }
     
