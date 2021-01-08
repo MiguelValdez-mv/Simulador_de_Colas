@@ -224,7 +224,11 @@ public class Estadisticas {
         
         calcularRelacionOptima(costoServidor, costoEsperaCliente);
     }
-    
+
+    public static double round(double value, int places) {
+        double scale = Math.pow(10, places);
+        return Math.round(value * scale) / scale;
+    }
   
     @Override
     public String toString() {
@@ -235,7 +239,7 @@ public class Estadisticas {
         for(int i = 0; i < porcentajeUtilizacion.size(); i++){
             cadenaPorcentajesUtilizacion += "Numero de servidor:" 
                                          + (i + 1) + ", porcentaje de utilizacion:" 
-                                         + porcentajeUtilizacion.get(i) * 100
+                                         + this.round(porcentajeUtilizacion.get(i) * 100, 3)
                                          + cadenaPorcentaje + "\n";
         }
         
@@ -243,14 +247,14 @@ public class Estadisticas {
         return "ESTADISTICAS DE LA SIMULACION \n"
                + "\nCantidad de clientes que no esperan: " + cantClientesNoEsperan + cadenaClientes
                + "\nCantidad de clientes que se van sin ser atentidos: " + cantClientesSeVanSinAtender + cadenaClientes
-               + "\nProbabilidad de esperar (expresado en porcentaje %): " + (probabilidadEspera * 100) + cadenaPorcentaje 
-               + "\nCantidad promedio de clientes en cola: " + cantClientesEnCola + cadenaClientes
-               + "\nCantidad promedio de clientes en el sistema: " + cantClientesEnSistema + cadenaClientes
-               + "\nTiempo promedio de un cliente en cola: " + tiempoEnCola + " " + unidadTiempo
-               + "\nTiempo promedio de un cliente en el sistema " + tiempoEnSistema + " " + unidadTiempo
-               + "\nTiempo adicional: " + tiempoAdicional + " " + unidadTiempo
-               + "\nRelacion optima: Se recomienda agregar " + relacionOptima + " servidores" 
-               + "\nPorcentaje de utilizacion general de los servidores: " + (porcentajeUtilizacionGeneral * 100) + cadenaPorcentaje
+               + "\nProbabilidad de esperar (expresado en porcentaje %): " + this.round(probabilidadEspera * 100, 3) + cadenaPorcentaje 
+               + "\nCantidad promedio de clientes en cola: " + this.round(cantClientesEnCola, 3) + cadenaClientes
+               + "\nCantidad promedio de clientes en el sistema: " + this.round(cantClientesEnSistema, 3) + cadenaClientes
+               + "\nTiempo promedio de un cliente en cola: " + this.round(tiempoEnCola, 3) + " " + unidadTiempo
+               + "\nTiempo promedio de un cliente en el sistema " + this.round(tiempoEnSistema, 3) + " " + unidadTiempo
+               + "\nTiempo adicional: " + this.round(tiempoAdicional, 3) + " " + unidadTiempo
+               + "\nRelacion optima: Se recomienda agregar " + this.round(relacionOptima, 3) + " servidores" 
+               + "\nPorcentaje de utilizacion general de los servidores: " + this.round(porcentajeUtilizacionGeneral * 100, 3) + cadenaPorcentaje
                + cadenaPorcentajesUtilizacion + "\n"; 
     } 
 }
