@@ -124,6 +124,6 @@ public class Probabilidad {
     
     @Override
     public String toString() {
-        return "Valor: " + valor + ", Porcentaje: " + porcentaje + ", Porcentaje acum: " + porcentajeAcum + ", Intervalo: " + bordeInferior + " - " + bordeSuperior;
+        return " -> Valor: " + valor + ", Porcentaje: " + porcentaje + ", Porcentaje acum: " + porcentajeAcum + ", Intervalo: " + bordeInferior + " - " + bordeSuperior;
     }
 }

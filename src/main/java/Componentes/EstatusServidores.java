@@ -101,13 +101,13 @@ public class EstatusServidores {
     }
     
     public String imprimirDetallesEstatusServidores(){
-        String textoStatusServidores = "Estatus Servidores: \n";
+        String textoStatusServidores = "* Estatus Servidores: \n";
         String cadenaOcupado;
         String cadenaDesocupado = " actualmente desocupado \n";
             
             for(int i = 0; i < servidores.size(); i++){
                 cadenaOcupado = " ocupado por el cliente Nº: " + servidores.get(i) + "\n";
-                textoStatusServidores+= "Servidor:" + (i + 1) + (estaOcupado(i) > 0 ? cadenaOcupado : cadenaDesocupado); 
+                textoStatusServidores+= " -> Servidor: " + (i + 1) + (estaOcupado(i) > 0 ? cadenaOcupado : cadenaDesocupado); 
             }
         
         return textoStatusServidores;

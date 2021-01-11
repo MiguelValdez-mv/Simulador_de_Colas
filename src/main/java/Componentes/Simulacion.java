@@ -24,7 +24,6 @@ public class Simulacion {
     private int costoServidor;  
     private TablaDistribucion tablaTELL;
     private TablaDistribucion tablaTiempoServicio;
-    private boolean presentarTablaEventos;
     
     // Condiciones iniciales 
     private int numEvento;
@@ -42,7 +41,7 @@ public class Simulacion {
     //estadisticas
     Estadisticas estadisticas;
       
-    public Simulacion(String unidadTiempo, int duracionSimulacion, int cantClientesPermitidos, int costoEsperaCliente, int cantServidores, int costoServidor, TablaDistribucion tablaTELL, TablaDistribucion tablaTiempoServicio, boolean presentarTablaEventos) {
+    public Simulacion(String unidadTiempo, int duracionSimulacion, int cantClientesPermitidos, int costoEsperaCliente, int cantServidores, int costoServidor, TablaDistribucion tablaTELL, TablaDistribucion tablaTiempoServicio) {
         this.aleatorio = new Aleatorio();
         this.unidadTiempo = unidadTiempo;
         this.duracionSimulacion = duracionSimulacion;
@@ -64,7 +63,6 @@ public class Simulacion {
         this.salidas = new ArrayList<>();
         this.cantClientesEnSistema = 0;
         this.estadisticas = new Estadisticas(cantServidores, unidadTiempo);
-        this.presentarTablaEventos = presentarTablaEventos;
         
         //Inicializamos las salidas
         for(int i = 0; i < cantServidores; i++){
@@ -92,7 +90,7 @@ public class Simulacion {
         int primerClienteCola;
         int numClienteSalida = 0;
         
-        cadenaTablaEventos = "\n\n\nTABLA DE EVENTOS \n\n*****************************************************************\n";
+        cadenaTablaEventos = "\n\nTABLA DE EVENTOS: \n\n/////////////////////////////////////////////////////////////////\n";
         
         do{
           numEvento++;
@@ -177,7 +175,7 @@ public class Simulacion {
                 }    
             }
           
-            cadenaTablaEventos += "\nTabla del evento:\n----------------------------------------------------------------\n"
+            cadenaTablaEventos += "\n* Tabla del evento:\n----------------------------------------------------------------\n"
                                 + numEvento  + ") Tipo de evento:" + tipoEvento 
                                 + "  NºCliente:" + ( tipoEvento == "Llegada" ? numCliente : numClienteSalida)
                                 + "  TM:" + tiempoSimulacion 
@@ -185,9 +183,9 @@ public class Simulacion {
                                 + "  WL:" + lineaEspera.longitudColaEspera() 
                                 + "  AT:" + tiempoSiguienteLlegada  + imprimirSalidas() 
                                 + "\n----------------------------------------------------------------\n"
-                                + lineaEspera.toString() + "\n" 
+                                + "\n" + lineaEspera.toString() + "\n" 
                                 + estatusServidores.imprimirDetallesEstatusServidores()
-                                + "\n*****************************************************************\n"; 
+                                + "\n/////////////////////////////////////////////////////////////////\n"; 
         
         }while(tiempoSimulacion <= duracionSimulacion);
         
@@ -237,6 +235,12 @@ public class Simulacion {
         return -1;
     }
     
+     /**
+     * Retorna la cadena que contiene las proximas salidas de todos los servidores
+     * del sistema
+     * 
+     * @return Cadena con las proximas salidas del sistema
+     */
     public String imprimirSalidas(){
         String textoSiguientesSalidas = "";
         
@@ -247,10 +251,43 @@ public class Simulacion {
         return textoSiguientesSalidas;
     }
     
-    public String salidaSimulacion(){
-        return estadisticas.toString() + (presentarTablaEventos ? cadenaTablaEventos : "");
+    /**
+     * Retorna la cadena que contiene los parametros de entrada de la simulacion del sistema
+     * 
+     * @return Cadena con los parametros de entrada de la simulacion
+     */
+    public String imprimirParametrosEntradaSimulacion(){
+        String unidadTiempoXDolar = unidadTiempo + "/$";
+        
+        return "PARAMETROS DE ENTRADA DE LA SIMULACION\n" 
+                                + "\n* Unidad de tiempo: " + unidadTiempo
+                                + "\n* Duracion de la simulacion: " + duracionSimulacion + " " + unidadTiempo
+                                + "\n* Cantidad de clientes permitidos: " + cantClientesPermitidos + " clientes"
+                                + "\n* Costo de espera del cliente: " + costoEsperaCliente + " " + unidadTiempoXDolar
+                                + "\n* Cantidad de servidores: " + cantServidores + " servidores"
+                                + "\n* Costo de cada servidor: " + costoServidor + " " + unidadTiempoXDolar 
+                                + "\n" + tablaTELL.toString() 
+                                + "\n" + tablaTiempoServicio.toString() + "\n\n\n\n";
     }
-
+    
+    /**
+     * Retorna la cadena que contiene las estadisticas de la simulacion del sistema
+     * 
+     * @return Cadena con las estadisticas de la simulacion del sistema
+     */
+    public String imprimirEstadisticasSimulacion(){
+        return estadisticas.toString();
+    }
+    
+    /**
+     * Retorna la cadena que contiene la tabla de eventos de la simulacion del sistema
+     * 
+     * @return Cadena con la tabla de eventos de la simulacion del sistema
+     */
+    public String getCadenaTablaEventos(){
+        return cadenaTablaEventos;
+    }
+    
     public ArrayList<Salida> getSalidas() {
         return salidas;
     }

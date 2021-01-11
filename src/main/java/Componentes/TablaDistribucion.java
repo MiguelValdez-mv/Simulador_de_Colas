@@ -160,7 +160,7 @@ public class TablaDistribucion {
     
     @Override
     public String toString (){
-        String cadenaTabla = "Tabla de distribucion " + nombreParametro.toLowerCase()  + ":\n";
+        String cadenaTabla = "* Tabla de distribucion " + nombreParametro.toLowerCase()  + ":";
         for (Probabilidad probabilidad : listaProbabilidades) {
             cadenaTabla = cadenaTabla + "\n" + probabilidad.toString();
         }

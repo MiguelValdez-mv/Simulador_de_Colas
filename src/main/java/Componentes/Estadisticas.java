@@ -234,27 +234,27 @@ public class Estadisticas {
     public String toString() {
         String cadenaClientes = " clientes";
         String cadenaPorcentaje = "%";
-        String cadenaPorcentajesUtilizacion = "\nPorcentaje de utilizacion por servidor:\n";
+        String cadenaPorcentajesUtilizacion = "\n* Porcentaje de utilizacion por servidor:\n";
         
         for(int i = 0; i < porcentajeUtilizacion.size(); i++){
-            cadenaPorcentajesUtilizacion += "Numero de servidor:" 
-                                         + (i + 1) + ", porcentaje de utilizacion:" 
+            cadenaPorcentajesUtilizacion += " -> Numero de servidor: " 
+                                         + (i + 1) + ", porcentaje de utilizacion: " 
                                          + this.round(porcentajeUtilizacion.get(i) * 100, 3)
                                          + cadenaPorcentaje + "\n";
         }
         
         
         return "ESTADISTICAS DE LA SIMULACION \n"
-               + "\nCantidad de clientes que no esperan: " + cantClientesNoEsperan + cadenaClientes
-               + "\nCantidad de clientes que se van sin ser atentidos: " + cantClientesSeVanSinAtender + cadenaClientes
-               + "\nProbabilidad de esperar (expresado en porcentaje %): " + this.round(probabilidadEspera * 100, 3) + cadenaPorcentaje 
-               + "\nCantidad promedio de clientes en cola: " + this.round(cantClientesEnCola, 3) + cadenaClientes
-               + "\nCantidad promedio de clientes en el sistema: " + this.round(cantClientesEnSistema, 3) + cadenaClientes
-               + "\nTiempo promedio de un cliente en cola: " + this.round(tiempoEnCola, 3) + " " + unidadTiempo
-               + "\nTiempo promedio de un cliente en el sistema " + this.round(tiempoEnSistema, 3) + " " + unidadTiempo
-               + "\nTiempo adicional: " + this.round(tiempoAdicional, 3) + " " + unidadTiempo
-               + "\nRelacion optima: Se recomienda agregar " + this.round(relacionOptima, 3) + " servidores" 
-               + "\nPorcentaje de utilizacion general de los servidores: " + this.round(porcentajeUtilizacionGeneral * 100, 3) + cadenaPorcentaje
+               + "\n* Cantidad de clientes que no esperan: " + cantClientesNoEsperan + cadenaClientes
+               + "\n* Cantidad de clientes que se van sin ser atentidos: " + cantClientesSeVanSinAtender + cadenaClientes
+               + "\n* Probabilidad de esperar (expresado en porcentaje %): " + this.round(probabilidadEspera * 100, 3) + cadenaPorcentaje 
+               + "\n* Cantidad promedio de clientes en cola: " + this.round(cantClientesEnCola, 3) + cadenaClientes
+               + "\n* Cantidad promedio de clientes en el sistema: " + this.round(cantClientesEnSistema, 3) + cadenaClientes
+               + "\n* Tiempo promedio de un cliente en cola: " + this.round(tiempoEnCola, 3) + " " + unidadTiempo
+               + "\n* Tiempo promedio de un cliente en el sistema " + this.round(tiempoEnSistema, 3) + " " + unidadTiempo
+               + "\n* Tiempo adicional: " + this.round(tiempoAdicional, 3) + " " + unidadTiempo
+               + "\n* Relacion optima: Se recomienda agregar " + this.round(relacionOptima, 3) + " servidores" 
+               + "\n* Porcentaje de utilizacion general de los servidores: " + this.round(porcentajeUtilizacionGeneral * 100, 3) + cadenaPorcentaje
                + cadenaPorcentajesUtilizacion + "\n"; 
     } 
 }

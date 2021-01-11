@@ -518,14 +518,17 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
                                                 Integer.parseInt(costoEsperaCliente.getText()),
                                                 Integer.parseInt(cantidadServidores.getText()), 
                                                 Integer.parseInt(costoServidor.getText()),
-                                                tablaTELL, tablaTS, presentarTablaEventos.isSelected());
+                                                tablaTELL, tablaTS);
         simulacion.iniciar();
-        String datosSalidaSimulacion = simulacion.salidaSimulacion();
+        
         // guardar en archivo
         Timestamp momentoActual = new Timestamp(System.currentTimeMillis());
         File archivoSalidaSimulacion = new File(Constantes.DIRECTORIO_ARCHIVOS + "simulacion_" + momentoActual.getTime() + ".txt");
         this.manejadorArchivo.setArchivoSalida(archivoSalidaSimulacion);
-        this.manejadorArchivo.escribirSalida(datosSalidaSimulacion, false);
+        this.manejadorArchivo.escribirSalida(simulacion.imprimirParametrosEntradaSimulacion() 
+                                            + simulacion.imprimirEstadisticasSimulacion()
+                                            + simulacion.getCadenaTablaEventos()
+                                            , false);
 
         // restaurar archivo salida, por si acaso
         this.manejadorArchivo.setArchivoSalida(new File(Constantes.DIRECCION_ARCHIVO_SALIDA));
@@ -535,7 +538,8 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
         
         // mostrar en pantalla
         parametrosSalida.setVisible(true);
-        parametrosSalida.mostrarSalida(datosSalidaSimulacion);
+        parametrosSalida.mostrarSalida(simulacion.imprimirEstadisticasSimulacion() 
+                                      + (presentarTablaEventos.isSelected() ? simulacion.getCadenaTablaEventos() : ""));
     }//GEN-LAST:event_ComenzarSimulacionActionPerformed
 
     private void AgregarValorTELLManualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarValorTELLManualActionPerformed
