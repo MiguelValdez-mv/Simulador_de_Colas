@@ -539,7 +539,7 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
         // mostrar en pantalla
         parametrosSalida.setVisible(true);
         parametrosSalida.mostrarSalida(simulacion.imprimirEstadisticasSimulacion() 
-                                      + (presentarTablaEventos.isSelected() ? simulacion.getCadenaTablaEventos() : ""));
+                                      + simulacion.getCadenaTablaEventos());
     }//GEN-LAST:event_ComenzarSimulacionActionPerformed
 
     private void AgregarValorTELLManualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarValorTELLManualActionPerformed

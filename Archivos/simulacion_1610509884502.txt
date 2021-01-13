@@ -1,0 +1,57 @@
+PARAMETROS DE ENTRADA DE LA SIMULACION
+
+* Unidad de tiempo: Segundos
+* Duracion de la simulacion: 1 Segundos
+* Cantidad de clientes permitidos: 9999 clientes
+* Costo de espera del cliente: 5 Segundos/$
+* Cantidad de servidores: 2 servidores
+* Costo de cada servidor: 5 Segundos/$
+* Tabla de distribucion tiempo entre llegadas:
+ -> Valor: 1, Porcentaje: 50, Porcentaje acum: 50, Intervalo: 0 - 49
+ -> Valor: 2, Porcentaje: 20, Porcentaje acum: 70, Intervalo: 50 - 69
+ -> Valor: 3, Porcentaje: 20, Porcentaje acum: 90, Intervalo: 70 - 89
+ -> Valor: 4, Porcentaje: 2, Porcentaje acum: 92, Intervalo: 90 - 91
+ -> Valor: 5, Porcentaje: 8, Porcentaje acum: 100, Intervalo: 92 - 99
+* Tabla de distribucion tiempo de servicio:
+ -> Valor: 5, Porcentaje: 20, Porcentaje acum: 20, Intervalo: 0 - 19
+ -> Valor: 7, Porcentaje: 30, Porcentaje acum: 50, Intervalo: 20 - 49
+ -> Valor: 8, Porcentaje: 30, Porcentaje acum: 80, Intervalo: 50 - 79
+ -> Valor: 9, Porcentaje: 10, Porcentaje acum: 90, Intervalo: 80 - 89
+ -> Valor: 10, Porcentaje: 10, Porcentaje acum: 100, Intervalo: 90 - 99
+
+
+
+ESTADISTICAS DE LA SIMULACION 
+
+* Cantidad de clientes que no esperan: 1 clientes
+* Cantidad de clientes que se van sin ser atentidos: 0 clientes
+* Probabilidad de esperar (expresado en porcentaje %): 0.0%
+* Cantidad promedio de clientes en cola: 0.0 clientes
+* Cantidad promedio de clientes en el sistema: 0.0 clientes
+* Tiempo promedio de un cliente en cola: 0.0 segundos
+* Tiempo promedio de un cliente en el sistema 0.0 segundos
+* Tiempo adicional: -1.0 segundos
+* Relacion optima: Se recomienda agregar 0.0 servidores
+* Porcentaje de utilizacion general de los servidores: 0.0%
+* Porcentaje de utilizacion por servidor:
+ -> Numero de servidor: 1, porcentaje de utilizacion: 0.0%
+ -> Numero de servidor: 2, porcentaje de utilizacion: 0.0%
+
+
+
+TABLA DE EVENTOS: 
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+1) Tipo de evento:Llegada  NºCliente:1  TM:0  SS1:1  SS2:0  WL:0  AT:2  DT1:7  DT2:999999999
+----------------------------------------------------------------
+
+* Linea de espera: 
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 1
+ -> Servidor: 2 actualmente desocupado 
+
+/////////////////////////////////////////////////////////////////

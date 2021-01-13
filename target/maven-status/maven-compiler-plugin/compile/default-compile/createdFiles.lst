@@ -6,6 +6,7 @@ Componentes/TablaDistribucion.class
 GUI/ParametrosDeEntrada$9.class
 GUI/ParametrosDeSalida$1.class
 Componentes/EstatusServidores.class
+Componentes/TablaDatosClientes.class
 Utils/Cadena.class
 GUI/ParametrosDeEntrada$10.class
 Constantes/Constantes.class
@@ -21,4 +22,5 @@ GUI/ParametrosDeSalida.class
 Componentes/AdministradorArchivo.class
 Utils/Aleatorio.class
 Principal/Principal.class
+Componentes/TuplaDatosCliente.class
 Componentes/Estadisticas.class

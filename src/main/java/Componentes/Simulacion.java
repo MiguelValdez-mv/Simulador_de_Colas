@@ -40,6 +40,8 @@ public class Simulacion {
     
     //estadisticas
     Estadisticas estadisticas;
+    
+    private TablaDatosClientes tablaDatosClientes;
       
     public Simulacion(String unidadTiempo, int duracionSimulacion, int cantClientesPermitidos, int costoEsperaCliente, int cantServidores, int costoServidor, TablaDistribucion tablaTELL, TablaDistribucion tablaTiempoServicio) {
         this.aleatorio = new Aleatorio();
@@ -63,6 +65,7 @@ public class Simulacion {
         this.salidas = new ArrayList<>();
         this.cantClientesEnSistema = 0;
         this.estadisticas = new Estadisticas(cantServidores, unidadTiempo);
+        this.tablaDatosClientes = new TablaDatosClientes();
         
         //Inicializamos las salidas
         for(int i = 0; i < cantServidores; i++){
@@ -89,6 +92,21 @@ public class Simulacion {
         int tiempoSiguienteSalida;
         int primerClienteCola;
         int numClienteSalida = 0;
+        int siguienteServidorLibre;
+        
+        /*/* -->>>>>>>>>>>>>>>> AÑADIR DATOS DE LA TABLA */
+        tablaDatosClientes.añadirCliente(1, 0, 3);
+        tablaDatosClientes.añadirCliente(2, 2, 3);
+        tablaDatosClientes.añadirCliente(3, 2, 2);
+        tablaDatosClientes.añadirCliente(4, 3, 1);
+        tablaDatosClientes.añadirCliente(5, 4, 1);
+        tablaDatosClientes.añadirCliente(6, 2, 2);
+        tablaDatosClientes.añadirCliente(7, 1, 1);
+        tablaDatosClientes.añadirCliente(8, 3, 2);
+        tablaDatosClientes.añadirCliente(9, 3, 0);
+        tablaDatosClientes.añadirCliente(10, 6, 3);
+        tablaDatosClientes.añadirCliente(11, 3, 7);
+        tablaDatosClientes.añadirCliente(12, 3, 7); 
         
         cadenaTablaEventos = "\n\nTABLA DE EVENTOS: \n\n/////////////////////////////////////////////////////////////////\n";
         
@@ -112,19 +130,23 @@ public class Simulacion {
                 if(estatusServidores.hayServidorLibre()){
                    
                     //El cliente llega al sistema y no hace cola
-                    int siguienteServidorLibre = estatusServidores.siguienteServidorLibre();
+                    
+                    //Se obtiene el numero del proximo servidor libre
+                   siguienteServidorLibre = estatusServidores.siguienteServidorLibre();
                  
+                    //Se asigna ese servidor libre al cliente que esta llegado para que este sea atentido
                     estatusServidores.añadirCliente(siguienteServidorLibre, numCliente);
                    
                     llegadas.add(new Llegada(numCliente, tiempoSimulacion));
                    
-                    salidas.get(siguienteServidorLibre).generarSiguienteSalida(numCliente, tiempoSimulacion + generarTiempoServicio());  
+                    //Se genera una salida en el servidor libre que fue asignado al cliente en el paso anterior
+                    salidas.get(siguienteServidorLibre).generarSiguienteSalida(numCliente, tiempoSimulacion + tablaDatosClientes.buscarCliente(numCliente).getTS());  
       
                    cantClientesEnSistema++;
                    estadisticas.actualizarCantClientesNoEsperan();
                 }else{
                    
-                   //El cliente llega y todos los servidores estan desocupados, hace cola
+                   //El cliente llega y todos los servidores estan ocupados, hace cola
                    if(lineaEspera.añadirCliente(numCliente) == 0){
                        
                        //La linea de espera alcanzo su capacidad maxima, el cliente se va
@@ -136,7 +158,7 @@ public class Simulacion {
                     }
                 }
                
-               tiempoSiguienteLlegada = tiempoSimulacion + generarTELL();
+               tiempoSiguienteLlegada = tiempoSimulacion + tablaDatosClientes.buscarCliente(numCliente + 1).getTELL();
                
             }else{
                 tipoEvento = "Salida";
@@ -149,9 +171,13 @@ public class Simulacion {
                 cantClientesEnSistema--;
                 
                 //Finalizamos el servicio del cliente que se va
+                
+                //Obtenemos el numero del cliente que se va
                 numClienteSalida = siguienteSalida.getNumCliente();
                 estadisticas.actualizarTiempoClienteEnSistema(llegadas.get(obtenerLlegada(numClienteSalida)).getTiempoLlegada(), tiempoSimulacion);
-                estatusServidores.sacarCliente(numClienteSalida);
+                
+                //Sacamos al cliente que va a salir del sistema del servidor en donde estaba siendo atentido
+                siguienteServidorLibre = estatusServidores.sacarCliente(numClienteSalida);
                 llegadas.remove(obtenerLlegada(numClienteSalida));
                 estadisticas.actualizarPorcentajesUtilizacionServidores(tiempoPrevioSimulacion, tiempoSimulacion, estatusServidores);
                 
@@ -161,10 +187,10 @@ public class Simulacion {
                     primerClienteCola = lineaEspera.sacarCliente();
 
                     //Le asignamos un servidor a ese cliente
-                    estatusServidores.añadirCliente(estatusServidores.siguienteServidorLibre(), primerClienteCola);
+                    estatusServidores.añadirCliente(siguienteServidorLibre, primerClienteCola);
 
                     //Generamos una salida para el nuevo servicio que se genero (EN EL PROXIMO SERVIDOR LIBRE)
-                    siguienteSalida.generarSiguienteSalida(primerClienteCola, tiempoSimulacion + generarTiempoServicio());             
+                    siguienteSalida.generarSiguienteSalida(primerClienteCola, tiempoSimulacion + tablaDatosClientes.buscarCliente(primerClienteCola).getTS());             
                 
                     estadisticas.actualizarTiempoClienteEnCola(tiempoSimulacion, llegadas.get(obtenerLlegada(primerClienteCola)).getTiempoLlegada());
                     
@@ -187,7 +213,9 @@ public class Simulacion {
                                 + estatusServidores.imprimirDetallesEstatusServidores()
                                 + "\n/////////////////////////////////////////////////////////////////\n"; 
         
-        }while(tiempoSimulacion <= duracionSimulacion);
+            
+        /* -->>>>>>>>>>>>>>>>COLOCAR LA CANTIDAD DE EVENTOS */
+        }while(numEvento < 16);
         
         estadisticas.obtenerEstadisticas(tiempoSimulacion, duracionSimulacion, costoServidor, costoEsperaCliente);
     }

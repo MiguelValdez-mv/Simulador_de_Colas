@@ -1,0 +1,2967 @@
+PARAMETROS DE ENTRADA DE LA SIMULACION
+
+* Unidad de tiempo: Segundos
+* Duracion de la simulacion: 200 Segundos
+* Cantidad de clientes permitidos: 7 clientes
+* Costo de espera del cliente: 5 Segundos/$
+* Cantidad de servidores: 2 servidores
+* Costo de cada servidor: 5 Segundos/$
+* Tabla de distribucion tiempo entre llegadas:
+ -> Valor: 1, Porcentaje: 50, Porcentaje acum: 50, Intervalo: 0 - 49
+ -> Valor: 2, Porcentaje: 20, Porcentaje acum: 70, Intervalo: 50 - 69
+ -> Valor: 3, Porcentaje: 20, Porcentaje acum: 90, Intervalo: 70 - 89
+ -> Valor: 4, Porcentaje: 2, Porcentaje acum: 92, Intervalo: 90 - 91
+ -> Valor: 5, Porcentaje: 8, Porcentaje acum: 100, Intervalo: 92 - 99
+* Tabla de distribucion tiempo de servicio:
+ -> Valor: 5, Porcentaje: 20, Porcentaje acum: 20, Intervalo: 0 - 19
+ -> Valor: 7, Porcentaje: 30, Porcentaje acum: 50, Intervalo: 20 - 49
+ -> Valor: 8, Porcentaje: 30, Porcentaje acum: 80, Intervalo: 50 - 79
+ -> Valor: 9, Porcentaje: 10, Porcentaje acum: 90, Intervalo: 80 - 89
+ -> Valor: 10, Porcentaje: 10, Porcentaje acum: 100, Intervalo: 90 - 99
+
+
+
+ESTADISTICAS DE LA SIMULACION 
+
+* Cantidad de clientes que no esperan: 2 clientes
+* Cantidad de clientes que se van sin ser atentidos: 54 clientes
+* Probabilidad de esperar (expresado en porcentaje %): 0.0%
+* Cantidad promedio de clientes en cola: 4.658 clientes
+* Cantidad promedio de clientes en el sistema: 6.649 clientes
+* Tiempo promedio de un cliente en cola: 7.746 segundos
+* Tiempo promedio de un cliente en el sistema 10.886 segundos
+* Tiempo adicional: 2.0 segundos
+* Relacion optima: Se recomienda agregar 4.658 servidores
+* Porcentaje de utilizacion general de los servidores: 77.97%
+* Porcentaje de utilizacion por servidor:
+ -> Numero de servidor: 1, porcentaje de utilizacion: 78.218%
+ -> Numero de servidor: 2, porcentaje de utilizacion: 77.723%
+
+
+
+TABLA DE EVENTOS: 
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+1) Tipo de evento:Llegada  NºCliente:1  TM:0  SS1:1  SS2:0  WL:0  AT:2  DT1:8  DT2:999999999
+----------------------------------------------------------------
+
+* Linea de espera: 
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 1
+ -> Servidor: 2 actualmente desocupado 
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+2) Tipo de evento:Llegada  NºCliente:2  TM:2  SS1:1  SS2:1  WL:0  AT:4  DT1:8  DT2:10
+----------------------------------------------------------------
+
+* Linea de espera: 
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 1
+ -> Servidor: 2 ocupado por el cliente Nº: 2
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+3) Tipo de evento:Llegada  NºCliente:3  TM:4  SS1:1  SS2:1  WL:1  AT:5  DT1:8  DT2:10
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 3
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 1
+ -> Servidor: 2 ocupado por el cliente Nº: 2
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+4) Tipo de evento:Llegada  NºCliente:4  TM:5  SS1:1  SS2:1  WL:2  AT:6  DT1:8  DT2:10
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 3
+ -> Posicion: 2 ocupada por el cliente Nº: 4
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 1
+ -> Servidor: 2 ocupado por el cliente Nº: 2
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+5) Tipo de evento:Llegada  NºCliente:5  TM:6  SS1:1  SS2:1  WL:3  AT:7  DT1:8  DT2:10
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 3
+ -> Posicion: 2 ocupada por el cliente Nº: 4
+ -> Posicion: 3 ocupada por el cliente Nº: 5
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 1
+ -> Servidor: 2 ocupado por el cliente Nº: 2
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+6) Tipo de evento:Llegada  NºCliente:6  TM:7  SS1:1  SS2:1  WL:4  AT:8  DT1:8  DT2:10
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 3
+ -> Posicion: 2 ocupada por el cliente Nº: 4
+ -> Posicion: 3 ocupada por el cliente Nº: 5
+ -> Posicion: 4 ocupada por el cliente Nº: 6
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 1
+ -> Servidor: 2 ocupado por el cliente Nº: 2
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+7) Tipo de evento:Salida  NºCliente:1  TM:8  SS1:1  SS2:1  WL:3  AT:8  DT1:16  DT2:10
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 4
+ -> Posicion: 2 ocupada por el cliente Nº: 5
+ -> Posicion: 3 ocupada por el cliente Nº: 6
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 3
+ -> Servidor: 2 ocupado por el cliente Nº: 2
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+8) Tipo de evento:Llegada  NºCliente:7  TM:8  SS1:1  SS2:1  WL:4  AT:9  DT1:16  DT2:10
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 4
+ -> Posicion: 2 ocupada por el cliente Nº: 5
+ -> Posicion: 3 ocupada por el cliente Nº: 6
+ -> Posicion: 4 ocupada por el cliente Nº: 7
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 3
+ -> Servidor: 2 ocupado por el cliente Nº: 2
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+9) Tipo de evento:Llegada  NºCliente:8  TM:9  SS1:1  SS2:1  WL:5  AT:10  DT1:16  DT2:10
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 4
+ -> Posicion: 2 ocupada por el cliente Nº: 5
+ -> Posicion: 3 ocupada por el cliente Nº: 6
+ -> Posicion: 4 ocupada por el cliente Nº: 7
+ -> Posicion: 5 ocupada por el cliente Nº: 8
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 3
+ -> Servidor: 2 ocupado por el cliente Nº: 2
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+10) Tipo de evento:Salida  NºCliente:2  TM:10  SS1:1  SS2:1  WL:4  AT:10  DT1:16  DT2:20
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 5
+ -> Posicion: 2 ocupada por el cliente Nº: 6
+ -> Posicion: 3 ocupada por el cliente Nº: 7
+ -> Posicion: 4 ocupada por el cliente Nº: 8
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 3
+ -> Servidor: 2 ocupado por el cliente Nº: 4
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+11) Tipo de evento:Llegada  NºCliente:9  TM:10  SS1:1  SS2:1  WL:5  AT:11  DT1:16  DT2:20
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 5
+ -> Posicion: 2 ocupada por el cliente Nº: 6
+ -> Posicion: 3 ocupada por el cliente Nº: 7
+ -> Posicion: 4 ocupada por el cliente Nº: 8
+ -> Posicion: 5 ocupada por el cliente Nº: 9
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 3
+ -> Servidor: 2 ocupado por el cliente Nº: 4
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+12) Tipo de evento:Llegada  NºCliente:10  TM:11  SS1:1  SS2:1  WL:5  AT:12  DT1:16  DT2:20
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 5
+ -> Posicion: 2 ocupada por el cliente Nº: 6
+ -> Posicion: 3 ocupada por el cliente Nº: 7
+ -> Posicion: 4 ocupada por el cliente Nº: 8
+ -> Posicion: 5 ocupada por el cliente Nº: 9
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 3
+ -> Servidor: 2 ocupado por el cliente Nº: 4
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+13) Tipo de evento:Llegada  NºCliente:11  TM:12  SS1:1  SS2:1  WL:5  AT:17  DT1:16  DT2:20
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 5
+ -> Posicion: 2 ocupada por el cliente Nº: 6
+ -> Posicion: 3 ocupada por el cliente Nº: 7
+ -> Posicion: 4 ocupada por el cliente Nº: 8
+ -> Posicion: 5 ocupada por el cliente Nº: 9
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 3
+ -> Servidor: 2 ocupado por el cliente Nº: 4
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+14) Tipo de evento:Salida  NºCliente:3  TM:16  SS1:1  SS2:1  WL:4  AT:17  DT1:23  DT2:20
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 6
+ -> Posicion: 2 ocupada por el cliente Nº: 7
+ -> Posicion: 3 ocupada por el cliente Nº: 8
+ -> Posicion: 4 ocupada por el cliente Nº: 9
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 5
+ -> Servidor: 2 ocupado por el cliente Nº: 4
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+15) Tipo de evento:Llegada  NºCliente:12  TM:17  SS1:1  SS2:1  WL:5  AT:20  DT1:23  DT2:20
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 6
+ -> Posicion: 2 ocupada por el cliente Nº: 7
+ -> Posicion: 3 ocupada por el cliente Nº: 8
+ -> Posicion: 4 ocupada por el cliente Nº: 9
+ -> Posicion: 5 ocupada por el cliente Nº: 12
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 5
+ -> Servidor: 2 ocupado por el cliente Nº: 4
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+16) Tipo de evento:Salida  NºCliente:4  TM:20  SS1:1  SS2:1  WL:4  AT:20  DT1:23  DT2:28
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 7
+ -> Posicion: 2 ocupada por el cliente Nº: 8
+ -> Posicion: 3 ocupada por el cliente Nº: 9
+ -> Posicion: 4 ocupada por el cliente Nº: 12
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 5
+ -> Servidor: 2 ocupado por el cliente Nº: 6
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+17) Tipo de evento:Llegada  NºCliente:13  TM:20  SS1:1  SS2:1  WL:5  AT:23  DT1:23  DT2:28
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 7
+ -> Posicion: 2 ocupada por el cliente Nº: 8
+ -> Posicion: 3 ocupada por el cliente Nº: 9
+ -> Posicion: 4 ocupada por el cliente Nº: 12
+ -> Posicion: 5 ocupada por el cliente Nº: 13
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 5
+ -> Servidor: 2 ocupado por el cliente Nº: 6
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+18) Tipo de evento:Salida  NºCliente:5  TM:23  SS1:1  SS2:1  WL:4  AT:23  DT1:33  DT2:28
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 8
+ -> Posicion: 2 ocupada por el cliente Nº: 9
+ -> Posicion: 3 ocupada por el cliente Nº: 12
+ -> Posicion: 4 ocupada por el cliente Nº: 13
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 7
+ -> Servidor: 2 ocupado por el cliente Nº: 6
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+19) Tipo de evento:Llegada  NºCliente:14  TM:23  SS1:1  SS2:1  WL:5  AT:24  DT1:33  DT2:28
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 8
+ -> Posicion: 2 ocupada por el cliente Nº: 9
+ -> Posicion: 3 ocupada por el cliente Nº: 12
+ -> Posicion: 4 ocupada por el cliente Nº: 13
+ -> Posicion: 5 ocupada por el cliente Nº: 14
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 7
+ -> Servidor: 2 ocupado por el cliente Nº: 6
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+20) Tipo de evento:Llegada  NºCliente:15  TM:24  SS1:1  SS2:1  WL:5  AT:26  DT1:33  DT2:28
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 8
+ -> Posicion: 2 ocupada por el cliente Nº: 9
+ -> Posicion: 3 ocupada por el cliente Nº: 12
+ -> Posicion: 4 ocupada por el cliente Nº: 13
+ -> Posicion: 5 ocupada por el cliente Nº: 14
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 7
+ -> Servidor: 2 ocupado por el cliente Nº: 6
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+21) Tipo de evento:Llegada  NºCliente:16  TM:26  SS1:1  SS2:1  WL:5  AT:29  DT1:33  DT2:28
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 8
+ -> Posicion: 2 ocupada por el cliente Nº: 9
+ -> Posicion: 3 ocupada por el cliente Nº: 12
+ -> Posicion: 4 ocupada por el cliente Nº: 13
+ -> Posicion: 5 ocupada por el cliente Nº: 14
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 7
+ -> Servidor: 2 ocupado por el cliente Nº: 6
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+22) Tipo de evento:Salida  NºCliente:6  TM:28  SS1:1  SS2:1  WL:4  AT:29  DT1:33  DT2:36
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 9
+ -> Posicion: 2 ocupada por el cliente Nº: 12
+ -> Posicion: 3 ocupada por el cliente Nº: 13
+ -> Posicion: 4 ocupada por el cliente Nº: 14
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 7
+ -> Servidor: 2 ocupado por el cliente Nº: 8
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+23) Tipo de evento:Llegada  NºCliente:17  TM:29  SS1:1  SS2:1  WL:5  AT:30  DT1:33  DT2:36
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 9
+ -> Posicion: 2 ocupada por el cliente Nº: 12
+ -> Posicion: 3 ocupada por el cliente Nº: 13
+ -> Posicion: 4 ocupada por el cliente Nº: 14
+ -> Posicion: 5 ocupada por el cliente Nº: 17
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 7
+ -> Servidor: 2 ocupado por el cliente Nº: 8
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+24) Tipo de evento:Llegada  NºCliente:18  TM:30  SS1:1  SS2:1  WL:5  AT:31  DT1:33  DT2:36
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 9
+ -> Posicion: 2 ocupada por el cliente Nº: 12
+ -> Posicion: 3 ocupada por el cliente Nº: 13
+ -> Posicion: 4 ocupada por el cliente Nº: 14
+ -> Posicion: 5 ocupada por el cliente Nº: 17
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 7
+ -> Servidor: 2 ocupado por el cliente Nº: 8
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+25) Tipo de evento:Llegada  NºCliente:19  TM:31  SS1:1  SS2:1  WL:5  AT:34  DT1:33  DT2:36
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 9
+ -> Posicion: 2 ocupada por el cliente Nº: 12
+ -> Posicion: 3 ocupada por el cliente Nº: 13
+ -> Posicion: 4 ocupada por el cliente Nº: 14
+ -> Posicion: 5 ocupada por el cliente Nº: 17
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 7
+ -> Servidor: 2 ocupado por el cliente Nº: 8
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+26) Tipo de evento:Salida  NºCliente:7  TM:33  SS1:1  SS2:1  WL:4  AT:34  DT1:41  DT2:36
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 12
+ -> Posicion: 2 ocupada por el cliente Nº: 13
+ -> Posicion: 3 ocupada por el cliente Nº: 14
+ -> Posicion: 4 ocupada por el cliente Nº: 17
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 9
+ -> Servidor: 2 ocupado por el cliente Nº: 8
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+27) Tipo de evento:Llegada  NºCliente:20  TM:34  SS1:1  SS2:1  WL:5  AT:35  DT1:41  DT2:36
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 12
+ -> Posicion: 2 ocupada por el cliente Nº: 13
+ -> Posicion: 3 ocupada por el cliente Nº: 14
+ -> Posicion: 4 ocupada por el cliente Nº: 17
+ -> Posicion: 5 ocupada por el cliente Nº: 20
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 9
+ -> Servidor: 2 ocupado por el cliente Nº: 8
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+28) Tipo de evento:Llegada  NºCliente:21  TM:35  SS1:1  SS2:1  WL:5  AT:36  DT1:41  DT2:36
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 12
+ -> Posicion: 2 ocupada por el cliente Nº: 13
+ -> Posicion: 3 ocupada por el cliente Nº: 14
+ -> Posicion: 4 ocupada por el cliente Nº: 17
+ -> Posicion: 5 ocupada por el cliente Nº: 20
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 9
+ -> Servidor: 2 ocupado por el cliente Nº: 8
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+29) Tipo de evento:Salida  NºCliente:8  TM:36  SS1:1  SS2:1  WL:4  AT:36  DT1:41  DT2:45
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 13
+ -> Posicion: 2 ocupada por el cliente Nº: 14
+ -> Posicion: 3 ocupada por el cliente Nº: 17
+ -> Posicion: 4 ocupada por el cliente Nº: 20
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 9
+ -> Servidor: 2 ocupado por el cliente Nº: 12
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+30) Tipo de evento:Llegada  NºCliente:22  TM:36  SS1:1  SS2:1  WL:5  AT:37  DT1:41  DT2:45
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 13
+ -> Posicion: 2 ocupada por el cliente Nº: 14
+ -> Posicion: 3 ocupada por el cliente Nº: 17
+ -> Posicion: 4 ocupada por el cliente Nº: 20
+ -> Posicion: 5 ocupada por el cliente Nº: 22
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 9
+ -> Servidor: 2 ocupado por el cliente Nº: 12
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+31) Tipo de evento:Llegada  NºCliente:23  TM:37  SS1:1  SS2:1  WL:5  AT:39  DT1:41  DT2:45
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 13
+ -> Posicion: 2 ocupada por el cliente Nº: 14
+ -> Posicion: 3 ocupada por el cliente Nº: 17
+ -> Posicion: 4 ocupada por el cliente Nº: 20
+ -> Posicion: 5 ocupada por el cliente Nº: 22
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 9
+ -> Servidor: 2 ocupado por el cliente Nº: 12
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+32) Tipo de evento:Llegada  NºCliente:24  TM:39  SS1:1  SS2:1  WL:5  AT:40  DT1:41  DT2:45
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 13
+ -> Posicion: 2 ocupada por el cliente Nº: 14
+ -> Posicion: 3 ocupada por el cliente Nº: 17
+ -> Posicion: 4 ocupada por el cliente Nº: 20
+ -> Posicion: 5 ocupada por el cliente Nº: 22
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 9
+ -> Servidor: 2 ocupado por el cliente Nº: 12
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+33) Tipo de evento:Llegada  NºCliente:25  TM:40  SS1:1  SS2:1  WL:5  AT:41  DT1:41  DT2:45
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 13
+ -> Posicion: 2 ocupada por el cliente Nº: 14
+ -> Posicion: 3 ocupada por el cliente Nº: 17
+ -> Posicion: 4 ocupada por el cliente Nº: 20
+ -> Posicion: 5 ocupada por el cliente Nº: 22
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 9
+ -> Servidor: 2 ocupado por el cliente Nº: 12
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+34) Tipo de evento:Salida  NºCliente:9  TM:41  SS1:1  SS2:1  WL:4  AT:41  DT1:49  DT2:45
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 14
+ -> Posicion: 2 ocupada por el cliente Nº: 17
+ -> Posicion: 3 ocupada por el cliente Nº: 20
+ -> Posicion: 4 ocupada por el cliente Nº: 22
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 13
+ -> Servidor: 2 ocupado por el cliente Nº: 12
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+35) Tipo de evento:Llegada  NºCliente:26  TM:41  SS1:1  SS2:1  WL:5  AT:46  DT1:49  DT2:45
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 14
+ -> Posicion: 2 ocupada por el cliente Nº: 17
+ -> Posicion: 3 ocupada por el cliente Nº: 20
+ -> Posicion: 4 ocupada por el cliente Nº: 22
+ -> Posicion: 5 ocupada por el cliente Nº: 26
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 13
+ -> Servidor: 2 ocupado por el cliente Nº: 12
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+36) Tipo de evento:Salida  NºCliente:12  TM:45  SS1:1  SS2:1  WL:4  AT:46  DT1:49  DT2:50
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 17
+ -> Posicion: 2 ocupada por el cliente Nº: 20
+ -> Posicion: 3 ocupada por el cliente Nº: 22
+ -> Posicion: 4 ocupada por el cliente Nº: 26
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 13
+ -> Servidor: 2 ocupado por el cliente Nº: 14
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+37) Tipo de evento:Llegada  NºCliente:27  TM:46  SS1:1  SS2:1  WL:5  AT:49  DT1:49  DT2:50
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 17
+ -> Posicion: 2 ocupada por el cliente Nº: 20
+ -> Posicion: 3 ocupada por el cliente Nº: 22
+ -> Posicion: 4 ocupada por el cliente Nº: 26
+ -> Posicion: 5 ocupada por el cliente Nº: 27
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 13
+ -> Servidor: 2 ocupado por el cliente Nº: 14
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+38) Tipo de evento:Salida  NºCliente:13  TM:49  SS1:1  SS2:1  WL:4  AT:49  DT1:54  DT2:50
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 20
+ -> Posicion: 2 ocupada por el cliente Nº: 22
+ -> Posicion: 3 ocupada por el cliente Nº: 26
+ -> Posicion: 4 ocupada por el cliente Nº: 27
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 17
+ -> Servidor: 2 ocupado por el cliente Nº: 14
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+39) Tipo de evento:Llegada  NºCliente:28  TM:49  SS1:1  SS2:1  WL:5  AT:50  DT1:54  DT2:50
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 20
+ -> Posicion: 2 ocupada por el cliente Nº: 22
+ -> Posicion: 3 ocupada por el cliente Nº: 26
+ -> Posicion: 4 ocupada por el cliente Nº: 27
+ -> Posicion: 5 ocupada por el cliente Nº: 28
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 17
+ -> Servidor: 2 ocupado por el cliente Nº: 14
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+40) Tipo de evento:Salida  NºCliente:14  TM:50  SS1:1  SS2:1  WL:4  AT:50  DT1:54  DT2:55
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 22
+ -> Posicion: 2 ocupada por el cliente Nº: 26
+ -> Posicion: 3 ocupada por el cliente Nº: 27
+ -> Posicion: 4 ocupada por el cliente Nº: 28
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 17
+ -> Servidor: 2 ocupado por el cliente Nº: 20
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+41) Tipo de evento:Llegada  NºCliente:29  TM:50  SS1:1  SS2:1  WL:5  AT:52  DT1:54  DT2:55
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 22
+ -> Posicion: 2 ocupada por el cliente Nº: 26
+ -> Posicion: 3 ocupada por el cliente Nº: 27
+ -> Posicion: 4 ocupada por el cliente Nº: 28
+ -> Posicion: 5 ocupada por el cliente Nº: 29
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 17
+ -> Servidor: 2 ocupado por el cliente Nº: 20
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+42) Tipo de evento:Llegada  NºCliente:30  TM:52  SS1:1  SS2:1  WL:5  AT:54  DT1:54  DT2:55
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 22
+ -> Posicion: 2 ocupada por el cliente Nº: 26
+ -> Posicion: 3 ocupada por el cliente Nº: 27
+ -> Posicion: 4 ocupada por el cliente Nº: 28
+ -> Posicion: 5 ocupada por el cliente Nº: 29
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 17
+ -> Servidor: 2 ocupado por el cliente Nº: 20
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+43) Tipo de evento:Salida  NºCliente:17  TM:54  SS1:1  SS2:1  WL:4  AT:54  DT1:64  DT2:55
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 26
+ -> Posicion: 2 ocupada por el cliente Nº: 27
+ -> Posicion: 3 ocupada por el cliente Nº: 28
+ -> Posicion: 4 ocupada por el cliente Nº: 29
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 22
+ -> Servidor: 2 ocupado por el cliente Nº: 20
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+44) Tipo de evento:Llegada  NºCliente:31  TM:54  SS1:1  SS2:1  WL:5  AT:55  DT1:64  DT2:55
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 26
+ -> Posicion: 2 ocupada por el cliente Nº: 27
+ -> Posicion: 3 ocupada por el cliente Nº: 28
+ -> Posicion: 4 ocupada por el cliente Nº: 29
+ -> Posicion: 5 ocupada por el cliente Nº: 31
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 22
+ -> Servidor: 2 ocupado por el cliente Nº: 20
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+45) Tipo de evento:Salida  NºCliente:20  TM:55  SS1:1  SS2:1  WL:4  AT:55  DT1:64  DT2:60
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 27
+ -> Posicion: 2 ocupada por el cliente Nº: 28
+ -> Posicion: 3 ocupada por el cliente Nº: 29
+ -> Posicion: 4 ocupada por el cliente Nº: 31
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 22
+ -> Servidor: 2 ocupado por el cliente Nº: 26
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+46) Tipo de evento:Llegada  NºCliente:32  TM:55  SS1:1  SS2:1  WL:5  AT:57  DT1:64  DT2:60
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 27
+ -> Posicion: 2 ocupada por el cliente Nº: 28
+ -> Posicion: 3 ocupada por el cliente Nº: 29
+ -> Posicion: 4 ocupada por el cliente Nº: 31
+ -> Posicion: 5 ocupada por el cliente Nº: 32
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 22
+ -> Servidor: 2 ocupado por el cliente Nº: 26
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+47) Tipo de evento:Llegada  NºCliente:33  TM:57  SS1:1  SS2:1  WL:5  AT:60  DT1:64  DT2:60
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 27
+ -> Posicion: 2 ocupada por el cliente Nº: 28
+ -> Posicion: 3 ocupada por el cliente Nº: 29
+ -> Posicion: 4 ocupada por el cliente Nº: 31
+ -> Posicion: 5 ocupada por el cliente Nº: 32
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 22
+ -> Servidor: 2 ocupado por el cliente Nº: 26
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+48) Tipo de evento:Salida  NºCliente:26  TM:60  SS1:1  SS2:1  WL:4  AT:60  DT1:64  DT2:67
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 28
+ -> Posicion: 2 ocupada por el cliente Nº: 29
+ -> Posicion: 3 ocupada por el cliente Nº: 31
+ -> Posicion: 4 ocupada por el cliente Nº: 32
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 22
+ -> Servidor: 2 ocupado por el cliente Nº: 27
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+49) Tipo de evento:Llegada  NºCliente:34  TM:60  SS1:1  SS2:1  WL:5  AT:62  DT1:64  DT2:67
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 28
+ -> Posicion: 2 ocupada por el cliente Nº: 29
+ -> Posicion: 3 ocupada por el cliente Nº: 31
+ -> Posicion: 4 ocupada por el cliente Nº: 32
+ -> Posicion: 5 ocupada por el cliente Nº: 34
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 22
+ -> Servidor: 2 ocupado por el cliente Nº: 27
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+50) Tipo de evento:Llegada  NºCliente:35  TM:62  SS1:1  SS2:1  WL:5  AT:63  DT1:64  DT2:67
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 28
+ -> Posicion: 2 ocupada por el cliente Nº: 29
+ -> Posicion: 3 ocupada por el cliente Nº: 31
+ -> Posicion: 4 ocupada por el cliente Nº: 32
+ -> Posicion: 5 ocupada por el cliente Nº: 34
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 22
+ -> Servidor: 2 ocupado por el cliente Nº: 27
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+51) Tipo de evento:Llegada  NºCliente:36  TM:63  SS1:1  SS2:1  WL:5  AT:64  DT1:64  DT2:67
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 28
+ -> Posicion: 2 ocupada por el cliente Nº: 29
+ -> Posicion: 3 ocupada por el cliente Nº: 31
+ -> Posicion: 4 ocupada por el cliente Nº: 32
+ -> Posicion: 5 ocupada por el cliente Nº: 34
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 22
+ -> Servidor: 2 ocupado por el cliente Nº: 27
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+52) Tipo de evento:Salida  NºCliente:22  TM:64  SS1:1  SS2:1  WL:4  AT:64  DT1:73  DT2:67
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 29
+ -> Posicion: 2 ocupada por el cliente Nº: 31
+ -> Posicion: 3 ocupada por el cliente Nº: 32
+ -> Posicion: 4 ocupada por el cliente Nº: 34
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 28
+ -> Servidor: 2 ocupado por el cliente Nº: 27
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+53) Tipo de evento:Llegada  NºCliente:37  TM:64  SS1:1  SS2:1  WL:5  AT:69  DT1:73  DT2:67
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 29
+ -> Posicion: 2 ocupada por el cliente Nº: 31
+ -> Posicion: 3 ocupada por el cliente Nº: 32
+ -> Posicion: 4 ocupada por el cliente Nº: 34
+ -> Posicion: 5 ocupada por el cliente Nº: 37
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 28
+ -> Servidor: 2 ocupado por el cliente Nº: 27
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+54) Tipo de evento:Salida  NºCliente:27  TM:67  SS1:1  SS2:1  WL:4  AT:69  DT1:73  DT2:72
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 31
+ -> Posicion: 2 ocupada por el cliente Nº: 32
+ -> Posicion: 3 ocupada por el cliente Nº: 34
+ -> Posicion: 4 ocupada por el cliente Nº: 37
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 28
+ -> Servidor: 2 ocupado por el cliente Nº: 29
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+55) Tipo de evento:Llegada  NºCliente:38  TM:69  SS1:1  SS2:1  WL:5  AT:74  DT1:73  DT2:72
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 31
+ -> Posicion: 2 ocupada por el cliente Nº: 32
+ -> Posicion: 3 ocupada por el cliente Nº: 34
+ -> Posicion: 4 ocupada por el cliente Nº: 37
+ -> Posicion: 5 ocupada por el cliente Nº: 38
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 28
+ -> Servidor: 2 ocupado por el cliente Nº: 29
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+56) Tipo de evento:Salida  NºCliente:29  TM:72  SS1:1  SS2:1  WL:4  AT:74  DT1:73  DT2:79
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 32
+ -> Posicion: 2 ocupada por el cliente Nº: 34
+ -> Posicion: 3 ocupada por el cliente Nº: 37
+ -> Posicion: 4 ocupada por el cliente Nº: 38
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 28
+ -> Servidor: 2 ocupado por el cliente Nº: 31
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+57) Tipo de evento:Salida  NºCliente:28  TM:73  SS1:1  SS2:1  WL:3  AT:74  DT1:80  DT2:79
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 34
+ -> Posicion: 2 ocupada por el cliente Nº: 37
+ -> Posicion: 3 ocupada por el cliente Nº: 38
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 32
+ -> Servidor: 2 ocupado por el cliente Nº: 31
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+58) Tipo de evento:Llegada  NºCliente:39  TM:74  SS1:1  SS2:1  WL:4  AT:75  DT1:80  DT2:79
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 34
+ -> Posicion: 2 ocupada por el cliente Nº: 37
+ -> Posicion: 3 ocupada por el cliente Nº: 38
+ -> Posicion: 4 ocupada por el cliente Nº: 39
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 32
+ -> Servidor: 2 ocupado por el cliente Nº: 31
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+59) Tipo de evento:Llegada  NºCliente:40  TM:75  SS1:1  SS2:1  WL:5  AT:76  DT1:80  DT2:79
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 34
+ -> Posicion: 2 ocupada por el cliente Nº: 37
+ -> Posicion: 3 ocupada por el cliente Nº: 38
+ -> Posicion: 4 ocupada por el cliente Nº: 39
+ -> Posicion: 5 ocupada por el cliente Nº: 40
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 32
+ -> Servidor: 2 ocupado por el cliente Nº: 31
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+60) Tipo de evento:Llegada  NºCliente:41  TM:76  SS1:1  SS2:1  WL:5  AT:79  DT1:80  DT2:79
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 34
+ -> Posicion: 2 ocupada por el cliente Nº: 37
+ -> Posicion: 3 ocupada por el cliente Nº: 38
+ -> Posicion: 4 ocupada por el cliente Nº: 39
+ -> Posicion: 5 ocupada por el cliente Nº: 40
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 32
+ -> Servidor: 2 ocupado por el cliente Nº: 31
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+61) Tipo de evento:Salida  NºCliente:31  TM:79  SS1:1  SS2:1  WL:4  AT:79  DT1:80  DT2:84
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 37
+ -> Posicion: 2 ocupada por el cliente Nº: 38
+ -> Posicion: 3 ocupada por el cliente Nº: 39
+ -> Posicion: 4 ocupada por el cliente Nº: 40
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 32
+ -> Servidor: 2 ocupado por el cliente Nº: 34
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+62) Tipo de evento:Llegada  NºCliente:42  TM:79  SS1:1  SS2:1  WL:5  AT:81  DT1:80  DT2:84
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 37
+ -> Posicion: 2 ocupada por el cliente Nº: 38
+ -> Posicion: 3 ocupada por el cliente Nº: 39
+ -> Posicion: 4 ocupada por el cliente Nº: 40
+ -> Posicion: 5 ocupada por el cliente Nº: 42
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 32
+ -> Servidor: 2 ocupado por el cliente Nº: 34
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+63) Tipo de evento:Salida  NºCliente:32  TM:80  SS1:1  SS2:1  WL:4  AT:81  DT1:87  DT2:84
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 38
+ -> Posicion: 2 ocupada por el cliente Nº: 39
+ -> Posicion: 3 ocupada por el cliente Nº: 40
+ -> Posicion: 4 ocupada por el cliente Nº: 42
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 37
+ -> Servidor: 2 ocupado por el cliente Nº: 34
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+64) Tipo de evento:Llegada  NºCliente:43  TM:81  SS1:1  SS2:1  WL:5  AT:83  DT1:87  DT2:84
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 38
+ -> Posicion: 2 ocupada por el cliente Nº: 39
+ -> Posicion: 3 ocupada por el cliente Nº: 40
+ -> Posicion: 4 ocupada por el cliente Nº: 42
+ -> Posicion: 5 ocupada por el cliente Nº: 43
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 37
+ -> Servidor: 2 ocupado por el cliente Nº: 34
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+65) Tipo de evento:Llegada  NºCliente:44  TM:83  SS1:1  SS2:1  WL:5  AT:85  DT1:87  DT2:84
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 38
+ -> Posicion: 2 ocupada por el cliente Nº: 39
+ -> Posicion: 3 ocupada por el cliente Nº: 40
+ -> Posicion: 4 ocupada por el cliente Nº: 42
+ -> Posicion: 5 ocupada por el cliente Nº: 43
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 37
+ -> Servidor: 2 ocupado por el cliente Nº: 34
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+66) Tipo de evento:Salida  NºCliente:34  TM:84  SS1:1  SS2:1  WL:4  AT:85  DT1:87  DT2:93
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 39
+ -> Posicion: 2 ocupada por el cliente Nº: 40
+ -> Posicion: 3 ocupada por el cliente Nº: 42
+ -> Posicion: 4 ocupada por el cliente Nº: 43
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 37
+ -> Servidor: 2 ocupado por el cliente Nº: 38
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+67) Tipo de evento:Llegada  NºCliente:45  TM:85  SS1:1  SS2:1  WL:5  AT:88  DT1:87  DT2:93
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 39
+ -> Posicion: 2 ocupada por el cliente Nº: 40
+ -> Posicion: 3 ocupada por el cliente Nº: 42
+ -> Posicion: 4 ocupada por el cliente Nº: 43
+ -> Posicion: 5 ocupada por el cliente Nº: 45
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 37
+ -> Servidor: 2 ocupado por el cliente Nº: 38
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+68) Tipo de evento:Salida  NºCliente:37  TM:87  SS1:1  SS2:1  WL:4  AT:88  DT1:95  DT2:93
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 40
+ -> Posicion: 2 ocupada por el cliente Nº: 42
+ -> Posicion: 3 ocupada por el cliente Nº: 43
+ -> Posicion: 4 ocupada por el cliente Nº: 45
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 39
+ -> Servidor: 2 ocupado por el cliente Nº: 38
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+69) Tipo de evento:Llegada  NºCliente:46  TM:88  SS1:1  SS2:1  WL:5  AT:89  DT1:95  DT2:93
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 40
+ -> Posicion: 2 ocupada por el cliente Nº: 42
+ -> Posicion: 3 ocupada por el cliente Nº: 43
+ -> Posicion: 4 ocupada por el cliente Nº: 45
+ -> Posicion: 5 ocupada por el cliente Nº: 46
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 39
+ -> Servidor: 2 ocupado por el cliente Nº: 38
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+70) Tipo de evento:Llegada  NºCliente:47  TM:89  SS1:1  SS2:1  WL:5  AT:90  DT1:95  DT2:93
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 40
+ -> Posicion: 2 ocupada por el cliente Nº: 42
+ -> Posicion: 3 ocupada por el cliente Nº: 43
+ -> Posicion: 4 ocupada por el cliente Nº: 45
+ -> Posicion: 5 ocupada por el cliente Nº: 46
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 39
+ -> Servidor: 2 ocupado por el cliente Nº: 38
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+71) Tipo de evento:Llegada  NºCliente:48  TM:90  SS1:1  SS2:1  WL:5  AT:91  DT1:95  DT2:93
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 40
+ -> Posicion: 2 ocupada por el cliente Nº: 42
+ -> Posicion: 3 ocupada por el cliente Nº: 43
+ -> Posicion: 4 ocupada por el cliente Nº: 45
+ -> Posicion: 5 ocupada por el cliente Nº: 46
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 39
+ -> Servidor: 2 ocupado por el cliente Nº: 38
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+72) Tipo de evento:Llegada  NºCliente:49  TM:91  SS1:1  SS2:1  WL:5  AT:94  DT1:95  DT2:93
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 40
+ -> Posicion: 2 ocupada por el cliente Nº: 42
+ -> Posicion: 3 ocupada por el cliente Nº: 43
+ -> Posicion: 4 ocupada por el cliente Nº: 45
+ -> Posicion: 5 ocupada por el cliente Nº: 46
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 39
+ -> Servidor: 2 ocupado por el cliente Nº: 38
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+73) Tipo de evento:Salida  NºCliente:38  TM:93  SS1:1  SS2:1  WL:4  AT:94  DT1:95  DT2:103
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 42
+ -> Posicion: 2 ocupada por el cliente Nº: 43
+ -> Posicion: 3 ocupada por el cliente Nº: 45
+ -> Posicion: 4 ocupada por el cliente Nº: 46
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 39
+ -> Servidor: 2 ocupado por el cliente Nº: 40
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+74) Tipo de evento:Llegada  NºCliente:50  TM:94  SS1:1  SS2:1  WL:5  AT:95  DT1:95  DT2:103
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 42
+ -> Posicion: 2 ocupada por el cliente Nº: 43
+ -> Posicion: 3 ocupada por el cliente Nº: 45
+ -> Posicion: 4 ocupada por el cliente Nº: 46
+ -> Posicion: 5 ocupada por el cliente Nº: 50
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 39
+ -> Servidor: 2 ocupado por el cliente Nº: 40
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+75) Tipo de evento:Salida  NºCliente:39  TM:95  SS1:1  SS2:1  WL:4  AT:95  DT1:103  DT2:103
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 43
+ -> Posicion: 2 ocupada por el cliente Nº: 45
+ -> Posicion: 3 ocupada por el cliente Nº: 46
+ -> Posicion: 4 ocupada por el cliente Nº: 50
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 42
+ -> Servidor: 2 ocupado por el cliente Nº: 40
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+76) Tipo de evento:Llegada  NºCliente:51  TM:95  SS1:1  SS2:1  WL:5  AT:96  DT1:103  DT2:103
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 43
+ -> Posicion: 2 ocupada por el cliente Nº: 45
+ -> Posicion: 3 ocupada por el cliente Nº: 46
+ -> Posicion: 4 ocupada por el cliente Nº: 50
+ -> Posicion: 5 ocupada por el cliente Nº: 51
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 42
+ -> Servidor: 2 ocupado por el cliente Nº: 40
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+77) Tipo de evento:Llegada  NºCliente:52  TM:96  SS1:1  SS2:1  WL:5  AT:97  DT1:103  DT2:103
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 43
+ -> Posicion: 2 ocupada por el cliente Nº: 45
+ -> Posicion: 3 ocupada por el cliente Nº: 46
+ -> Posicion: 4 ocupada por el cliente Nº: 50
+ -> Posicion: 5 ocupada por el cliente Nº: 51
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 42
+ -> Servidor: 2 ocupado por el cliente Nº: 40
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+78) Tipo de evento:Llegada  NºCliente:53  TM:97  SS1:1  SS2:1  WL:5  AT:98  DT1:103  DT2:103
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 43
+ -> Posicion: 2 ocupada por el cliente Nº: 45
+ -> Posicion: 3 ocupada por el cliente Nº: 46
+ -> Posicion: 4 ocupada por el cliente Nº: 50
+ -> Posicion: 5 ocupada por el cliente Nº: 51
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 42
+ -> Servidor: 2 ocupado por el cliente Nº: 40
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+79) Tipo de evento:Llegada  NºCliente:54  TM:98  SS1:1  SS2:1  WL:5  AT:100  DT1:103  DT2:103
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 43
+ -> Posicion: 2 ocupada por el cliente Nº: 45
+ -> Posicion: 3 ocupada por el cliente Nº: 46
+ -> Posicion: 4 ocupada por el cliente Nº: 50
+ -> Posicion: 5 ocupada por el cliente Nº: 51
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 42
+ -> Servidor: 2 ocupado por el cliente Nº: 40
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+80) Tipo de evento:Llegada  NºCliente:55  TM:100  SS1:1  SS2:1  WL:5  AT:102  DT1:103  DT2:103
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 43
+ -> Posicion: 2 ocupada por el cliente Nº: 45
+ -> Posicion: 3 ocupada por el cliente Nº: 46
+ -> Posicion: 4 ocupada por el cliente Nº: 50
+ -> Posicion: 5 ocupada por el cliente Nº: 51
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 42
+ -> Servidor: 2 ocupado por el cliente Nº: 40
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+81) Tipo de evento:Llegada  NºCliente:56  TM:102  SS1:1  SS2:1  WL:5  AT:103  DT1:103  DT2:103
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 43
+ -> Posicion: 2 ocupada por el cliente Nº: 45
+ -> Posicion: 3 ocupada por el cliente Nº: 46
+ -> Posicion: 4 ocupada por el cliente Nº: 50
+ -> Posicion: 5 ocupada por el cliente Nº: 51
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 42
+ -> Servidor: 2 ocupado por el cliente Nº: 40
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+82) Tipo de evento:Salida  NºCliente:42  TM:103  SS1:1  SS2:1  WL:4  AT:103  DT1:108  DT2:103
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 45
+ -> Posicion: 2 ocupada por el cliente Nº: 46
+ -> Posicion: 3 ocupada por el cliente Nº: 50
+ -> Posicion: 4 ocupada por el cliente Nº: 51
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 43
+ -> Servidor: 2 ocupado por el cliente Nº: 40
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+83) Tipo de evento:Salida  NºCliente:40  TM:103  SS1:1  SS2:1  WL:3  AT:103  DT1:108  DT2:111
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 46
+ -> Posicion: 2 ocupada por el cliente Nº: 50
+ -> Posicion: 3 ocupada por el cliente Nº: 51
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 43
+ -> Servidor: 2 ocupado por el cliente Nº: 45
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+84) Tipo de evento:Llegada  NºCliente:57  TM:103  SS1:1  SS2:1  WL:4  AT:106  DT1:108  DT2:111
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 46
+ -> Posicion: 2 ocupada por el cliente Nº: 50
+ -> Posicion: 3 ocupada por el cliente Nº: 51
+ -> Posicion: 4 ocupada por el cliente Nº: 57
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 43
+ -> Servidor: 2 ocupado por el cliente Nº: 45
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+85) Tipo de evento:Llegada  NºCliente:58  TM:106  SS1:1  SS2:1  WL:5  AT:107  DT1:108  DT2:111
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 46
+ -> Posicion: 2 ocupada por el cliente Nº: 50
+ -> Posicion: 3 ocupada por el cliente Nº: 51
+ -> Posicion: 4 ocupada por el cliente Nº: 57
+ -> Posicion: 5 ocupada por el cliente Nº: 58
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 43
+ -> Servidor: 2 ocupado por el cliente Nº: 45
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+86) Tipo de evento:Llegada  NºCliente:59  TM:107  SS1:1  SS2:1  WL:5  AT:108  DT1:108  DT2:111
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 46
+ -> Posicion: 2 ocupada por el cliente Nº: 50
+ -> Posicion: 3 ocupada por el cliente Nº: 51
+ -> Posicion: 4 ocupada por el cliente Nº: 57
+ -> Posicion: 5 ocupada por el cliente Nº: 58
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 43
+ -> Servidor: 2 ocupado por el cliente Nº: 45
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+87) Tipo de evento:Salida  NºCliente:43  TM:108  SS1:1  SS2:1  WL:4  AT:108  DT1:118  DT2:111
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 50
+ -> Posicion: 2 ocupada por el cliente Nº: 51
+ -> Posicion: 3 ocupada por el cliente Nº: 57
+ -> Posicion: 4 ocupada por el cliente Nº: 58
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 46
+ -> Servidor: 2 ocupado por el cliente Nº: 45
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+88) Tipo de evento:Llegada  NºCliente:60  TM:108  SS1:1  SS2:1  WL:5  AT:109  DT1:118  DT2:111
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 50
+ -> Posicion: 2 ocupada por el cliente Nº: 51
+ -> Posicion: 3 ocupada por el cliente Nº: 57
+ -> Posicion: 4 ocupada por el cliente Nº: 58
+ -> Posicion: 5 ocupada por el cliente Nº: 60
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 46
+ -> Servidor: 2 ocupado por el cliente Nº: 45
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+89) Tipo de evento:Llegada  NºCliente:61  TM:109  SS1:1  SS2:1  WL:5  AT:110  DT1:118  DT2:111
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 50
+ -> Posicion: 2 ocupada por el cliente Nº: 51
+ -> Posicion: 3 ocupada por el cliente Nº: 57
+ -> Posicion: 4 ocupada por el cliente Nº: 58
+ -> Posicion: 5 ocupada por el cliente Nº: 60
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 46
+ -> Servidor: 2 ocupado por el cliente Nº: 45
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+90) Tipo de evento:Llegada  NºCliente:62  TM:110  SS1:1  SS2:1  WL:5  AT:111  DT1:118  DT2:111
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 50
+ -> Posicion: 2 ocupada por el cliente Nº: 51
+ -> Posicion: 3 ocupada por el cliente Nº: 57
+ -> Posicion: 4 ocupada por el cliente Nº: 58
+ -> Posicion: 5 ocupada por el cliente Nº: 60
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 46
+ -> Servidor: 2 ocupado por el cliente Nº: 45
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+91) Tipo de evento:Salida  NºCliente:45  TM:111  SS1:1  SS2:1  WL:4  AT:111  DT1:118  DT2:118
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 51
+ -> Posicion: 2 ocupada por el cliente Nº: 57
+ -> Posicion: 3 ocupada por el cliente Nº: 58
+ -> Posicion: 4 ocupada por el cliente Nº: 60
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 46
+ -> Servidor: 2 ocupado por el cliente Nº: 50
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+92) Tipo de evento:Llegada  NºCliente:63  TM:111  SS1:1  SS2:1  WL:5  AT:112  DT1:118  DT2:118
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 51
+ -> Posicion: 2 ocupada por el cliente Nº: 57
+ -> Posicion: 3 ocupada por el cliente Nº: 58
+ -> Posicion: 4 ocupada por el cliente Nº: 60
+ -> Posicion: 5 ocupada por el cliente Nº: 63
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 46
+ -> Servidor: 2 ocupado por el cliente Nº: 50
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+93) Tipo de evento:Llegada  NºCliente:64  TM:112  SS1:1  SS2:1  WL:5  AT:113  DT1:118  DT2:118
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 51
+ -> Posicion: 2 ocupada por el cliente Nº: 57
+ -> Posicion: 3 ocupada por el cliente Nº: 58
+ -> Posicion: 4 ocupada por el cliente Nº: 60
+ -> Posicion: 5 ocupada por el cliente Nº: 63
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 46
+ -> Servidor: 2 ocupado por el cliente Nº: 50
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+94) Tipo de evento:Llegada  NºCliente:65  TM:113  SS1:1  SS2:1  WL:5  AT:114  DT1:118  DT2:118
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 51
+ -> Posicion: 2 ocupada por el cliente Nº: 57
+ -> Posicion: 3 ocupada por el cliente Nº: 58
+ -> Posicion: 4 ocupada por el cliente Nº: 60
+ -> Posicion: 5 ocupada por el cliente Nº: 63
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 46
+ -> Servidor: 2 ocupado por el cliente Nº: 50
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+95) Tipo de evento:Llegada  NºCliente:66  TM:114  SS1:1  SS2:1  WL:5  AT:115  DT1:118  DT2:118
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 51
+ -> Posicion: 2 ocupada por el cliente Nº: 57
+ -> Posicion: 3 ocupada por el cliente Nº: 58
+ -> Posicion: 4 ocupada por el cliente Nº: 60
+ -> Posicion: 5 ocupada por el cliente Nº: 63
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 46
+ -> Servidor: 2 ocupado por el cliente Nº: 50
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+96) Tipo de evento:Llegada  NºCliente:67  TM:115  SS1:1  SS2:1  WL:5  AT:117  DT1:118  DT2:118
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 51
+ -> Posicion: 2 ocupada por el cliente Nº: 57
+ -> Posicion: 3 ocupada por el cliente Nº: 58
+ -> Posicion: 4 ocupada por el cliente Nº: 60
+ -> Posicion: 5 ocupada por el cliente Nº: 63
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 46
+ -> Servidor: 2 ocupado por el cliente Nº: 50
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+97) Tipo de evento:Llegada  NºCliente:68  TM:117  SS1:1  SS2:1  WL:5  AT:119  DT1:118  DT2:118
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 51
+ -> Posicion: 2 ocupada por el cliente Nº: 57
+ -> Posicion: 3 ocupada por el cliente Nº: 58
+ -> Posicion: 4 ocupada por el cliente Nº: 60
+ -> Posicion: 5 ocupada por el cliente Nº: 63
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 46
+ -> Servidor: 2 ocupado por el cliente Nº: 50
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+98) Tipo de evento:Salida  NºCliente:46  TM:118  SS1:1  SS2:1  WL:4  AT:119  DT1:123  DT2:118
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 57
+ -> Posicion: 2 ocupada por el cliente Nº: 58
+ -> Posicion: 3 ocupada por el cliente Nº: 60
+ -> Posicion: 4 ocupada por el cliente Nº: 63
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 51
+ -> Servidor: 2 ocupado por el cliente Nº: 50
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+99) Tipo de evento:Salida  NºCliente:50  TM:118  SS1:1  SS2:1  WL:3  AT:119  DT1:123  DT2:126
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 58
+ -> Posicion: 2 ocupada por el cliente Nº: 60
+ -> Posicion: 3 ocupada por el cliente Nº: 63
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 51
+ -> Servidor: 2 ocupado por el cliente Nº: 57
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+100) Tipo de evento:Llegada  NºCliente:69  TM:119  SS1:1  SS2:1  WL:4  AT:120  DT1:123  DT2:126
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 58
+ -> Posicion: 2 ocupada por el cliente Nº: 60
+ -> Posicion: 3 ocupada por el cliente Nº: 63
+ -> Posicion: 4 ocupada por el cliente Nº: 69
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 51
+ -> Servidor: 2 ocupado por el cliente Nº: 57
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+101) Tipo de evento:Llegada  NºCliente:70  TM:120  SS1:1  SS2:1  WL:5  AT:123  DT1:123  DT2:126
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 58
+ -> Posicion: 2 ocupada por el cliente Nº: 60
+ -> Posicion: 3 ocupada por el cliente Nº: 63
+ -> Posicion: 4 ocupada por el cliente Nº: 69
+ -> Posicion: 5 ocupada por el cliente Nº: 70
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 51
+ -> Servidor: 2 ocupado por el cliente Nº: 57
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+102) Tipo de evento:Salida  NºCliente:51  TM:123  SS1:1  SS2:1  WL:4  AT:123  DT1:133  DT2:126
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 60
+ -> Posicion: 2 ocupada por el cliente Nº: 63
+ -> Posicion: 3 ocupada por el cliente Nº: 69
+ -> Posicion: 4 ocupada por el cliente Nº: 70
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 58
+ -> Servidor: 2 ocupado por el cliente Nº: 57
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+103) Tipo de evento:Llegada  NºCliente:71  TM:123  SS1:1  SS2:1  WL:5  AT:124  DT1:133  DT2:126
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 60
+ -> Posicion: 2 ocupada por el cliente Nº: 63
+ -> Posicion: 3 ocupada por el cliente Nº: 69
+ -> Posicion: 4 ocupada por el cliente Nº: 70
+ -> Posicion: 5 ocupada por el cliente Nº: 71
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 58
+ -> Servidor: 2 ocupado por el cliente Nº: 57
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+104) Tipo de evento:Llegada  NºCliente:72  TM:124  SS1:1  SS2:1  WL:5  AT:125  DT1:133  DT2:126
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 60
+ -> Posicion: 2 ocupada por el cliente Nº: 63
+ -> Posicion: 3 ocupada por el cliente Nº: 69
+ -> Posicion: 4 ocupada por el cliente Nº: 70
+ -> Posicion: 5 ocupada por el cliente Nº: 71
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 58
+ -> Servidor: 2 ocupado por el cliente Nº: 57
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+105) Tipo de evento:Llegada  NºCliente:73  TM:125  SS1:1  SS2:1  WL:5  AT:127  DT1:133  DT2:126
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 60
+ -> Posicion: 2 ocupada por el cliente Nº: 63
+ -> Posicion: 3 ocupada por el cliente Nº: 69
+ -> Posicion: 4 ocupada por el cliente Nº: 70
+ -> Posicion: 5 ocupada por el cliente Nº: 71
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 58
+ -> Servidor: 2 ocupado por el cliente Nº: 57
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+106) Tipo de evento:Salida  NºCliente:57  TM:126  SS1:1  SS2:1  WL:4  AT:127  DT1:133  DT2:131
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 63
+ -> Posicion: 2 ocupada por el cliente Nº: 69
+ -> Posicion: 3 ocupada por el cliente Nº: 70
+ -> Posicion: 4 ocupada por el cliente Nº: 71
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 58
+ -> Servidor: 2 ocupado por el cliente Nº: 60
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+107) Tipo de evento:Llegada  NºCliente:74  TM:127  SS1:1  SS2:1  WL:5  AT:128  DT1:133  DT2:131
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 63
+ -> Posicion: 2 ocupada por el cliente Nº: 69
+ -> Posicion: 3 ocupada por el cliente Nº: 70
+ -> Posicion: 4 ocupada por el cliente Nº: 71
+ -> Posicion: 5 ocupada por el cliente Nº: 74
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 58
+ -> Servidor: 2 ocupado por el cliente Nº: 60
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+108) Tipo de evento:Llegada  NºCliente:75  TM:128  SS1:1  SS2:1  WL:5  AT:130  DT1:133  DT2:131
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 63
+ -> Posicion: 2 ocupada por el cliente Nº: 69
+ -> Posicion: 3 ocupada por el cliente Nº: 70
+ -> Posicion: 4 ocupada por el cliente Nº: 71
+ -> Posicion: 5 ocupada por el cliente Nº: 74
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 58
+ -> Servidor: 2 ocupado por el cliente Nº: 60
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+109) Tipo de evento:Llegada  NºCliente:76  TM:130  SS1:1  SS2:1  WL:5  AT:131  DT1:133  DT2:131
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 63
+ -> Posicion: 2 ocupada por el cliente Nº: 69
+ -> Posicion: 3 ocupada por el cliente Nº: 70
+ -> Posicion: 4 ocupada por el cliente Nº: 71
+ -> Posicion: 5 ocupada por el cliente Nº: 74
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 58
+ -> Servidor: 2 ocupado por el cliente Nº: 60
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+110) Tipo de evento:Salida  NºCliente:60  TM:131  SS1:1  SS2:1  WL:4  AT:131  DT1:133  DT2:136
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 69
+ -> Posicion: 2 ocupada por el cliente Nº: 70
+ -> Posicion: 3 ocupada por el cliente Nº: 71
+ -> Posicion: 4 ocupada por el cliente Nº: 74
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 58
+ -> Servidor: 2 ocupado por el cliente Nº: 63
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+111) Tipo de evento:Llegada  NºCliente:77  TM:131  SS1:1  SS2:1  WL:5  AT:132  DT1:133  DT2:136
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 69
+ -> Posicion: 2 ocupada por el cliente Nº: 70
+ -> Posicion: 3 ocupada por el cliente Nº: 71
+ -> Posicion: 4 ocupada por el cliente Nº: 74
+ -> Posicion: 5 ocupada por el cliente Nº: 77
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 58
+ -> Servidor: 2 ocupado por el cliente Nº: 63
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+112) Tipo de evento:Llegada  NºCliente:78  TM:132  SS1:1  SS2:1  WL:5  AT:133  DT1:133  DT2:136
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 69
+ -> Posicion: 2 ocupada por el cliente Nº: 70
+ -> Posicion: 3 ocupada por el cliente Nº: 71
+ -> Posicion: 4 ocupada por el cliente Nº: 74
+ -> Posicion: 5 ocupada por el cliente Nº: 77
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 58
+ -> Servidor: 2 ocupado por el cliente Nº: 63
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+113) Tipo de evento:Salida  NºCliente:58  TM:133  SS1:1  SS2:1  WL:4  AT:133  DT1:141  DT2:136
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 70
+ -> Posicion: 2 ocupada por el cliente Nº: 71
+ -> Posicion: 3 ocupada por el cliente Nº: 74
+ -> Posicion: 4 ocupada por el cliente Nº: 77
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 69
+ -> Servidor: 2 ocupado por el cliente Nº: 63
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+114) Tipo de evento:Llegada  NºCliente:79  TM:133  SS1:1  SS2:1  WL:5  AT:137  DT1:141  DT2:136
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 70
+ -> Posicion: 2 ocupada por el cliente Nº: 71
+ -> Posicion: 3 ocupada por el cliente Nº: 74
+ -> Posicion: 4 ocupada por el cliente Nº: 77
+ -> Posicion: 5 ocupada por el cliente Nº: 79
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 69
+ -> Servidor: 2 ocupado por el cliente Nº: 63
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+115) Tipo de evento:Salida  NºCliente:63  TM:136  SS1:1  SS2:1  WL:4  AT:137  DT1:141  DT2:144
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 71
+ -> Posicion: 2 ocupada por el cliente Nº: 74
+ -> Posicion: 3 ocupada por el cliente Nº: 77
+ -> Posicion: 4 ocupada por el cliente Nº: 79
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 69
+ -> Servidor: 2 ocupado por el cliente Nº: 70
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+116) Tipo de evento:Llegada  NºCliente:80  TM:137  SS1:1  SS2:1  WL:5  AT:138  DT1:141  DT2:144
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 71
+ -> Posicion: 2 ocupada por el cliente Nº: 74
+ -> Posicion: 3 ocupada por el cliente Nº: 77
+ -> Posicion: 4 ocupada por el cliente Nº: 79
+ -> Posicion: 5 ocupada por el cliente Nº: 80
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 69
+ -> Servidor: 2 ocupado por el cliente Nº: 70
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+117) Tipo de evento:Llegada  NºCliente:81  TM:138  SS1:1  SS2:1  WL:5  AT:141  DT1:141  DT2:144
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 71
+ -> Posicion: 2 ocupada por el cliente Nº: 74
+ -> Posicion: 3 ocupada por el cliente Nº: 77
+ -> Posicion: 4 ocupada por el cliente Nº: 79
+ -> Posicion: 5 ocupada por el cliente Nº: 80
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 69
+ -> Servidor: 2 ocupado por el cliente Nº: 70
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+118) Tipo de evento:Salida  NºCliente:69  TM:141  SS1:1  SS2:1  WL:4  AT:141  DT1:150  DT2:144
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 74
+ -> Posicion: 2 ocupada por el cliente Nº: 77
+ -> Posicion: 3 ocupada por el cliente Nº: 79
+ -> Posicion: 4 ocupada por el cliente Nº: 80
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 71
+ -> Servidor: 2 ocupado por el cliente Nº: 70
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+119) Tipo de evento:Llegada  NºCliente:82  TM:141  SS1:1  SS2:1  WL:5  AT:142  DT1:150  DT2:144
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 74
+ -> Posicion: 2 ocupada por el cliente Nº: 77
+ -> Posicion: 3 ocupada por el cliente Nº: 79
+ -> Posicion: 4 ocupada por el cliente Nº: 80
+ -> Posicion: 5 ocupada por el cliente Nº: 82
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 71
+ -> Servidor: 2 ocupado por el cliente Nº: 70
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+120) Tipo de evento:Llegada  NºCliente:83  TM:142  SS1:1  SS2:1  WL:5  AT:147  DT1:150  DT2:144
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 74
+ -> Posicion: 2 ocupada por el cliente Nº: 77
+ -> Posicion: 3 ocupada por el cliente Nº: 79
+ -> Posicion: 4 ocupada por el cliente Nº: 80
+ -> Posicion: 5 ocupada por el cliente Nº: 82
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 71
+ -> Servidor: 2 ocupado por el cliente Nº: 70
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+121) Tipo de evento:Salida  NºCliente:70  TM:144  SS1:1  SS2:1  WL:4  AT:147  DT1:150  DT2:149
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 77
+ -> Posicion: 2 ocupada por el cliente Nº: 79
+ -> Posicion: 3 ocupada por el cliente Nº: 80
+ -> Posicion: 4 ocupada por el cliente Nº: 82
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 71
+ -> Servidor: 2 ocupado por el cliente Nº: 74
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+122) Tipo de evento:Llegada  NºCliente:84  TM:147  SS1:1  SS2:1  WL:5  AT:149  DT1:150  DT2:149
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 77
+ -> Posicion: 2 ocupada por el cliente Nº: 79
+ -> Posicion: 3 ocupada por el cliente Nº: 80
+ -> Posicion: 4 ocupada por el cliente Nº: 82
+ -> Posicion: 5 ocupada por el cliente Nº: 84
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 71
+ -> Servidor: 2 ocupado por el cliente Nº: 74
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+123) Tipo de evento:Salida  NºCliente:74  TM:149  SS1:1  SS2:1  WL:4  AT:149  DT1:150  DT2:156
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 79
+ -> Posicion: 2 ocupada por el cliente Nº: 80
+ -> Posicion: 3 ocupada por el cliente Nº: 82
+ -> Posicion: 4 ocupada por el cliente Nº: 84
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 71
+ -> Servidor: 2 ocupado por el cliente Nº: 77
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+124) Tipo de evento:Llegada  NºCliente:85  TM:149  SS1:1  SS2:1  WL:5  AT:152  DT1:150  DT2:156
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 79
+ -> Posicion: 2 ocupada por el cliente Nº: 80
+ -> Posicion: 3 ocupada por el cliente Nº: 82
+ -> Posicion: 4 ocupada por el cliente Nº: 84
+ -> Posicion: 5 ocupada por el cliente Nº: 85
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 71
+ -> Servidor: 2 ocupado por el cliente Nº: 77
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+125) Tipo de evento:Salida  NºCliente:71  TM:150  SS1:1  SS2:1  WL:4  AT:152  DT1:155  DT2:156
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 80
+ -> Posicion: 2 ocupada por el cliente Nº: 82
+ -> Posicion: 3 ocupada por el cliente Nº: 84
+ -> Posicion: 4 ocupada por el cliente Nº: 85
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 79
+ -> Servidor: 2 ocupado por el cliente Nº: 77
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+126) Tipo de evento:Llegada  NºCliente:86  TM:152  SS1:1  SS2:1  WL:5  AT:154  DT1:155  DT2:156
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 80
+ -> Posicion: 2 ocupada por el cliente Nº: 82
+ -> Posicion: 3 ocupada por el cliente Nº: 84
+ -> Posicion: 4 ocupada por el cliente Nº: 85
+ -> Posicion: 5 ocupada por el cliente Nº: 86
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 79
+ -> Servidor: 2 ocupado por el cliente Nº: 77
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+127) Tipo de evento:Llegada  NºCliente:87  TM:154  SS1:1  SS2:1  WL:5  AT:155  DT1:155  DT2:156
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 80
+ -> Posicion: 2 ocupada por el cliente Nº: 82
+ -> Posicion: 3 ocupada por el cliente Nº: 84
+ -> Posicion: 4 ocupada por el cliente Nº: 85
+ -> Posicion: 5 ocupada por el cliente Nº: 86
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 79
+ -> Servidor: 2 ocupado por el cliente Nº: 77
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+128) Tipo de evento:Salida  NºCliente:79  TM:155  SS1:1  SS2:1  WL:4  AT:155  DT1:164  DT2:156
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 82
+ -> Posicion: 2 ocupada por el cliente Nº: 84
+ -> Posicion: 3 ocupada por el cliente Nº: 85
+ -> Posicion: 4 ocupada por el cliente Nº: 86
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 80
+ -> Servidor: 2 ocupado por el cliente Nº: 77
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+129) Tipo de evento:Llegada  NºCliente:88  TM:155  SS1:1  SS2:1  WL:5  AT:156  DT1:164  DT2:156
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 82
+ -> Posicion: 2 ocupada por el cliente Nº: 84
+ -> Posicion: 3 ocupada por el cliente Nº: 85
+ -> Posicion: 4 ocupada por el cliente Nº: 86
+ -> Posicion: 5 ocupada por el cliente Nº: 88
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 80
+ -> Servidor: 2 ocupado por el cliente Nº: 77
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+130) Tipo de evento:Salida  NºCliente:77  TM:156  SS1:1  SS2:1  WL:4  AT:156  DT1:164  DT2:164
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 84
+ -> Posicion: 2 ocupada por el cliente Nº: 85
+ -> Posicion: 3 ocupada por el cliente Nº: 86
+ -> Posicion: 4 ocupada por el cliente Nº: 88
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 80
+ -> Servidor: 2 ocupado por el cliente Nº: 82
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+131) Tipo de evento:Llegada  NºCliente:89  TM:156  SS1:1  SS2:1  WL:5  AT:161  DT1:164  DT2:164
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 84
+ -> Posicion: 2 ocupada por el cliente Nº: 85
+ -> Posicion: 3 ocupada por el cliente Nº: 86
+ -> Posicion: 4 ocupada por el cliente Nº: 88
+ -> Posicion: 5 ocupada por el cliente Nº: 89
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 80
+ -> Servidor: 2 ocupado por el cliente Nº: 82
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+132) Tipo de evento:Llegada  NºCliente:90  TM:161  SS1:1  SS2:1  WL:5  AT:162  DT1:164  DT2:164
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 84
+ -> Posicion: 2 ocupada por el cliente Nº: 85
+ -> Posicion: 3 ocupada por el cliente Nº: 86
+ -> Posicion: 4 ocupada por el cliente Nº: 88
+ -> Posicion: 5 ocupada por el cliente Nº: 89
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 80
+ -> Servidor: 2 ocupado por el cliente Nº: 82
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+133) Tipo de evento:Llegada  NºCliente:91  TM:162  SS1:1  SS2:1  WL:5  AT:167  DT1:164  DT2:164
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 84
+ -> Posicion: 2 ocupada por el cliente Nº: 85
+ -> Posicion: 3 ocupada por el cliente Nº: 86
+ -> Posicion: 4 ocupada por el cliente Nº: 88
+ -> Posicion: 5 ocupada por el cliente Nº: 89
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 80
+ -> Servidor: 2 ocupado por el cliente Nº: 82
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+134) Tipo de evento:Salida  NºCliente:80  TM:164  SS1:1  SS2:1  WL:4  AT:167  DT1:169  DT2:164
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 85
+ -> Posicion: 2 ocupada por el cliente Nº: 86
+ -> Posicion: 3 ocupada por el cliente Nº: 88
+ -> Posicion: 4 ocupada por el cliente Nº: 89
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 84
+ -> Servidor: 2 ocupado por el cliente Nº: 82
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+135) Tipo de evento:Salida  NºCliente:82  TM:164  SS1:1  SS2:1  WL:3  AT:167  DT1:169  DT2:173
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 86
+ -> Posicion: 2 ocupada por el cliente Nº: 88
+ -> Posicion: 3 ocupada por el cliente Nº: 89
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 84
+ -> Servidor: 2 ocupado por el cliente Nº: 85
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+136) Tipo de evento:Llegada  NºCliente:92  TM:167  SS1:1  SS2:1  WL:4  AT:168  DT1:169  DT2:173
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 86
+ -> Posicion: 2 ocupada por el cliente Nº: 88
+ -> Posicion: 3 ocupada por el cliente Nº: 89
+ -> Posicion: 4 ocupada por el cliente Nº: 92
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 84
+ -> Servidor: 2 ocupado por el cliente Nº: 85
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+137) Tipo de evento:Llegada  NºCliente:93  TM:168  SS1:1  SS2:1  WL:5  AT:171  DT1:169  DT2:173
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 86
+ -> Posicion: 2 ocupada por el cliente Nº: 88
+ -> Posicion: 3 ocupada por el cliente Nº: 89
+ -> Posicion: 4 ocupada por el cliente Nº: 92
+ -> Posicion: 5 ocupada por el cliente Nº: 93
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 84
+ -> Servidor: 2 ocupado por el cliente Nº: 85
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+138) Tipo de evento:Salida  NºCliente:84  TM:169  SS1:1  SS2:1  WL:4  AT:171  DT1:179  DT2:173
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 88
+ -> Posicion: 2 ocupada por el cliente Nº: 89
+ -> Posicion: 3 ocupada por el cliente Nº: 92
+ -> Posicion: 4 ocupada por el cliente Nº: 93
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 86
+ -> Servidor: 2 ocupado por el cliente Nº: 85
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+139) Tipo de evento:Llegada  NºCliente:94  TM:171  SS1:1  SS2:1  WL:5  AT:172  DT1:179  DT2:173
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 88
+ -> Posicion: 2 ocupada por el cliente Nº: 89
+ -> Posicion: 3 ocupada por el cliente Nº: 92
+ -> Posicion: 4 ocupada por el cliente Nº: 93
+ -> Posicion: 5 ocupada por el cliente Nº: 94
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 86
+ -> Servidor: 2 ocupado por el cliente Nº: 85
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+140) Tipo de evento:Llegada  NºCliente:95  TM:172  SS1:1  SS2:1  WL:5  AT:173  DT1:179  DT2:173
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 88
+ -> Posicion: 2 ocupada por el cliente Nº: 89
+ -> Posicion: 3 ocupada por el cliente Nº: 92
+ -> Posicion: 4 ocupada por el cliente Nº: 93
+ -> Posicion: 5 ocupada por el cliente Nº: 94
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 86
+ -> Servidor: 2 ocupado por el cliente Nº: 85
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+141) Tipo de evento:Salida  NºCliente:85  TM:173  SS1:1  SS2:1  WL:4  AT:173  DT1:179  DT2:181
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 89
+ -> Posicion: 2 ocupada por el cliente Nº: 92
+ -> Posicion: 3 ocupada por el cliente Nº: 93
+ -> Posicion: 4 ocupada por el cliente Nº: 94
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 86
+ -> Servidor: 2 ocupado por el cliente Nº: 88
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+142) Tipo de evento:Llegada  NºCliente:96  TM:173  SS1:1  SS2:1  WL:5  AT:174  DT1:179  DT2:181
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 89
+ -> Posicion: 2 ocupada por el cliente Nº: 92
+ -> Posicion: 3 ocupada por el cliente Nº: 93
+ -> Posicion: 4 ocupada por el cliente Nº: 94
+ -> Posicion: 5 ocupada por el cliente Nº: 96
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 86
+ -> Servidor: 2 ocupado por el cliente Nº: 88
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+143) Tipo de evento:Llegada  NºCliente:97  TM:174  SS1:1  SS2:1  WL:5  AT:175  DT1:179  DT2:181
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 89
+ -> Posicion: 2 ocupada por el cliente Nº: 92
+ -> Posicion: 3 ocupada por el cliente Nº: 93
+ -> Posicion: 4 ocupada por el cliente Nº: 94
+ -> Posicion: 5 ocupada por el cliente Nº: 96
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 86
+ -> Servidor: 2 ocupado por el cliente Nº: 88
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+144) Tipo de evento:Llegada  NºCliente:98  TM:175  SS1:1  SS2:1  WL:5  AT:176  DT1:179  DT2:181
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 89
+ -> Posicion: 2 ocupada por el cliente Nº: 92
+ -> Posicion: 3 ocupada por el cliente Nº: 93
+ -> Posicion: 4 ocupada por el cliente Nº: 94
+ -> Posicion: 5 ocupada por el cliente Nº: 96
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 86
+ -> Servidor: 2 ocupado por el cliente Nº: 88
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+145) Tipo de evento:Llegada  NºCliente:99  TM:176  SS1:1  SS2:1  WL:5  AT:177  DT1:179  DT2:181
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 89
+ -> Posicion: 2 ocupada por el cliente Nº: 92
+ -> Posicion: 3 ocupada por el cliente Nº: 93
+ -> Posicion: 4 ocupada por el cliente Nº: 94
+ -> Posicion: 5 ocupada por el cliente Nº: 96
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 86
+ -> Servidor: 2 ocupado por el cliente Nº: 88
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+146) Tipo de evento:Llegada  NºCliente:100  TM:177  SS1:1  SS2:1  WL:5  AT:179  DT1:179  DT2:181
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 89
+ -> Posicion: 2 ocupada por el cliente Nº: 92
+ -> Posicion: 3 ocupada por el cliente Nº: 93
+ -> Posicion: 4 ocupada por el cliente Nº: 94
+ -> Posicion: 5 ocupada por el cliente Nº: 96
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 86
+ -> Servidor: 2 ocupado por el cliente Nº: 88
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+147) Tipo de evento:Salida  NºCliente:86  TM:179  SS1:1  SS2:1  WL:4  AT:179  DT1:184  DT2:181
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 92
+ -> Posicion: 2 ocupada por el cliente Nº: 93
+ -> Posicion: 3 ocupada por el cliente Nº: 94
+ -> Posicion: 4 ocupada por el cliente Nº: 96
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 89
+ -> Servidor: 2 ocupado por el cliente Nº: 88
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+148) Tipo de evento:Llegada  NºCliente:101  TM:179  SS1:1  SS2:1  WL:5  AT:180  DT1:184  DT2:181
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 92
+ -> Posicion: 2 ocupada por el cliente Nº: 93
+ -> Posicion: 3 ocupada por el cliente Nº: 94
+ -> Posicion: 4 ocupada por el cliente Nº: 96
+ -> Posicion: 5 ocupada por el cliente Nº: 101
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 89
+ -> Servidor: 2 ocupado por el cliente Nº: 88
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+149) Tipo de evento:Llegada  NºCliente:102  TM:180  SS1:1  SS2:1  WL:5  AT:181  DT1:184  DT2:181
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 92
+ -> Posicion: 2 ocupada por el cliente Nº: 93
+ -> Posicion: 3 ocupada por el cliente Nº: 94
+ -> Posicion: 4 ocupada por el cliente Nº: 96
+ -> Posicion: 5 ocupada por el cliente Nº: 101
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 89
+ -> Servidor: 2 ocupado por el cliente Nº: 88
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+150) Tipo de evento:Salida  NºCliente:88  TM:181  SS1:1  SS2:1  WL:4  AT:181  DT1:184  DT2:186
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 93
+ -> Posicion: 2 ocupada por el cliente Nº: 94
+ -> Posicion: 3 ocupada por el cliente Nº: 96
+ -> Posicion: 4 ocupada por el cliente Nº: 101
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 89
+ -> Servidor: 2 ocupado por el cliente Nº: 92
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+151) Tipo de evento:Llegada  NºCliente:103  TM:181  SS1:1  SS2:1  WL:5  AT:184  DT1:184  DT2:186
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 93
+ -> Posicion: 2 ocupada por el cliente Nº: 94
+ -> Posicion: 3 ocupada por el cliente Nº: 96
+ -> Posicion: 4 ocupada por el cliente Nº: 101
+ -> Posicion: 5 ocupada por el cliente Nº: 103
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 89
+ -> Servidor: 2 ocupado por el cliente Nº: 92
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+152) Tipo de evento:Salida  NºCliente:89  TM:184  SS1:1  SS2:1  WL:4  AT:184  DT1:189  DT2:186
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 94
+ -> Posicion: 2 ocupada por el cliente Nº: 96
+ -> Posicion: 3 ocupada por el cliente Nº: 101
+ -> Posicion: 4 ocupada por el cliente Nº: 103
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 93
+ -> Servidor: 2 ocupado por el cliente Nº: 92
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+153) Tipo de evento:Llegada  NºCliente:104  TM:184  SS1:1  SS2:1  WL:5  AT:185  DT1:189  DT2:186
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 94
+ -> Posicion: 2 ocupada por el cliente Nº: 96
+ -> Posicion: 3 ocupada por el cliente Nº: 101
+ -> Posicion: 4 ocupada por el cliente Nº: 103
+ -> Posicion: 5 ocupada por el cliente Nº: 104
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 93
+ -> Servidor: 2 ocupado por el cliente Nº: 92
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+154) Tipo de evento:Llegada  NºCliente:105  TM:185  SS1:1  SS2:1  WL:5  AT:186  DT1:189  DT2:186
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 94
+ -> Posicion: 2 ocupada por el cliente Nº: 96
+ -> Posicion: 3 ocupada por el cliente Nº: 101
+ -> Posicion: 4 ocupada por el cliente Nº: 103
+ -> Posicion: 5 ocupada por el cliente Nº: 104
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 93
+ -> Servidor: 2 ocupado por el cliente Nº: 92
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+155) Tipo de evento:Salida  NºCliente:92  TM:186  SS1:1  SS2:1  WL:4  AT:186  DT1:189  DT2:194
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 96
+ -> Posicion: 2 ocupada por el cliente Nº: 101
+ -> Posicion: 3 ocupada por el cliente Nº: 103
+ -> Posicion: 4 ocupada por el cliente Nº: 104
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 93
+ -> Servidor: 2 ocupado por el cliente Nº: 94
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+156) Tipo de evento:Llegada  NºCliente:106  TM:186  SS1:1  SS2:1  WL:5  AT:188  DT1:189  DT2:194
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 96
+ -> Posicion: 2 ocupada por el cliente Nº: 101
+ -> Posicion: 3 ocupada por el cliente Nº: 103
+ -> Posicion: 4 ocupada por el cliente Nº: 104
+ -> Posicion: 5 ocupada por el cliente Nº: 106
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 93
+ -> Servidor: 2 ocupado por el cliente Nº: 94
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+157) Tipo de evento:Llegada  NºCliente:107  TM:188  SS1:1  SS2:1  WL:5  AT:189  DT1:189  DT2:194
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 96
+ -> Posicion: 2 ocupada por el cliente Nº: 101
+ -> Posicion: 3 ocupada por el cliente Nº: 103
+ -> Posicion: 4 ocupada por el cliente Nº: 104
+ -> Posicion: 5 ocupada por el cliente Nº: 106
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 93
+ -> Servidor: 2 ocupado por el cliente Nº: 94
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+158) Tipo de evento:Salida  NºCliente:93  TM:189  SS1:1  SS2:1  WL:4  AT:189  DT1:197  DT2:194
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 101
+ -> Posicion: 2 ocupada por el cliente Nº: 103
+ -> Posicion: 3 ocupada por el cliente Nº: 104
+ -> Posicion: 4 ocupada por el cliente Nº: 106
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 96
+ -> Servidor: 2 ocupado por el cliente Nº: 94
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+159) Tipo de evento:Llegada  NºCliente:108  TM:189  SS1:1  SS2:1  WL:5  AT:191  DT1:197  DT2:194
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 101
+ -> Posicion: 2 ocupada por el cliente Nº: 103
+ -> Posicion: 3 ocupada por el cliente Nº: 104
+ -> Posicion: 4 ocupada por el cliente Nº: 106
+ -> Posicion: 5 ocupada por el cliente Nº: 108
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 96
+ -> Servidor: 2 ocupado por el cliente Nº: 94
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+160) Tipo de evento:Llegada  NºCliente:109  TM:191  SS1:1  SS2:1  WL:5  AT:193  DT1:197  DT2:194
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 101
+ -> Posicion: 2 ocupada por el cliente Nº: 103
+ -> Posicion: 3 ocupada por el cliente Nº: 104
+ -> Posicion: 4 ocupada por el cliente Nº: 106
+ -> Posicion: 5 ocupada por el cliente Nº: 108
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 96
+ -> Servidor: 2 ocupado por el cliente Nº: 94
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+161) Tipo de evento:Llegada  NºCliente:110  TM:193  SS1:1  SS2:1  WL:5  AT:196  DT1:197  DT2:194
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 101
+ -> Posicion: 2 ocupada por el cliente Nº: 103
+ -> Posicion: 3 ocupada por el cliente Nº: 104
+ -> Posicion: 4 ocupada por el cliente Nº: 106
+ -> Posicion: 5 ocupada por el cliente Nº: 108
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 96
+ -> Servidor: 2 ocupado por el cliente Nº: 94
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+162) Tipo de evento:Salida  NºCliente:94  TM:194  SS1:1  SS2:1  WL:4  AT:196  DT1:197  DT2:204
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 103
+ -> Posicion: 2 ocupada por el cliente Nº: 104
+ -> Posicion: 3 ocupada por el cliente Nº: 106
+ -> Posicion: 4 ocupada por el cliente Nº: 108
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 96
+ -> Servidor: 2 ocupado por el cliente Nº: 101
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+163) Tipo de evento:Llegada  NºCliente:111  TM:196  SS1:1  SS2:1  WL:5  AT:197  DT1:197  DT2:204
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 103
+ -> Posicion: 2 ocupada por el cliente Nº: 104
+ -> Posicion: 3 ocupada por el cliente Nº: 106
+ -> Posicion: 4 ocupada por el cliente Nº: 108
+ -> Posicion: 5 ocupada por el cliente Nº: 111
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 96
+ -> Servidor: 2 ocupado por el cliente Nº: 101
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+164) Tipo de evento:Salida  NºCliente:96  TM:197  SS1:1  SS2:1  WL:4  AT:197  DT1:204  DT2:204
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 104
+ -> Posicion: 2 ocupada por el cliente Nº: 106
+ -> Posicion: 3 ocupada por el cliente Nº: 108
+ -> Posicion: 4 ocupada por el cliente Nº: 111
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 103
+ -> Servidor: 2 ocupado por el cliente Nº: 101
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+165) Tipo de evento:Llegada  NºCliente:112  TM:197  SS1:1  SS2:1  WL:5  AT:199  DT1:204  DT2:204
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 104
+ -> Posicion: 2 ocupada por el cliente Nº: 106
+ -> Posicion: 3 ocupada por el cliente Nº: 108
+ -> Posicion: 4 ocupada por el cliente Nº: 111
+ -> Posicion: 5 ocupada por el cliente Nº: 112
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 103
+ -> Servidor: 2 ocupado por el cliente Nº: 101
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+166) Tipo de evento:Llegada  NºCliente:113  TM:199  SS1:1  SS2:1  WL:5  AT:202  DT1:204  DT2:204
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 104
+ -> Posicion: 2 ocupada por el cliente Nº: 106
+ -> Posicion: 3 ocupada por el cliente Nº: 108
+ -> Posicion: 4 ocupada por el cliente Nº: 111
+ -> Posicion: 5 ocupada por el cliente Nº: 112
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 103
+ -> Servidor: 2 ocupado por el cliente Nº: 101
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+167) Tipo de evento:Llegada  NºCliente:114  TM:202  SS1:1  SS2:1  WL:5  AT:205  DT1:204  DT2:204
+----------------------------------------------------------------
+
+* Linea de espera: 
+ -> Posicion: 1 ocupada por el cliente Nº: 104
+ -> Posicion: 2 ocupada por el cliente Nº: 106
+ -> Posicion: 3 ocupada por el cliente Nº: 108
+ -> Posicion: 4 ocupada por el cliente Nº: 111
+ -> Posicion: 5 ocupada por el cliente Nº: 112
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 103
+ -> Servidor: 2 ocupado por el cliente Nº: 101
+
+/////////////////////////////////////////////////////////////////

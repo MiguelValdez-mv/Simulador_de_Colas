@@ -127,7 +127,7 @@ public class Estadisticas {
      * @param numServidor Indica el numero del servidor
      * @param uso Indica si durante el periodo especificado el servido estuvo en uso
      */
-    public void actualizarPorcentajeUtilizacion(int tiempoPrevio,int tiempoActual, int numServidor, int uso){
+    public void actualizarPorcentajeUtilizacion(int tiempoPrevio, int tiempoActual, int numServidor, int uso){
         if(tiempoPrevio == 0 && tiempoActual == 0){
             porcentajeUtilizacion.set(numServidor, 0.0);
         }else{
