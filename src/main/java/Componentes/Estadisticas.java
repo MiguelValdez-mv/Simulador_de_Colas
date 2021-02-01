@@ -102,11 +102,12 @@ public class Estadisticas {
     /**
      * Actualiza el tiempo promedio que un cliente esta en cola
      * 
-     * @param tiempoInicioServicio Tiempo de inicio de servicio del cliente
+     * @param tiempoSalida Tiempo de salida del cliente del sistema
      * @param tiempoLlegada Tiempo de llegada del cliente al sistema
+     * @param tiempoServicio Tiempo de servicio del cliente
      */
-    public void actualizarTiempoClienteEnCola(int tiempoInicioServicio, int tiempoLlegada){
-        tiempoEnCola += tiempoInicioServicio - tiempoLlegada;
+    public void actualizarTiempoClienteEnCola(int tiempoSalida, int tiempoLlegada, int tiempoServicio){
+        tiempoEnCola += tiempoSalida - tiempoLlegada - tiempoServicio;
     }
     
     /**

@@ -1,5 +1,4 @@
 Componentes/Simulacion.class
-Componentes/Llegada.class
 GUI/ParametrosDeEntrada$7.class
 Componentes/Salida.class
 Componentes/TablaDistribucion.class
@@ -7,11 +6,13 @@ GUI/ParametrosDeEntrada$9.class
 GUI/ParametrosDeSalida$1.class
 Componentes/EstatusServidores.class
 Utils/Cadena.class
+Componentes/Cliente.class
 GUI/ParametrosDeEntrada$10.class
 Constantes/Constantes.class
 GUI/ParametrosDeEntrada$12.class
 Componentes/LineaEspera.class
 GUI/ParametrosDeEntrada$8.class
+Componentes/ClientesEnSistema.class
 Utils/Numero.class
 Componentes/Probabilidad.class
 Utils/MensajeModal.class

@@ -34,7 +34,7 @@ public class Simulacion {
     private EstatusServidores estatusServidores;
     private LineaEspera lineaEspera;
     private int tiempoSiguienteLlegada;
-    private ArrayList<Llegada> llegadas;
+    private ClientesEnSistema clientesEnSistema;
     private ArrayList<Salida> salidas;
     private int cantClientesEnSistema;
     
@@ -59,7 +59,7 @@ public class Simulacion {
         this.estatusServidores = new EstatusServidores(cantServidores);
         this.lineaEspera = new LineaEspera(cantClientesPermitidos, cantServidores);
         this.tiempoSiguienteLlegada = 0;
-        this.llegadas = new ArrayList<>();
+        this.clientesEnSistema = new ClientesEnSistema();
         this.salidas = new ArrayList<>();
         this.cantClientesEnSistema = 0;
         this.estadisticas = new Estadisticas(cantServidores, unidadTiempo);
@@ -90,6 +90,8 @@ public class Simulacion {
         int primerClienteCola;
         int numClienteSalida = 0;
         int siguienteServidorLibre;
+        int tiempoServicio;
+        Cliente datosClienteSalida;
         
         cadenaTablaEventos = "\n\nTABLA DE EVENTOS: \n\n/////////////////////////////////////////////////////////////////\n";
         
@@ -120,10 +122,14 @@ public class Simulacion {
                     //Se asigna ese servidor libre al cliente que esta llegado para que este sea atentido
                     estatusServidores.añadirCliente(siguienteServidorLibre, numCliente);
                    
-                    llegadas.add(new Llegada(numCliente, tiempoSimulacion));
+                    //Generamos un tiempo de servicio aleatorio
+                    tiempoServicio = generarTiempoServicio();
+                    
+                    clientesEnSistema.añadirCliente(numCliente, tiempoSimulacion);
+                    clientesEnSistema.actualizarTiempoServicio(numCliente, tiempoServicio);
                    
                     //Se genera una salida en el servidor libre que fue asignado al cliente en el paso anterior
-                    salidas.get(siguienteServidorLibre).generarSiguienteSalida(numCliente, tiempoSimulacion + generarTiempoServicio());  
+                    salidas.get(siguienteServidorLibre).generarSiguienteSalida(numCliente, tiempoSimulacion + tiempoServicio);  
       
                     cantClientesEnSistema++;
                     estadisticas.actualizarCantClientesNoEsperan();
@@ -135,7 +141,7 @@ public class Simulacion {
                        //La linea de espera alcanzo su capacidad maxima, el cliente se va
                        estadisticas.actualizarCantClientesSeVanSinAtender();
                     }else{
-                       llegadas.add(new Llegada(numCliente, tiempoSimulacion));
+                       clientesEnSistema.añadirCliente(numCliente, tiempoSimulacion);
                        cantClientesEnSistema++;
                        estadisticas.actualizarCantClientesEsperan();
                     }
@@ -155,11 +161,16 @@ public class Simulacion {
                 
                 //Obtenemos el numero del cliente que se va
                 numClienteSalida = siguienteSalida.getNumCliente();
-                estadisticas.actualizarTiempoClienteEnSistema(llegadas.get(obtenerLlegada(numClienteSalida)).getTiempoLlegada(), tiempoSimulacion);
+                
+                //Obtenemos los datos del cliente que va a salir del sistema
+                datosClienteSalida = clientesEnSistema.obtenerDatosCliente(numClienteSalida);
+                
+                estadisticas.actualizarTiempoClienteEnSistema(datosClienteSalida.getTiempoLlegada(), tiempoSimulacion);
+                estadisticas.actualizarTiempoClienteEnCola(tiempoSimulacion, datosClienteSalida.getTiempoLlegada(), datosClienteSalida.getTiempoServicio());
                 
                 //Sacamos al cliente que va a salir del sistema del servidor en donde estaba siendo atentido
                 siguienteServidorLibre = estatusServidores.sacarCliente(numClienteSalida);
-                llegadas.remove(obtenerLlegada(numClienteSalida));
+                clientesEnSistema.sacarClienteSistema(numClienteSalida);
                 estadisticas.actualizarPorcentajesUtilizacionServidores(tiempoPrevioSimulacion, tiempoSimulacion, estatusServidores);
                 
                 if(lineaEspera.longitudColaEspera() > 0){
@@ -170,11 +181,13 @@ public class Simulacion {
                     //Le asignamos un servidor a ese cliente
                     estatusServidores.añadirCliente(siguienteServidorLibre, primerClienteCola);
 
-                    //Generamos una salida para el nuevo servicio que se genero (EN EL PROXIMO SERVIDOR LIBRE)
-                    siguienteSalida.generarSiguienteSalida(primerClienteCola, tiempoSimulacion + generarTiempoServicio());             
-                
-                    estadisticas.actualizarTiempoClienteEnCola(tiempoSimulacion, llegadas.get(obtenerLlegada(primerClienteCola)).getTiempoLlegada());
+                    //Generamos un tiempo de servicio aleatorio
+                    tiempoServicio = generarTiempoServicio();
                     
+                    clientesEnSistema.actualizarTiempoServicio(primerClienteCola, tiempoServicio);
+                    
+                    //Generamos una salida para el nuevo servicio que se genero (EN EL PROXIMO SERVIDOR LIBRE)
+                    siguienteSalida.generarSiguienteSalida(primerClienteCola, tiempoSimulacion + tiempoServicio);             
                 }else{
                   
                     //No hay cola, el sistema queda vacio
@@ -226,23 +239,7 @@ public class Simulacion {
         return Collections.min(salidas, Comparator.comparing(s -> s.getTiempoSalida()));
     }
     
-    
     /**
-     * Busca una llegada de la "lista de llegadas" a partir del numero del cliente
-     * 
-     * @param numCliente Index del numero del cliente
-     */
-    public int obtenerLlegada(int numCliente){
-        for(int i = 0; i < llegadas.size(); i++){
-            if(llegadas.get(i).getNumCliente() == numCliente){
-                return i;
-            }
-        }
-        
-        return -1;
-    }
-    
-     /**
      * Retorna la cadena que contiene las proximas salidas de todos los servidores
      * del sistema
      * 

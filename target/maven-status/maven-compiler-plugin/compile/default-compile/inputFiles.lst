@@ -1,4 +1,3 @@
-/home/miguelandres/NetBeansProjects/ProyectoIO-2021/src/main/java/Componentes/Llegada.java
 /home/miguelandres/NetBeansProjects/ProyectoIO-2021/src/main/java/GUI/ParametrosDeEntrada.java
 /home/miguelandres/NetBeansProjects/ProyectoIO-2021/src/main/java/Componentes/Salida.java
 /home/miguelandres/NetBeansProjects/ProyectoIO-2021/src/main/java/GUI/ParametrosDeSalida.java
@@ -7,7 +6,9 @@
 /home/miguelandres/NetBeansProjects/ProyectoIO-2021/src/main/java/Componentes/Simulacion.java
 /home/miguelandres/NetBeansProjects/ProyectoIO-2021/src/main/java/Constantes/Constantes.java
 /home/miguelandres/NetBeansProjects/ProyectoIO-2021/src/main/java/Componentes/Probabilidad.java
+/home/miguelandres/NetBeansProjects/ProyectoIO-2021/src/main/java/Componentes/ClientesEnSistema.java
 /home/miguelandres/NetBeansProjects/ProyectoIO-2021/src/main/java/Componentes/LineaEspera.java
+/home/miguelandres/NetBeansProjects/ProyectoIO-2021/src/main/java/Componentes/Cliente.java
 /home/miguelandres/NetBeansProjects/ProyectoIO-2021/src/main/java/Utils/Numero.java
 /home/miguelandres/NetBeansProjects/ProyectoIO-2021/src/main/java/Utils/Aleatorio.java
 /home/miguelandres/NetBeansProjects/ProyectoIO-2021/src/main/java/Utils/MensajeModal.java
