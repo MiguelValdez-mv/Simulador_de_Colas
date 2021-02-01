@@ -89,6 +89,7 @@ public class Simulacion {
         int tiempoSiguienteSalida;
         int primerClienteCola;
         int numClienteSalida = 0;
+        int siguienteServidorLibre;
         
         cadenaTablaEventos = "\n\nTABLA DE EVENTOS: \n\n/////////////////////////////////////////////////////////////////\n";
         
@@ -112,16 +113,20 @@ public class Simulacion {
                 if(estatusServidores.hayServidorLibre()){
                    
                     //El cliente llega al sistema y no hace cola
-                    int siguienteServidorLibre = estatusServidores.siguienteServidorLibre();
+                    
+                    //Se obtiene el numero del proximo servidor libre
+                    siguienteServidorLibre = estatusServidores.siguienteServidorLibre();
                  
+                    //Se asigna ese servidor libre al cliente que esta llegado para que este sea atentido
                     estatusServidores.añadirCliente(siguienteServidorLibre, numCliente);
                    
                     llegadas.add(new Llegada(numCliente, tiempoSimulacion));
                    
+                    //Se genera una salida en el servidor libre que fue asignado al cliente en el paso anterior
                     salidas.get(siguienteServidorLibre).generarSiguienteSalida(numCliente, tiempoSimulacion + generarTiempoServicio());  
       
-                   cantClientesEnSistema++;
-                   estadisticas.actualizarCantClientesNoEsperan();
+                    cantClientesEnSistema++;
+                    estadisticas.actualizarCantClientesNoEsperan();
                 }else{
                    
                    //El cliente llega y todos los servidores estan desocupados, hace cola
@@ -148,10 +153,12 @@ public class Simulacion {
                 estadisticas.actualizarCantClientesEnSistema(tiempoPrevioSimulacion, tiempoSimulacion, cantClientesEnSistema);
                 cantClientesEnSistema--;
                 
-                //Finalizamos el servicio del cliente que se va
+                //Obtenemos el numero del cliente que se va
                 numClienteSalida = siguienteSalida.getNumCliente();
                 estadisticas.actualizarTiempoClienteEnSistema(llegadas.get(obtenerLlegada(numClienteSalida)).getTiempoLlegada(), tiempoSimulacion);
-                estatusServidores.sacarCliente(numClienteSalida);
+                
+                //Sacamos al cliente que va a salir del sistema del servidor en donde estaba siendo atentido
+                siguienteServidorLibre = estatusServidores.sacarCliente(numClienteSalida);
                 llegadas.remove(obtenerLlegada(numClienteSalida));
                 estadisticas.actualizarPorcentajesUtilizacionServidores(tiempoPrevioSimulacion, tiempoSimulacion, estatusServidores);
                 
@@ -161,7 +168,7 @@ public class Simulacion {
                     primerClienteCola = lineaEspera.sacarCliente();
 
                     //Le asignamos un servidor a ese cliente
-                    estatusServidores.añadirCliente(estatusServidores.siguienteServidorLibre(), primerClienteCola);
+                    estatusServidores.añadirCliente(siguienteServidorLibre, primerClienteCola);
 
                     //Generamos una salida para el nuevo servicio que se genero (EN EL PROXIMO SERVIDOR LIBRE)
                     siguienteSalida.generarSiguienteSalida(primerClienteCola, tiempoSimulacion + generarTiempoServicio());             
