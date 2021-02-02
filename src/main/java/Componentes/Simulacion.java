@@ -157,6 +157,7 @@ public class Simulacion {
                 
                 estadisticas.actualizarCantClientesEnCola(tiempoPrevioSimulacion, tiempoSimulacion, lineaEspera.longitudColaEspera());
                 estadisticas.actualizarCantClientesEnSistema(tiempoPrevioSimulacion, tiempoSimulacion, cantClientesEnSistema);
+                estadisticas.actualizarPorcentajesUtilizacionServidores(tiempoPrevioSimulacion, tiempoSimulacion, estatusServidores);
                 cantClientesEnSistema--;
                 
                 //Obtenemos el numero del cliente que se va
@@ -171,7 +172,6 @@ public class Simulacion {
                 //Sacamos al cliente que va a salir del sistema del servidor en donde estaba siendo atentido
                 siguienteServidorLibre = estatusServidores.sacarCliente(numClienteSalida);
                 clientesEnSistema.sacarClienteSistema(numClienteSalida);
-                estadisticas.actualizarPorcentajesUtilizacionServidores(tiempoPrevioSimulacion, tiempoSimulacion, estatusServidores);
                 
                 if(lineaEspera.longitudColaEspera() > 0){
                   
