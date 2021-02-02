@@ -171,7 +171,7 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
         setTitle("Simulador de Colas - IO 2021");
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(237, 248, 224));
+        jPanel1.setBackground(new java.awt.Color(144, 168, 246));
         jPanel1.setFocusable(false);
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -204,7 +204,7 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
         labelPresentarTablaEventos.setText("Presentar tabla de eventos");
         jPanel1.add(labelPresentarTablaEventos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, 20));
 
-        presentarTablaEventos.setBackground(new java.awt.Color(237, 248, 224));
+        presentarTablaEventos.setBackground(new java.awt.Color(144, 168, 246));
         presentarTablaEventos.setFocusable(false);
         presentarTablaEventos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -264,7 +264,7 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
         labelTELL.setText("Tiempos entre llegadas");
         jPanel1.add(labelTELL, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, -1, 30));
 
-        valoresManualesTELL.setBackground(new java.awt.Color(237, 248, 224));
+        valoresManualesTELL.setBackground(new java.awt.Color(144, 168, 246));
         grupoValoresTELL.add(valoresManualesTELL);
         valoresManualesTELL.setFont(new java.awt.Font("Roboto Mono", 0, 15)); // NOI18N
         valoresManualesTELL.setForeground(new java.awt.Color(0, 0, 0));
@@ -272,7 +272,7 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
         valoresManualesTELL.setFocusable(false);
         jPanel1.add(valoresManualesTELL, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, -1, -1));
 
-        valoresArchivoTELL.setBackground(new java.awt.Color(237, 248, 224));
+        valoresArchivoTELL.setBackground(new java.awt.Color(144, 168, 246));
         grupoValoresTELL.add(valoresArchivoTELL);
         valoresArchivoTELL.setFont(new java.awt.Font("Roboto Mono", 0, 15)); // NOI18N
         valoresArchivoTELL.setForeground(new java.awt.Color(0, 0, 0));
@@ -309,6 +309,7 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
 
         valoresTELLManuales.setEditable(false);
         valoresTELLManuales.setColumns(20);
+        valoresTELLManuales.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         valoresTELLManuales.setRows(5);
         jScrollPane2.setViewportView(valoresTELLManuales);
 
@@ -316,6 +317,8 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
 
         valoresTELLArchivo.setEditable(false);
         valoresTELLArchivo.setColumns(20);
+        valoresTELLArchivo.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        valoresTELLArchivo.setLineWrap(true);
         valoresTELLArchivo.setRows(5);
         jScrollPane1.setViewportView(valoresTELLArchivo);
 
@@ -336,7 +339,7 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
         labelTiempoServicios.setText("Tiempos de servicio");
         jPanel1.add(labelTiempoServicios, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 630, 180, 20));
 
-        valoresManualesTiempoServicio.setBackground(new java.awt.Color(237, 248, 224));
+        valoresManualesTiempoServicio.setBackground(new java.awt.Color(144, 168, 246));
         grupoValoresTiempoServicio.add(valoresManualesTiempoServicio);
         valoresManualesTiempoServicio.setFont(new java.awt.Font("Roboto Mono", 0, 15)); // NOI18N
         valoresManualesTiempoServicio.setForeground(new java.awt.Color(0, 0, 0));
@@ -374,12 +377,13 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
 
         valoresTiempoServicioManuales.setEditable(false);
         valoresTiempoServicioManuales.setColumns(20);
+        valoresTiempoServicioManuales.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         valoresTiempoServicioManuales.setRows(5);
         jScrollPane5.setViewportView(valoresTiempoServicioManuales);
 
         jPanel1.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 750, 370, 110));
 
-        valoresArchivoTiempoServicio.setBackground(new java.awt.Color(237, 248, 224));
+        valoresArchivoTiempoServicio.setBackground(new java.awt.Color(144, 168, 246));
         grupoValoresTiempoServicio.add(valoresArchivoTiempoServicio);
         valoresArchivoTiempoServicio.setFont(new java.awt.Font("Roboto Mono", 0, 15)); // NOI18N
         valoresArchivoTiempoServicio.setForeground(new java.awt.Color(0, 0, 0));
@@ -404,6 +408,7 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
 
         valoresTiempoServicioArchivo.setEditable(false);
         valoresTiempoServicioArchivo.setColumns(20);
+        valoresTiempoServicioArchivo.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         valoresTiempoServicioArchivo.setRows(5);
         jScrollPane4.setViewportView(valoresTiempoServicioArchivo);
 
@@ -424,7 +429,7 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
         });
         jPanel1.add(ComenzarSimulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 880, -1, 30));
 
-        espacio.setBackground(new java.awt.Color(237, 248, 224));
+        espacio.setBackground(new java.awt.Color(144, 168, 246));
 
         javax.swing.GroupLayout espacioLayout = new javax.swing.GroupLayout(espacio);
         espacio.setLayout(espacioLayout);
@@ -449,7 +454,7 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 637, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 633, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -521,7 +526,7 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
                                                 tablaTELL, tablaTS);
         simulacion.iniciar();
         
-        // guardar en archivo
+        // Guardar estadisticas de la simulacion en el archivo
         Timestamp momentoActual = new Timestamp(System.currentTimeMillis());
         File archivoSalidaSimulacion = new File(Constantes.DIRECTORIO_ARCHIVOS + "simulacion_" + momentoActual.getTime() + ".txt");
         this.manejadorArchivo.setArchivoSalida(archivoSalidaSimulacion);
@@ -530,16 +535,19 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
                                             + simulacion.getCadenaTablaEventos()
                                             , false);
 
-        // restaurar archivo salida, por si acaso
+        // Restaurar archivo salida, por si acaso
         this.manejadorArchivo.setArchivoSalida(new File(Constantes.DIRECCION_ARCHIVO_SALIDA));
         
+        // Cerramos el JFrame de los parametros de entrada
         this.setVisible(false);
+        
         ParametrosDeSalida parametrosSalida = new ParametrosDeSalida();
         
-        // mostrar en pantalla
+        // Mostramos en pantalla el JFrame de los parametros de salida
         parametrosSalida.setVisible(true);
-        parametrosSalida.mostrarSalida(simulacion.imprimirEstadisticasSimulacion() 
-                                      + (presentarTablaEventos.isSelected() ? simulacion.getCadenaTablaEventos() : ""));
+        
+        // Mostarmos los datos de la simulacion
+        parametrosSalida.mostrarSalida(simulacion.getEstadisticas(), presentarTablaEventos.isSelected(), simulacion.getCadenaTablaEventos());
     }//GEN-LAST:event_ComenzarSimulacionActionPerformed
 
     private void AgregarValorTELLManualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarValorTELLManualActionPerformed

@@ -69,21 +69,7 @@ public class Simulacion {
             salidas.add(i, new Salida());    
         } 
     }
-
-    public Estadisticas getEstadisticas() {
-        return estadisticas;
-    }
-   
-    /*
-        numEvento
-        tipoEvento
-        numCliente
-        tiempoSimulacion        | TM
-        estatusServidores       | SS
-        lineaEspera             | WL
-        tiempoSiguienteLlegada  | AT
-        tiempoSiguienteSalida   | DT     
-    */    
+ 
     public void iniciar(){    
         Salida siguienteSalida;
         int tiempoSiguienteSalida;
@@ -93,7 +79,7 @@ public class Simulacion {
         int tiempoServicio;
         Cliente datosClienteSalida;
         
-        cadenaTablaEventos = "\n\nTABLA DE EVENTOS: \n\n/////////////////////////////////////////////////////////////////\n";
+        cadenaTablaEventos = "\n***/////////////////////////////////////////////////////////////////***\n";
         
         do{
           numEvento++;
@@ -195,17 +181,16 @@ public class Simulacion {
                 }    
             }
           
-            cadenaTablaEventos += "\n* Tabla del evento:\n----------------------------------------------------------------\n"
+            cadenaTablaEventos += "\n* Tabla del evento: \n"
                                 + numEvento  + ") Tipo de evento:" + tipoEvento 
                                 + "  NºCliente:" + ( tipoEvento == "Llegada" ? numCliente : numClienteSalida)
                                 + "  TM:" + tiempoSimulacion 
                                 + estatusServidores.toString() 
                                 + "  WL:" + lineaEspera.longitudColaEspera() 
-                                + "  AT:" + tiempoSiguienteLlegada  + imprimirSalidas() 
-                                + "\n----------------------------------------------------------------\n"
+                                + "  AT:" + tiempoSiguienteLlegada  + imprimirSalidas() + "\n"
                                 + "\n" + lineaEspera.toString() + "\n" 
                                 + estatusServidores.imprimirDetallesEstatusServidores()
-                                + "\n/////////////////////////////////////////////////////////////////\n"; 
+                                + "\n***/////////////////////////////////////////////////////////////////***\n"; 
         
         }while(tiempoSimulacion <= duracionSimulacion);
         
@@ -295,5 +280,11 @@ public class Simulacion {
     public ArrayList<Salida> getSalidas() {
         return salidas;
     }
+    
+    
+    public Estadisticas getEstadisticas() {
+        return estadisticas;
+    }
+   
 }
 

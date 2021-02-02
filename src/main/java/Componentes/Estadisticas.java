@@ -12,6 +12,7 @@ import java.util.ArrayList;
  */
 public class Estadisticas {
     
+    //Estadisticas
     private String unidadTiempo;
     private int cantClientesNoEsperan;
     private int cantClientesSeVanSinAtender;
@@ -26,7 +27,11 @@ public class Estadisticas {
     private double porcentajeUtilizacionGeneral;
     private double relacionOptima;
     private ArrayList<Double> porcentajeUtilizacion;
+    
+    //Recursos
     DecimalFormat formato;
+    String cadenaClientes = " clientes";
+    String cadenaPorcentaje = "%";
     
 
     public Estadisticas(int numeroServidores, String unidadTiempo){
@@ -50,9 +55,7 @@ public class Estadisticas {
             porcentajeUtilizacion.add(0.0);
         }
     }
-    
-    
-       
+      
     public void actualizarCantClientesNoEsperan(){
         cantClientesNoEsperan++;
     }
@@ -230,32 +233,73 @@ public class Estadisticas {
         double scale = Math.pow(10, places);
         return Math.round(value * scale) / scale;
     }
+    
+     public String cadenaCantClientesNoEsperan() {
+        return cantClientesNoEsperan + cadenaClientes;
+    }
+
+    public String cadenaCantClientesSeVanSinAtender() {
+        return cantClientesSeVanSinAtender + cadenaClientes;
+    }
+
+    public String cadenaProbabilidadEspera() {
+        return round(probabilidadEspera * 100, 3) + cadenaPorcentaje;
+    }
+    
+    public String cadenaCantPromedioClientesEnCola() {
+        return round(cantClientesEnCola, 3) + cadenaClientes;
+    }
+    
+    public String cadenaCantPromedioClientesEnSistema(){
+        return this.round(cantClientesEnSistema, 3) + cadenaClientes;
+    }
+    
+    public String cadenaTiempoPromedioEnCola(){
+        return round(tiempoEnCola, 3) + " " + unidadTiempo;
+    }
+    
+    public String cadenaTiempoPromedioEnSistema(){
+        return round(tiempoEnSistema, 3) + " " + unidadTiempo;
+    }
+    
+    public String cadenaTiempoAdicional(){
+        return round(tiempoAdicional, 3) + " " + unidadTiempo;
+    }
+    
+    public String cadenaRelacionOptima(){
+        return round(relacionOptima, 3) + " servidores";
+    }
+    
+    public String cadenaPorcentajeUitlizacionGeneralServidores(){
+        return this.round(porcentajeUtilizacionGeneral * 100, 3) + cadenaPorcentaje;
+    }
   
-    @Override
-    public String toString() {
-        String cadenaClientes = " clientes";
-        String cadenaPorcentaje = "%";
-        String cadenaPorcentajesUtilizacion = "\n* Porcentaje de utilizacion por servidor:\n";
+    public String cadenaPorcentajeUtilizacionPorServidor(){
+        String cadenaPorcentajesUtilizacionPorServidor = "";
         
         for(int i = 0; i < porcentajeUtilizacion.size(); i++){
-            cadenaPorcentajesUtilizacion += " -> Numero de servidor: " 
+            cadenaPorcentajesUtilizacionPorServidor += " -> Numero de servidor: " 
                                          + (i + 1) + ", porcentaje de utilizacion: " 
                                          + this.round(porcentajeUtilizacion.get(i) * 100, 3)
                                          + cadenaPorcentaje + "\n";
         }
         
+        return cadenaPorcentajesUtilizacionPorServidor;
+    }
+     
+    public String toString() {
         
         return "ESTADISTICAS DE LA SIMULACION \n"
-               + "\n* Cantidad de clientes que no esperan: " + cantClientesNoEsperan + cadenaClientes
-               + "\n* Cantidad de clientes que se van sin ser atentidos: " + cantClientesSeVanSinAtender + cadenaClientes
-               + "\n* Probabilidad de esperar (expresado en porcentaje %): " + this.round(probabilidadEspera * 100, 3) + cadenaPorcentaje 
-               + "\n* Cantidad promedio de clientes en cola: " + this.round(cantClientesEnCola, 3) + cadenaClientes
-               + "\n* Cantidad promedio de clientes en el sistema: " + this.round(cantClientesEnSistema, 3) + cadenaClientes
-               + "\n* Tiempo promedio de un cliente en cola: " + this.round(tiempoEnCola, 3) + " " + unidadTiempo
-               + "\n* Tiempo promedio de un cliente en el sistema " + this.round(tiempoEnSistema, 3) + " " + unidadTiempo
-               + "\n* Tiempo adicional: " + this.round(tiempoAdicional, 3) + " " + unidadTiempo
-               + "\n* Relacion optima: Se recomienda agregar " + this.round(relacionOptima, 3) + " servidores" 
-               + "\n* Porcentaje de utilizacion general de los servidores: " + this.round(porcentajeUtilizacionGeneral * 100, 3) + cadenaPorcentaje
-               + cadenaPorcentajesUtilizacion + "\n"; 
+               + "\n* Cantidad de clientes que no esperan: " + cadenaCantClientesNoEsperan()
+               + "\n* Cantidad de clientes que se van sin ser atentidos: " + cadenaCantClientesSeVanSinAtender()
+               + "\n* Probabilidad de esperar (expresado en porcentaje %): " + cadenaProbabilidadEspera()
+               + "\n* Cantidad promedio de clientes en cola: " + cadenaCantPromedioClientesEnCola()
+               + "\n* Cantidad promedio de clientes en el sistema: " + cadenaCantPromedioClientesEnSistema()
+               + "\n* Tiempo promedio de un cliente en cola: " + cadenaTiempoPromedioEnCola()
+               + "\n* Tiempo promedio de un cliente en el sistema " + cadenaTiempoPromedioEnSistema()
+               + "\n* Tiempo adicional: " + cadenaTiempoAdicional()
+               + "\n* Relacion optima: Se recomienda agregar " + cadenaRelacionOptima()
+               + "\n* Porcentaje de utilizacion general de los servidores: " + cadenaPorcentajeUitlizacionGeneralServidores()
+               + "\n* Porcentaje de utilizacion por servidor:\n" + cadenaPorcentajeUtilizacionPorServidor() + "\n"; 
     } 
 }

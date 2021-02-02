@@ -1,0 +1,127 @@
+PARAMETROS DE ENTRADA DE LA SIMULACION
+
+* Unidad de tiempo: Segundos
+* Duracion de la simulacion: 5 Segundos
+* Cantidad de clientes permitidos: 5 clientes
+* Costo de espera del cliente: 5 Segundos/$
+* Cantidad de servidores: 5 servidores
+* Costo de cada servidor: 5 Segundos/$
+* Tabla de distribucion tiempo entre llegadas:
+ -> Valor: 1, Porcentaje: 50, Porcentaje acum: 50, Intervalo: 0 - 49
+ -> Valor: 2, Porcentaje: 20, Porcentaje acum: 70, Intervalo: 50 - 69
+ -> Valor: 3, Porcentaje: 20, Porcentaje acum: 90, Intervalo: 70 - 89
+ -> Valor: 4, Porcentaje: 2, Porcentaje acum: 92, Intervalo: 90 - 91
+ -> Valor: 5, Porcentaje: 8, Porcentaje acum: 100, Intervalo: 92 - 99
+* Tabla de distribucion tiempo de servicio:
+ -> Valor: 5, Porcentaje: 20, Porcentaje acum: 20, Intervalo: 0 - 19
+ -> Valor: 7, Porcentaje: 30, Porcentaje acum: 50, Intervalo: 20 - 49
+ -> Valor: 8, Porcentaje: 30, Porcentaje acum: 80, Intervalo: 50 - 79
+ -> Valor: 9, Porcentaje: 10, Porcentaje acum: 90, Intervalo: 80 - 89
+ -> Valor: 10, Porcentaje: 10, Porcentaje acum: 100, Intervalo: 90 - 99
+
+
+
+ESTADISTICAS DE LA SIMULACION 
+
+* Cantidad de clientes que no esperan: 4 clientes
+* Cantidad de clientes que se van sin ser atentidos: 0 clientes
+* Probabilidad de esperar (expresado en porcentaje %): 0.0%
+* Cantidad promedio de clientes en cola: 0.0 clientes
+* Cantidad promedio de clientes en el sistema: 3.0 clientes
+* Tiempo promedio de un cliente en cola: 0.0 segundos
+* Tiempo promedio de un cliente en el sistema 1.75 segundos
+* Tiempo adicional: 3.0 segundos
+* Relacion optima: Se recomienda agregar 0.0 servidores
+* Porcentaje de utilizacion general de los servidores: 60.0%
+* Porcentaje de utilizacion por servidor:
+ -> Numero de servidor: 1, porcentaje de utilizacion: 100.0%
+ -> Numero de servidor: 2, porcentaje de utilizacion: 87.5%
+ -> Numero de servidor: 3, porcentaje de utilizacion: 62.5%
+ -> Numero de servidor: 4, porcentaje de utilizacion: 50.0%
+ -> Numero de servidor: 5, porcentaje de utilizacion: 0.0%
+
+
+
+TABLA DE EVENTOS: 
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+1) Tipo de evento:Llegada  NºCliente:1  TM:0  SS1:1  SS2:0  SS3:0  SS4:0  SS5:0  WL:0  AT:1  DT1:10  DT2:999999999  DT3:999999999  DT4:999999999  DT5:999999999
+----------------------------------------------------------------
+
+* Linea de espera: 
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 1
+ -> Servidor: 2 actualmente desocupado 
+ -> Servidor: 3 actualmente desocupado 
+ -> Servidor: 4 actualmente desocupado 
+ -> Servidor: 5 actualmente desocupado 
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+2) Tipo de evento:Llegada  NºCliente:2  TM:1  SS1:1  SS2:1  SS3:0  SS4:0  SS5:0  WL:0  AT:3  DT1:10  DT2:8  DT3:999999999  DT4:999999999  DT5:999999999
+----------------------------------------------------------------
+
+* Linea de espera: 
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 1
+ -> Servidor: 2 ocupado por el cliente Nº: 2
+ -> Servidor: 3 actualmente desocupado 
+ -> Servidor: 4 actualmente desocupado 
+ -> Servidor: 5 actualmente desocupado 
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+3) Tipo de evento:Llegada  NºCliente:3  TM:3  SS1:1  SS2:1  SS3:1  SS4:0  SS5:0  WL:0  AT:4  DT1:10  DT2:8  DT3:11  DT4:999999999  DT5:999999999
+----------------------------------------------------------------
+
+* Linea de espera: 
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 1
+ -> Servidor: 2 ocupado por el cliente Nº: 2
+ -> Servidor: 3 ocupado por el cliente Nº: 3
+ -> Servidor: 4 actualmente desocupado 
+ -> Servidor: 5 actualmente desocupado 
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+4) Tipo de evento:Llegada  NºCliente:4  TM:4  SS1:1  SS2:1  SS3:1  SS4:1  SS5:0  WL:0  AT:9  DT1:10  DT2:8  DT3:11  DT4:14  DT5:999999999
+----------------------------------------------------------------
+
+* Linea de espera: 
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 1
+ -> Servidor: 2 ocupado por el cliente Nº: 2
+ -> Servidor: 3 ocupado por el cliente Nº: 3
+ -> Servidor: 4 ocupado por el cliente Nº: 4
+ -> Servidor: 5 actualmente desocupado 
+
+/////////////////////////////////////////////////////////////////
+
+* Tabla del evento:
+----------------------------------------------------------------
+5) Tipo de evento:Salida  NºCliente:2  TM:8  SS1:1  SS2:0  SS3:1  SS4:1  SS5:0  WL:0  AT:9  DT1:10  DT2:999999999  DT3:11  DT4:14  DT5:999999999
+----------------------------------------------------------------
+
+* Linea de espera: 
+
+* Estatus Servidores: 
+ -> Servidor: 1 ocupado por el cliente Nº: 1
+ -> Servidor: 2 actualmente desocupado 
+ -> Servidor: 3 ocupado por el cliente Nº: 3
+ -> Servidor: 4 ocupado por el cliente Nº: 4
+ -> Servidor: 5 actualmente desocupado 
+
+/////////////////////////////////////////////////////////////////
