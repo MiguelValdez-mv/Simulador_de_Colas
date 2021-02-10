@@ -10,4 +10,6 @@ Tiempo de servicio
 7 30
 8 30
 9 10
-10 10
+10 0
+
+

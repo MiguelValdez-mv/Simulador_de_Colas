@@ -166,6 +166,16 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
         unidadCostoServidor = new javax.swing.JLabel();
         ComenzarSimulacion = new javax.swing.JButton();
         espacio = new javax.swing.JPanel();
+        labelPresentarTablaEventos1 = new javax.swing.JLabel();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        labelValorTiempoServicio1 = new javax.swing.JLabel();
+        tsSinAleatorio = new javax.swing.JTextField();
+        labelValorTiempoServicio2 = new javax.swing.JLabel();
+        labelValorTiempoServicio3 = new javax.swing.JLabel();
+        tellSinAleatorio = new javax.swing.JTextField();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        tablaDatosClientes = new javax.swing.JTextArea();
+        agregarDatosClienteSinAleatorio = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Simulador de Colas - IO 2021");
@@ -349,8 +359,7 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
 
         labelValorTiempoServicio.setFont(new java.awt.Font("Roboto Mono", 0, 15)); // NOI18N
         labelValorTiempoServicio.setForeground(new java.awt.Color(0, 0, 0));
-        labelValorTiempoServicio.setText("Valor");
-        jPanel1.add(labelValorTiempoServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 700, -1, 20));
+        jPanel1.add(labelValorTiempoServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 930, -1, -1));
 
         valorTiempoServicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -427,7 +436,7 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
                 ComenzarSimulacionActionPerformed(evt);
             }
         });
-        jPanel1.add(ComenzarSimulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 880, -1, 30));
+        jPanel1.add(ComenzarSimulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 1120, -1, 30));
 
         espacio.setBackground(new java.awt.Color(144, 168, 246));
 
@@ -439,10 +448,65 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
         );
         espacioLayout.setVerticalGroup(
             espacioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
+            .addGap(0, 20, Short.MAX_VALUE)
         );
 
-        jPanel1.add(espacio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 910, 760, 10));
+        jPanel1.add(espacio, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 1150, 760, 20));
+
+        labelPresentarTablaEventos1.setFont(new java.awt.Font("Roboto Mono", 1, 15)); // NOI18N
+        labelPresentarTablaEventos1.setForeground(new java.awt.Color(0, 0, 0));
+        labelPresentarTablaEventos1.setText("No Usar valores aleatorios");
+        jPanel1.add(labelPresentarTablaEventos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 890, 240, 20));
+
+        jCheckBox1.setBackground(new java.awt.Color(144, 168, 246));
+        jPanel1.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 890, -1, -1));
+
+        labelValorTiempoServicio1.setFont(new java.awt.Font("Roboto Mono", 0, 15)); // NOI18N
+        labelValorTiempoServicio1.setForeground(new java.awt.Color(0, 0, 0));
+        labelValorTiempoServicio1.setText("Valor");
+        jPanel1.add(labelValorTiempoServicio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 700, -1, 20));
+
+        tsSinAleatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tsSinAleatorioActionPerformed(evt);
+            }
+        });
+        jPanel1.add(tsSinAleatorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 940, 38, 20));
+
+        labelValorTiempoServicio2.setFont(new java.awt.Font("Roboto Mono", 0, 15)); // NOI18N
+        labelValorTiempoServicio2.setForeground(new java.awt.Color(0, 0, 0));
+        labelValorTiempoServicio2.setText("Tiempo de servicio");
+        jPanel1.add(labelValorTiempoServicio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 940, -1, 20));
+
+        labelValorTiempoServicio3.setFont(new java.awt.Font("Roboto Mono", 0, 15)); // NOI18N
+        labelValorTiempoServicio3.setForeground(new java.awt.Color(0, 0, 0));
+        labelValorTiempoServicio3.setText("Tiempo entre llegada");
+        jPanel1.add(labelValorTiempoServicio3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 940, -1, 20));
+
+        tellSinAleatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tellSinAleatorioActionPerformed(evt);
+            }
+        });
+        jPanel1.add(tellSinAleatorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 940, 38, 20));
+
+        tablaDatosClientes.setEditable(false);
+        tablaDatosClientes.setColumns(20);
+        tablaDatosClientes.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        tablaDatosClientes.setRows(5);
+        jScrollPane6.setViewportView(tablaDatosClientes);
+
+        jPanel1.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 980, 370, 110));
+
+        agregarDatosClienteSinAleatorio.setFont(new java.awt.Font("Roboto Mono", 1, 12)); // NOI18N
+        agregarDatosClienteSinAleatorio.setText("Agregar");
+        agregarDatosClienteSinAleatorio.setFocusable(false);
+        agregarDatosClienteSinAleatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregarDatosClienteSinAleatorioActionPerformed(evt);
+            }
+        });
+        jPanel1.add(agregarDatosClienteSinAleatorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 940, -1, 30));
 
         jScrollPane3.setViewportView(jPanel1);
 
@@ -450,11 +514,11 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 833, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 833, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 633, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 636, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -588,6 +652,30 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
        valoresTiempoServicioArchivo.setText(getTablaTiempoServicioArchivo().toString());
     }//GEN-LAST:event_LeerArchivoTiempoServicioActionPerformed
 
+    private void tsSinAleatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tsSinAleatorioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tsSinAleatorioActionPerformed
+
+    private void tellSinAleatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tellSinAleatorioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tellSinAleatorioActionPerformed
+
+    private void agregarDatosClienteSinAleatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarDatosClienteSinAleatorioActionPerformed
+        if(validarTextField(tellSinAleatorio, Constantes.COPY_TELL, 0)){
+            return ;
+        }
+        
+        
+         if(validarTextField(tsSinAleatorio, Constantes.COPY_TIEMPO_SERVICIO, 0)){
+            return ;
+        }
+        
+        // Capturamos los valores de los inputs
+        int tiempoEntreLlegada = Integer.parseInt(tellSinAleatorio.getText());
+        int tiempoServicio =  Integer.parseInt(tsSinAleatorio.getText());
+        
+    }//GEN-LAST:event_agregarDatosClienteSinAleatorioActionPerformed
+
     /**
      * @param args Argumentos de la linea de comandos.
      */
@@ -607,6 +695,7 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
     private javax.swing.JButton ComenzarSimulacion;
     private javax.swing.JButton LeerArchivoTELL;
     private javax.swing.JButton LeerArchivoTiempoServicio;
+    private javax.swing.JButton agregarDatosClienteSinAleatorio;
     private javax.swing.JTextField cantClientesPermitidos;
     private javax.swing.JTextField cantidadServidores;
     private javax.swing.JTextField costoEsperaCliente;
@@ -615,12 +704,14 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
     private javax.swing.JPanel espacio;
     private javax.swing.ButtonGroup grupoValoresTELL;
     private javax.swing.ButtonGroup grupoValoresTiempoServicio;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JLabel labelCantClientesPermitidos;
     private javax.swing.JLabel labelCantidadServidores;
     private javax.swing.JLabel labelCostoEsperaCliente;
@@ -629,16 +720,23 @@ public class ParametrosDeEntrada extends javax.swing.JFrame {
     private javax.swing.JLabel labelPorcentajeTELL;
     private javax.swing.JLabel labelPorcentajeTiempoServicio;
     private javax.swing.JLabel labelPresentarTablaEventos;
+    private javax.swing.JLabel labelPresentarTablaEventos1;
     private javax.swing.JLabel labelTELL;
     private javax.swing.JLabel labelTiempoServicios;
     private javax.swing.JLabel labelUnidadTiempo;
     private javax.swing.JLabel labelValorTELL;
     private javax.swing.JLabel labelValorTiempoServicio;
+    private javax.swing.JLabel labelValorTiempoServicio1;
+    private javax.swing.JLabel labelValorTiempoServicio2;
+    private javax.swing.JLabel labelValorTiempoServicio3;
     private javax.swing.JTextField porcentajeTELL;
     private javax.swing.JTextField porcentajeTiempoServicio;
     private javax.swing.JCheckBox presentarTablaEventos;
     private javax.swing.JLabel subtitulo;
+    private javax.swing.JTextArea tablaDatosClientes;
+    private javax.swing.JTextField tellSinAleatorio;
     private javax.swing.JLabel titulo;
+    private javax.swing.JTextField tsSinAleatorio;
     private javax.swing.JLabel unidadCostoEsperaCliente;
     private javax.swing.JLabel unidadCostoServidor;
     private javax.swing.JComboBox<String> unidadTiempo;
