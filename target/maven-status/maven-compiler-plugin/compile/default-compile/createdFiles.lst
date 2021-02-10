@@ -20,9 +20,12 @@ Utils/Numero.class
 Componentes/Probabilidad.class
 Utils/MensajeModal.class
 GUI/ParametrosDeSalida$2.class
+Componentes/ClienteSinAleatorio.class
 GUI/ParametrosDeEntrada$11.class
 GUI/ParametrosDeSalida.class
 Componentes/AdministradorArchivo.class
 Utils/Aleatorio.class
 Principal/Principal.class
 Componentes/Estadisticas.class
+Componentes/TablaClientesSinAleatorio.class
+GUI/ParametrosDeEntrada$16.class

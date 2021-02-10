@@ -19,7 +19,7 @@ public class ClientesEnSistema {
     public void añadirCliente(int numCliente, int tiempoLlegada){
         clientes.add(new Cliente(numCliente, tiempoLlegada));
     }
-     
+       
     /**
      * Busca a un cliente a partir del numero del cliente
      * 

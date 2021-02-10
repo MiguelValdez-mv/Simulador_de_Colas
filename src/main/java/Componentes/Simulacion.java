@@ -24,6 +24,9 @@ public class Simulacion {
     private int costoServidor;  
     private TablaDistribucion tablaTELL;
     private TablaDistribucion tablaTiempoServicio;
+    private int cantEventos;
+    private boolean noUsarAleatorios;
+    private TablaClientesSinAleatorio tablaClientesSinAleatorio;
     
     // Condiciones iniciales 
     private int numEvento;
@@ -41,7 +44,7 @@ public class Simulacion {
     //estadisticas
     Estadisticas estadisticas;
       
-    public Simulacion(String unidadTiempo, int duracionSimulacion, int cantClientesPermitidos, int costoEsperaCliente, int cantServidores, int costoServidor, TablaDistribucion tablaTELL, TablaDistribucion tablaTiempoServicio) {
+    public Simulacion(String unidadTiempo, int duracionSimulacion, int cantClientesPermitidos, int costoEsperaCliente, int cantServidores, int costoServidor, TablaDistribucion tablaTELL, TablaDistribucion tablaTiempoServicio, int cantEventos, boolean noUsarAleatorios, TablaClientesSinAleatorio tablaClientesSinAleatorio) {
         this.aleatorio = new Aleatorio();
         this.unidadTiempo = unidadTiempo;
         this.duracionSimulacion = duracionSimulacion;
@@ -63,6 +66,9 @@ public class Simulacion {
         this.salidas = new ArrayList<>();
         this.cantClientesEnSistema = 0;
         this.estadisticas = new Estadisticas(cantServidores, unidadTiempo);
+        this.cantEventos = cantEventos;
+        this.noUsarAleatorios = noUsarAleatorios;
+        this.tablaClientesSinAleatorio = tablaClientesSinAleatorio;
         
         //Inicializamos las salidas
         for(int i = 0; i < cantServidores; i++){
@@ -77,7 +83,10 @@ public class Simulacion {
         int numClienteSalida = 0;
         int siguienteServidorLibre;
         int tiempoServicio;
+        int tiempoEntreLlegadas;
         Cliente datosClienteSalida;
+        boolean validacionTiempoSimulacion;
+        boolean validacionCantEventos;
         
         cadenaTablaEventos = "\n***/////////////////////////////////////////////////////////////////***\n";
         
@@ -108,8 +117,10 @@ public class Simulacion {
                     //Se asigna ese servidor libre al cliente que esta llegado para que este sea atentido
                     estatusServidores.añadirCliente(siguienteServidorLibre, numCliente);
                    
-                    //Generamos un tiempo de servicio aleatorio
-                    tiempoServicio = generarTiempoServicio();
+                    //Generamos un tiempo de servicio
+                    tiempoServicio = noUsarAleatorios ? 
+                                        tablaClientesSinAleatorio.buscarCliente(numCliente).getTiempoServicio()
+                                    :   generarTiempoServicio();
                     
                     clientesEnSistema.añadirCliente(numCliente, tiempoSimulacion);
                     clientesEnSistema.actualizarTiempoServicio(numCliente, tiempoServicio);
@@ -133,7 +144,8 @@ public class Simulacion {
                     }
                 }
                
-               tiempoSiguienteLlegada = tiempoSimulacion + generarTELL();
+               tiempoEntreLlegadas = noUsarAleatorios ? tablaClientesSinAleatorio.buscarCliente(numCliente + 1).getTiempoEntreLlegadas() : generarTELL();
+               tiempoSiguienteLlegada = tiempoSimulacion + tiempoEntreLlegadas;
                
             }else{
                 tipoEvento = "Salida";
@@ -167,8 +179,10 @@ public class Simulacion {
                     //Le asignamos un servidor a ese cliente
                     estatusServidores.añadirCliente(siguienteServidorLibre, primerClienteCola);
 
-                    //Generamos un tiempo de servicio aleatorio
-                    tiempoServicio = generarTiempoServicio();
+                    //Generamos un tiempo de servicio
+                    tiempoServicio = noUsarAleatorios ? 
+                                        tablaClientesSinAleatorio.buscarCliente(primerClienteCola).getTiempoServicio() 
+                                    :   generarTiempoServicio();
                     
                     clientesEnSistema.actualizarTiempoServicio(primerClienteCola, tiempoServicio);
                     
@@ -191,8 +205,11 @@ public class Simulacion {
                                 + "\n" + lineaEspera.toString() + "\n" 
                                 + estatusServidores.imprimirDetallesEstatusServidores()
                                 + "\n***/////////////////////////////////////////////////////////////////***\n"; 
+         
+            validacionTiempoSimulacion = noUsarAleatorios ? true : tiempoSimulacion <= duracionSimulacion;
+            validacionCantEventos = noUsarAleatorios ? numEvento < cantEventos : true;
         
-        }while(tiempoSimulacion <= duracionSimulacion);
+        }while(validacionTiempoSimulacion && validacionCantEventos);
         
         estadisticas.obtenerEstadisticas(tiempoSimulacion, duracionSimulacion, costoServidor, costoEsperaCliente);
     }
@@ -250,13 +267,16 @@ public class Simulacion {
         
         return "PARAMETROS DE ENTRADA DE LA SIMULACION\n" 
                                 + "\n* Unidad de tiempo: " + unidadTiempo
-                                + "\n* Duracion de la simulacion: " + duracionSimulacion + " " + unidadTiempo
+                                + (noUsarAleatorios ?  "" : ("\n* Duracion de la simulacion: " + duracionSimulacion + " " + unidadTiempo))
                                 + "\n* Cantidad de clientes permitidos: " + cantClientesPermitidos + " clientes"
                                 + "\n* Costo de espera del cliente: " + costoEsperaCliente + " " + unidadTiempoXDolar
                                 + "\n* Cantidad de servidores: " + cantServidores + " servidores"
                                 + "\n* Costo de cada servidor: " + costoServidor + " " + unidadTiempoXDolar 
-                                + "\n" + tablaTELL.toString() 
-                                + "\n" + tablaTiempoServicio.toString() + "\n\n\n\n";
+                                + (noUsarAleatorios ? "" : ("\n" + tablaTELL.toString()))
+                                + (noUsarAleatorios ? "" : ("\n" + tablaTiempoServicio.toString()))
+                                + (noUsarAleatorios ? ("\n" + "* Cantidad de eventos: " + cantEventos) : "")
+                                + (noUsarAleatorios ? ("\n" + "* "  + tablaClientesSinAleatorio.toString()) : "")
+                                + "\n\n\n\n";
     }
     
     /**
